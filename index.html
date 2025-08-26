@@ -726,32 +726,200 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
   }
 }
 
-.split{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
-.split-media {
-  aspect-ratio: 14/9;
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.story-image-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  position: relative;
+}
+
+.story-image {
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  transition: var(--transition);
+  background: var(--surface);
 }
-.split-image {
+
+.story-image.main {
+  aspect-ratio: 16/9;
+}
+
+.story-image.secondary {
+  aspect-ratio: 4/3;
+  margin-left: 48px;
+  margin-top: -20%;
+}
+
+.story-image img,
+.story-image video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
-.split-media:hover .split-image {
+
+.story-image:hover img,
+.story-image:hover video {
   transform: scale(1.05);
 }
-@media (min-width:980px){ 
-  .split{grid-template-columns:1.2fr .8fr}
-  .event-card {
+
+.guru-video {
+  filter: brightness(0.95) saturate(1.1);
+}
+
+.story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.story-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-section {
+  max-width: 60ch;
+}
+
+.story-section h3 {
+  font-size: 24px;
+  margin: 0 0 12px;
+  color: var(--accent);
+}
+
+.story-section p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.story-milestones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  margin: 16px 0;
+  padding: 24px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.milestone {
+  text-align: center;
+}
+
+.milestone-count {
+  display: block;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.milestone-label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.story-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  border-color: var(--accent);
+  background: rgba(167,243,208,.03);
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(167,243,208,.1);
+  color: var(--accent);
+}
+
+.feature-text h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.feature-text p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.story-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .story-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 64px;
   }
-  .event-media {
-    aspect-ratio: 4/3;
+
+  .story-image-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .story-content {
+    padding: 24px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-image.secondary {
+    margin-left: 24px;
+    margin-top: -10%;
+  }
+
+  .story-milestones {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-features {
+    grid-template-columns: 1fr;
+  }
+
+  .story-cta {
+    flex-direction: column;
+  }
+
+  .story-cta .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1527,20 +1695,100 @@ document.addEventListener('DOMContentLoaded', function() {
   </section>
 
   <section id="about" class="section">
-    <div class="container split">
-      <div class="split-media">
-        <img src="assets/images/about.jpg" alt="Meditative practice at Ath Yog studio" class="split-image">
-      </div>
-      <div class="split-body">
-        <h2>Our Studio Story</h2>
-        <p>Ath Yog in Pune is a warm, inclusive space for mental and physical rejuvenation. Our holistic approach blends classical yog, mindful breathwork, and simple lifestyle practices—guided by experienced instructors who meet you where you are.</p>
-        <ul class="checklist">
-          <li>Beginner-friendly batches</li>
-          <li>Online &amp; in-studio options</li>
-          <li>Personal guidance in small groups</li>
-        </ul>
-        <div class="card-actions">
-          <a class="btn btn-ghost" href="#services">Explore classes</a>
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">Our Journey</span>
+        <h2>The Ath Yog Story</h2>
+        <p>Two decades of transforming lives through authentic yoga practices</p>
+      </header>
+
+      <div class="story-grid">
+        <div class="story-image-wrap">
+          <div class="story-image main">
+            <img src="assets/images/about.jpg" alt="Main practice area at Ath Yog studio" loading="lazy">
+          </div>
+          <div class="story-image secondary">
+            <video autoplay muted loop playsinline class="guru-video">
+              <source src="assets/video/guru.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <div class="story-sections">
+            <div class="story-section">
+              <h3>Our Philosophy</h3>
+              <p>At Ath Yog, we believe in the transformative power of authentic yoga practices. Our approach combines traditional wisdom with modern wellness needs, creating a harmonious blend that nurtures both body and mind.</p>
+            </div>
+
+            <div class="story-section">
+              <h3>The Journey</h3>
+              <p>Founded by Guru Ashwini Patil, our studio has been a sanctuary of healing and growth for over 20 years. What started as small group sessions has evolved into a thriving community of wellness seekers.</p>
+            </div>
+
+            <div class="story-milestones">
+              <div class="milestone">
+                <span class="milestone-count">20+</span>
+                <span class="milestone-label">Years of Teaching</span>
+              </div>
+              <div class="milestone">
+                <span class="milestone-count">5000+</span>
+                <span class="milestone-label">Lives Transformed</span>
+              </div>
+              <div class="milestone">
+                <span class="milestone-count">12+</span>
+                <span class="milestone-label">Expert Instructors</span>
+              </div>
+            </div>
+
+            <div class="story-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7.5 12L10.5 15L16.5 9" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Authentic Practice</h4>
+                  <p>Traditional techniques adapted for modern lifestyles</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9 9H9.01" stroke="currentColor" stroke-width="2"/>
+                    <path d="M15 9H15.01" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Inclusive Environment</h4>
+                  <p>Welcoming spaces for practitioners of all levels</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <h4>Flexible Schedule</h4>
+                  <p>Multiple class timings to suit your routine</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-cta">
+            <a href="#services" class="btn btn-primary">Start Your Journey</a>
+            <a href="https://wa.link/a0lxj5" class="btn btn-outline" target="_blank" rel="noopener">Schedule a Visit</a>
+          </div>
         </div>
       </div>
     </div>
