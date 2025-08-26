@@ -1,0 +1,360 @@
+<!-- index.html (Complete Updated Version) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">ZenFlow</a>
+                <button id="nav-toggle" class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul id="nav-menu" class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#classes" class="nav-link">Classes</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#schedule" class="nav-link">Schedule</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <video autoplay loop muted playsinline>
+                <source src="assets/video/yoga-background.mp4" type="video/mp4">
+                <img src="assets/images/hero-fallback.jpg" alt="Yoga background">
+            </video>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Transform Your Mind, Body & Spirit</h1>
+                <p class="hero-subtitle">A modern wellness sanctuary offering yoga, pilates, and mindfulness practices in the heart of the city.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn--primary btn--lg book-class-btn">Book Your First Class</button>
+                    <a href="#schedule" class="btn btn--secondary btn--lg">View Schedule</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero.jpg" alt="Yoga practice" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Welcome to ZenFlow</h2>
+                <p class="section-subtitle">Your journey to wellness begins here</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Our Philosophy</h3>
+                    <p>At ZenFlow Wellness, we believe in the transformative power of mindful movement. Our studio provides a sanctuary where you can disconnect from the chaos of daily life and reconnect with your inner strength.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <p class="stat-label">Happy Members</p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <p class="stat-label">Classes Weekly</p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <p class="stat-label">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="assets/images/about.jpg" alt="ZenFlow studio" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="classes" class="classes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Classes</h2>
+                <p class="section-subtitle">Discover the perfect practice for your journey</p>
+            </div>
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-header">
+                        <h4 class="class-name">Vinyasa Flow</h4>
+                        <span class="class-level">All Levels</span>
+                    </div>
+                    <p class="class-description">Dynamic sequences linking breath and movement</p>
+                    <span class="class-duration">60 minutes</span>
+                    <button class="btn btn--primary class-book-btn">Book Now</button>
+                </div>
+                <div class="class-card">
+                    <div class="class-header">
+                        <h4 class="class-name">Hatha Yoga</h4>
+                        <span class="class-level">Beginner</span>
+                    </div>
+                    <p class="class-description">Gentle poses held for deeper alignment</p>
+                    <span class="class-duration">75 minutes</span>
+                    <button class="btn btn--primary class-book-btn">Book Now</button>
+                </div>
+                <div class="class-card">
+                    <div class="class-header">
+                        <h4 class="class-name">Power Pilates</h4>
+                        <span class="class-level">Intermediate</span>
+                    </div>
+                    <p class="class-description">Core-strengthening exercises for total body fitness</p>
+                    <span class="class-duration">45 minutes</span>
+                    <button class="btn btn--primary class-book-btn">Book Now</button>
+                </div>
+                <div class="class-card">
+                    <div class="class-header">
+                        <h4 class="class-name">Meditation & Breathwork</h4>
+                        <span class="class-level">All Levels</span>
+                    </div>
+                    <p class="class-description">Mindfulness practices for mental clarity</p>
+                    <span class="class-duration">30 minutes</span>
+                    <button class="btn btn--primary class-book-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Weekly Schedule</h2>
+                <p class="section-subtitle">Find the perfect time for your practice</p>
+            </div>
+            <div class="schedule-table">
+                <div class="schedule-row schedule-header">
+                    <div class="schedule-cell">Time</div>
+                    <div class="schedule-cell">Monday</div>
+                    <div class="schedule-cell">Tuesday</div>
+                    <div class="schedule-cell">Wednesday</div>
+                    <div class="schedule-cell">Thursday</div>
+                    <div class="schedule-cell">Friday</div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-cell schedule-time">6:00 AM</div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Morning Vinyasa</span>
+                        <span class="instructor-name">Sarah Chen</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Hatha Yoga</span>
+                        <span class="instructor-name">Elena Rodriguez</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Morning Vinyasa</span>
+                        <span class="instructor-name">Sarah Chen</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Power Pilates</span>
+                        <span class="instructor-name">Marcus Thompson</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Meditation</span>
+                        <span class="instructor-name">Sarah Chen</span>
+                    </div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-cell schedule-time">12:00 PM</div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Power Pilates</span>
+                        <span class="instructor-name">Marcus Thompson</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Vinyasa Flow</span>
+                        <span class="instructor-name">Sarah Chen</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Power Pilates</span>
+                        <span class="instructor-name">Marcus Thompson</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Hatha Yoga</span>
+                        <span class="instructor-name">Elena Rodriguez</span>
+                    </div>
+                    <div class="schedule-cell schedule-class">
+                        <span class="class-name">Vinyasa Flow</span>
+                        <span class="instructor-name">Sarah Chen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Membership Plans</h2>
+                <p class="section-subtitle">Choose the plan that fits your lifestyle</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h4 class="plan-name">Drop-in Class</h4>
+                    <span class="plan-price">$25</span>
+                    <ul class="plan-features">
+                        <li>Single class access</li>
+                        <li>All levels welcome</li>
+                        <li>Mat rental included</li>
+                    </ul>
+                    <button class="btn btn--primary">Choose Plan</button>
+                </div>
+                <div class="pricing-card pricing-card--popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <h4 class="plan-name">Monthly Unlimited</h4>
+                    <span class="plan-price">$149</span>
+                    <ul class="plan-features">
+                        <li>Unlimited classes</li>
+                        <li>Online access</li>
+                        <li>Member events</li>
+                        <li>Priority booking</li>
+                    </ul>
+                    <button class="btn btn--primary">Choose Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <h4 class="plan-name">10-Class Package</h4>
+                    <span class="plan-price">$200</span>
+                    <ul class="plan-features">
+                        <li>10 classes to use</li>
+                        <li>3-month validity</li>
+                        <li>Transferable</li>
+                    </ul>
+                    <button class="btn btn--primary">Choose Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Members Say</h2>
+                <p class="section-subtitle">Real stories from our community</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"ZenFlow has transformed my daily routine. The instructors are incredible and the community is so welcoming."</p>
+                    <span class="testimonial-author">- Jessica M.</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Best yoga studio in the city. The variety of classes keeps me motivated and the online options are perfect for my schedule."</p>
+                    <span class="testimonial-author">- David L.</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The meditation classes have helped me manage stress better than anything else I've tried."</p>
+                    <span class="testimonial-author">- Maria S.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visit Our Studio</h2>
+                <p class="section-subtitle">We'd love to welcome you to our community</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>123 Wellness Street, Downtown, City 10001</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>(555) 123-YOGA</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>hello@zenflowwellness.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Hours</h4>
+                        <p>Mon-Fri: 6AM-9PM<br>Sat-Sun: 7AM-7PM</p>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <textarea id="message" placeholder="Message" required></textarea>
+                    <button type="submit" class="btn btn--primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>ZenFlow Wellness</h3>
+                <p>Transform your mind, body & spirit with our holistic approach to wellness.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 ZenFlow Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="booking-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Book Your Class</h3>
+                <button id="close-modal" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="booking-form">
+                    <input type="text" id="booking-name" placeholder="Name" required>
+                    <input type="email" id="booking-email" placeholder="Email" required>
+                    <select id="booking-class" required>
+                        <option value="">Choose a class</option>
+                        <option value="vinyasa">Vinyasa Flow</option>
+                        <option value="hatha">Hatha Yoga</option>
+                        <option value="pilates">Power Pilates</option>
+                        <option value="meditation">Meditation & Breathwork</option>
+                    </select>
+                    <input type="date" id="booking-date" required>
+                    <button type="submit" class="btn btn--primary">Book Class</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
