@@ -7,10 +7,10 @@
 <meta name="description" content="Ath Yog Wellness Foundation in Pune. Practicing and teaching Yog for 20+ years. Join classes, workshops, and Yog Nidra for holistic well-being.">
 
 <!-- Favicon and App Icons -->
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#0f0f10">
 
 <!-- Open Graph / Facebook -->
@@ -440,6 +440,64 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 }
 .small{font-size:12px;color:var(--muted)}
 .alt .section-header p{color:#c6c6cb}
+
+/* Additional Responsive Styles */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 24px 16px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-metrics {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .section-header h2 {
+    font-size: 24px;
+  }
+  .card .price {
+    font-size: 20px;
+  }
+  .card-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .testimonial-grid {
+    gap: 16px;
+  }
+  .t-card {
+    padding: 16px;
+  }
+  .t-card blockquote {
+    font-size: 16px;
+  }
+}
+
+/* Handle extremely small screens */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  .brand span {
+    display: none;
+  }
+  .card-body {
+    padding: 12px;
+  }
+  .hero-content {
+    padding: 20px 12px;
+  }
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -458,22 +516,63 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 
+  // Mobile menu handling
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList = document.querySelector('.nav-list');
+  
+  navToggle.addEventListener('click', function() {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    navList.classList.toggle('open');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('.nav') && navList.classList.contains('open')) {
+      navList.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close menu when clicking on a link
+  navList.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   // Video fallback handling
   const video = document.querySelector('.hero-video');
   const heroImage = document.querySelector('.hero-image');
 
-  video.addEventListener('error', function() {
-    video.style.display = 'none';
-    heroImage.style.display = 'block';
-  });
-
-  // Check if video is actually playing
-  setTimeout(function() {
-    if (video.readyState === 0) { // Video hasn't started loading
+  if (video) {
+    video.addEventListener('error', function() {
       video.style.display = 'none';
-      heroImage.style.display = 'block';
-    }
-  }, 1000);
+      if (heroImage) heroImage.style.display = 'block';
+    });
+
+    // Check if video is actually playing
+    setTimeout(function() {
+      if (video.readyState === 0) { // Video hasn't started loading
+        video.style.display = 'none';
+        if (heroImage) heroImage.style.display = 'block';
+      }
+    }, 1000);
+  }
+
+  // Smooth scroll for Safari
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
 </script>
 </head>
