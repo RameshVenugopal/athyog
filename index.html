@@ -442,28 +442,48 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 @media (min-width:740px){ .card{grid-column:span 6} }
 @media (min-width:1024px){ .card{grid-column:span 3} }
 
-.event-card{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:20px;
-  align-items:center;
-  background:rgba(255,255,255,.02);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 32px;
+  max-width: 100%;
 }
+
+.event-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0 32px;
+  flex-wrap: wrap;
+  padding: 0 16px;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+  max-width: 100%;
+}
+
 .event-card:hover {
   transform: translateY(-5px);
   border-color: var(--accent);
 }
+
 .event-media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 3/2;
+  aspect-ratio: 16/9;
   background: var(--surface);
 }
+
 .event-image {
   width: 100%;
   height: 100%;
@@ -471,26 +491,240 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
   transition: transform 0.6s ease;
   filter: brightness(0.95) saturate(1.05);
 }
+
 .event-card:hover .event-image {
   transform: scale(1.05);
   filter: brightness(1) saturate(1.1);
 }
-.event-media::after {
-  content: '';
+
+.event-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.2));
-  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.event-card:hover .event-media::after {
+
+.event-card:hover .event-overlay {
   opacity: 1;
 }
-.event-body{padding:20px}
-.event-body h3{margin:0 0 8px}
-.event-meta{color:var(--muted);margin:.2rem 0 1rem}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.2);color:#d6d6da}
+
+.event-level {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  align-self: flex-start;
+  backdrop-filter: blur(4px);
+}
+
+.spots-left {
+  background: rgba(167,243,208,0.2);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  align-self: flex-end;
+  backdrop-filter: blur(4px);
+}
+
+.spots-left.highlight {
+  background: rgba(255,215,0,0.2);
+  color: var(--accent2);
+}
+
+.event-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.event-body h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.event-meta {
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-meta > * {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.event-meta i {
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.event-price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.current-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.early-bird {
+  font-size: 14px;
+  color: var(--accent2);
+  padding: 4px 8px;
+  background: rgba(255,215,0,0.1);
+  border-radius: 4px;
+}
+
+.event-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.feature i {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text);
+  width: fit-content;
+}
+
+.badge.special {
+  background: rgba(167,243,208,0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.event-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.event-actions .btn {
+  flex: 1 1 auto;
+}
+
+.event-actions .btn-icon {
+  flex: 0 0 auto;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  border-color: var(--accent);
+  background: rgba(167,243,208,0.1);
+}
+
+@media (max-width: 640px) {
+  .event-body {
+    padding: 20px;
+  }
+
+  .event-body h3 {
+    font-size: 20px;
+  }
+
+  .event-features {
+    grid-template-columns: 1fr;
+  }
+
+  .event-actions {
+    flex-direction: column;
+  }
+
+  .event-actions .btn {
+    width: 100%;
+  }
+
+  .event-price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-card {
+    grid-template-columns: minmax(300px, 2fr) 3fr;
+  }
+
+  .event-media {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .event-image {
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .event-card {
+    grid-template-columns: 1fr;
+  }
+
+  .event-media {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-body {
+    padding: 32px;
+  }
+}
 
 .split{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 .split-media {
@@ -631,6 +865,203 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
   }
   .hero-content {
     padding: 20px 12px;
+  }
+}
+
+/* Event List Styles */
+.event-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.event-item {
+  display: flex;
+  gap: 24px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.event-item:hover {
+  border-color: var(--accent);
+  background: rgba(255,255,255,.03);
+  transform: translateY(-2px);
+}
+
+.event-date {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.event-date .month {
+  background: var(--accent);
+  color: var(--accent-ink);
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+.event-date .day {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  padding-top: 8px;
+}
+
+.event-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.event-type {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(167,243,208,.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.event-type.highlight {
+  color: var(--accent2);
+  background: rgba(255,215,0,.1);
+}
+
+.event-status {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.event-status.urgent {
+  color: var(--accent2);
+}
+
+.event-title {
+  font-size: 24px;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.event-info {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.info-label {
+  flex-shrink: 0;
+  font-weight: 500;
+  width: 70px;
+}
+
+.info-value {
+  color: var(--text);
+}
+
+.early-bird {
+  font-size: 13px;
+  color: var(--accent2);
+  margin-left: 8px;
+}
+
+.event-desc {
+  color: var(--muted);
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.event-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.event-cta .btn {
+  padding: 10px 20px;
+}
+
+@media (max-width: 640px) {
+  .event-item {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .event-date {
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .event-date .day {
+    font-size: 24px;
+  }
+
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .event-status {
+    align-self: flex-end;
+  }
+
+  .event-title {
+    font-size: 20px;
+  }
+
+  .event-cta {
+    flex-direction: column;
+  }
+
+  .event-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .info-item {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-info {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 </style>
@@ -972,24 +1403,123 @@ document.addEventListener('DOMContentLoaded', function() {
   <section id="events" class="section alt">
     <div class="container">
       <header class="section-header">
+        <span class="section-tag">Join Us</span>
         <h2>Upcoming Events</h2>
-        <p>Workshops and special sessions at our studio.</p>
+        <p>Special workshops, retreats, and transformative sessions at our studio.</p>
       </header>
 
-      <div class="event-card" data-start="2025-03-26T10:57:00+05:30" data-end="2025-03-26T12:57:00+05:30">
-        <div class="event-media">
-          <img src="assets/images/yog-nidra.jpg" alt="Yog Nidra for Inner Peace session" class="event-image">
+      <div class="event-list">
+        <div class="event-item" data-start="2025-03-26T10:57:00+05:30">
+          <div class="event-date">
+            <span class="month">Mar</span>
+            <span class="day">26</span>
+          </div>
+          
+          <div class="event-main">
+            <div class="event-header">
+              <div class="event-type">Workshop</div>
+              <span class="event-status">5 spots left</span>
+            </div>
+            
+            <h3 class="event-title">Yog Nidra for Inner Peace</h3>
+            
+            <div class="event-info">
+              <div class="info-item">
+                <span class="info-label">Time:</span>
+                <span class="info-value">10:57 AM - 12:57 PM</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location:</span>
+                <span class="info-value">Ath Yog Studio, Erandwane</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Price:</span>
+                <span class="info-value">₹999 <span class="early-bird">Early Bird: ₹799</span></span>
+              </div>
+            </div>
+            
+            <p class="event-desc">A soothing, guided experience to relax the nervous system and cultivate inner stillness.</p>
+            
+            <div class="event-cta">
+              <a href="https://wa.link/a0lxj5" class="btn btn-primary" target="_blank" rel="noopener">Register Now</a>
+              <button class="btn btn-outline">Learn More</button>
+            </div>
+          </div>
         </div>
-        <div class="event-body">
-          <h3>Yog Nidra for Inner Peace</h3>
-          <p class="event-meta">
-            <time class="event-date" datetime="2025-03-26T10:57:00+05:30">26 Mar 2025, 10:57 am – 12:57 pm</time><br>
-            <span class="event-location">Ath Yog Studio, Erandwane, Pune</span>
-          </p>
-          <p class="copy">A soothing, guided experience to relax the nervous system and cultivate inner stillness.</p>
-          <div class="badge" aria-live="polite">Checking date…</div>
-          <div class="card-actions">
-            <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+
+        <div class="event-item" data-start="2025-04-15T09:00:00+05:30">
+          <div class="event-date">
+            <span class="month">Apr</span>
+            <span class="day">15</span>
+          </div>
+          
+          <div class="event-main">
+            <div class="event-header">
+              <div class="event-type highlight">3-Day Retreat</div>
+              <span class="event-status urgent">Filling Fast</span>
+            </div>
+            
+            <h3 class="event-title">Weekend Wellness Retreat</h3>
+            
+            <div class="event-info">
+              <div class="info-item">
+                <span class="info-label">Duration:</span>
+                <span class="info-value">April 15-17, 2025</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location:</span>
+                <span class="info-value">Mulshi, Maharashtra</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Price:</span>
+                <span class="info-value">₹12,999 <span class="early-bird">Early Bird: ₹10,999</span></span>
+              </div>
+            </div>
+            
+            <p class="event-desc">A transformative retreat combining yoga, meditation, and nature. All meals and accommodation included.</p>
+            
+            <div class="event-cta">
+              <a href="https://wa.link/a0lxj5" class="btn btn-primary" target="_blank" rel="noopener">Reserve Your Spot</a>
+              <button class="btn btn-outline">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-item" data-start="2025-03-31T07:00:00+05:30">
+          <div class="event-date">
+            <span class="month">Mar</span>
+            <span class="day">31</span>
+          </div>
+          
+          <div class="event-main">
+            <div class="event-header">
+              <div class="event-type">Special Session</div>
+              <span class="event-status">Limited Seats</span>
+            </div>
+            
+            <h3 class="event-title">Full Moon Meditation Special</h3>
+            
+            <div class="event-info">
+              <div class="info-item">
+                <span class="info-label">Time:</span>
+                <span class="info-value">7:00 AM - 9:00 AM</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Location:</span>
+                <span class="info-value">Ath Yog Garden</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Price:</span>
+                <span class="info-value">₹599</span>
+              </div>
+            </div>
+            
+            <p class="event-desc">Harness the energy of the full moon in this special outdoor meditation session. Mats and cushions provided.</p>
+            
+            <div class="event-cta">
+              <a href="https://wa.link/a0lxj5" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+              <button class="btn btn-outline">More Info</button>
+            </div>
           </div>
         </div>
       </div>
