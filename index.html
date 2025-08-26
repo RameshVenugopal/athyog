@@ -284,9 +284,51 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 
 .section{padding:72px 0}
 .section.alt{background:linear-gradient(180deg,#0b0b0c,#0e0e10);border-block:1px solid var(--line)}
-.section-header{margin-bottom:28px}
-.section-header h2{font-size:clamp(24px,4vw,36px);margin:0 0 6px}
-.section-header p{color:var(--muted);margin:0}
+.section-header{margin-bottom:36px;text-align:center}
+.section-header h2{font-size:clamp(24px,4vw,36px);margin:0 0 12px}
+.section-header p{color:var(--muted);margin:0 auto;max-width:600px}
+.section-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(167,243,208,.1);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.program-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  padding: 0 16px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
 
 .card-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
 .card{
@@ -336,10 +378,67 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 }
 .card .ph::after{content:attr(data-label);position:absolute;inset:auto 12px 12px 12px;color:#e5e7eb;font-weight:700;letter-spacing:.03em;opacity:.9}
 .card-body{padding:18px 18px 20px}
-.card h3{margin:0 0 6px;font-size:clamp(18px,2.6vw,22px)}
-.card .price{margin:0 0 6px;font-weight:800}
-.card .copy{margin:0 0 12px;color:var(--muted)}
-.card-actions{display:flex;gap:10px;flex-wrap:wrap}
+.card h3{margin:0 0 8px;font-size:clamp(18px,2.6vw,22px)}
+.card .price{
+  margin:0 0 12px;
+  font-weight:800;
+  font-size: 24px;
+  color: var(--accent);
+}
+.card .price .duration {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: normal;
+}
+.card .copy{margin:0 0 16px;color:var(--muted)}
+.card-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 20px;
+}
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  color: var(--muted);
+}
+.program-features {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.program-features li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.program-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: rgba(167,243,208,0.1);
+}
 @media (min-width:740px){ .card{grid-column:span 6} }
 @media (min-width:1024px){ .card{grid-column:span 3} }
 
@@ -650,6 +749,39 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial highlight check
   highlightNavigation();
 
+  // Program filtering
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const programCards = document.querySelectorAll('.card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter cards with animation
+      const filter = button.dataset.filter;
+      programCards.forEach(card => {
+        card.style.opacity = '0';
+        setTimeout(() => {
+          if (filter === 'all' || card.classList.contains(filter)) {
+            card.style.display = 'block';
+            setTimeout(() => card.style.opacity = '1', 50);
+          } else {
+            card.style.display = 'none';
+          }
+        }, 300);
+      });
+    });
+  });
+
+  // Program details modal
+  function showProgramDetails(programId) {
+    // Implementation for program details modal
+    console.log('Show details for:', programId);
+    // You can implement a modal here to show more program details
+  }
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -725,63 +857,111 @@ document.addEventListener('DOMContentLoaded', function() {
   <section id="services" class="section">
     <div class="container">
       <header class="section-header">
+        <span class="section-tag">Find Your Path</span>
         <h2>Classes &amp; Workshops</h2>
-        <p>Train at the studio or join live online. Curated programs for every level.</p>
+        <p>Transform your mind and body with our curated programs. Join in-studio or online.</p>
       </header>
 
+      <div class="program-filters">
+        <button class="filter-btn active" data-filter="all">All Programs</button>
+        <button class="filter-btn" data-filter="beginner">Beginners</button>
+        <button class="filter-btn" data-filter="weight-loss">Weight Loss</button>
+        <button class="filter-btn" data-filter="meditation">Meditation</button>
+      </div>
+
       <div class="card-grid">
-        <article class="card">
+        <article class="card weight-loss">
           <div class="card-image" role="img" aria-label="Slim Smart Sadhana class">
             <img src="assets/images/slim-smart-sadhana.jpg" alt="A person practicing yoga for weight management" loading="lazy">
           </div>
           <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Weight Loss</span>
+              <span class="tag">All Levels</span>
+            </div>
             <h3>Slim Smart Sadhana</h3>
-            <p class="price">₹2,999</p>
+            <p class="price">₹2,999<span class="duration">/month</span></p>
             <p class="copy">A structured weight-management sadhana blending asana, pranayama, and mindful habits.</p>
+            <ul class="program-features">
+              <li>3 sessions per week</li>
+              <li>Personal diet guidance</li>
+              <li>Progress tracking</li>
+            </ul>
             <div class="card-actions">
               <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Join via WhatsApp</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('slim-smart')">Learn More</button>
             </div>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card meditation beginner">
           <div class="card-image" role="img" aria-label="Pranayam Workshop class">
             <img src="assets/images/pranayam-workshop.jpg" alt="Pranayam breathing exercises and meditation session" loading="lazy">
           </div>
           <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Meditation</span>
+              <span class="tag">Beginners</span>
+            </div>
             <h3>Pranayam Workshop</h3>
-            <p class="price">₹999</p>
+            <p class="price">₹999<span class="duration">/workshop</span></p>
             <p class="copy">Breathe better, feel better—techniques to calm the mind and energize the body.</p>
+            <ul class="program-features">
+              <li>2-hour intensive session</li>
+              <li>Take-home practice guide</li>
+              <li>Meditation techniques</li>
+            </ul>
             <div class="card-actions">
               <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Reserve a spot</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('pranayam')">Learn More</button>
             </div>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card beginner">
           <div class="card-image" role="img" aria-label="Regular Fitness Class">
             <img src="assets/images/regular-fitness.jpg" alt="Regular yoga fitness class in progress" loading="lazy">
           </div>
           <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Fitness</span>
+              <span class="tag">Beginners</span>
+            </div>
             <h3>Regular Fitness Class</h3>
-            <p class="price">₹2,000</p>
+            <p class="price">₹2,000<span class="duration">/month</span></p>
             <p class="copy">A balanced weekly practice for strength, flexibility, and focus. Suitable for all levels.</p>
+            <ul class="program-features">
+              <li>2 sessions per week</li>
+              <li>Basic asana practice</li>
+              <li>Flexibility training</li>
+            </ul>
             <div class="card-actions">
               <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Book now</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('fitness')">Learn More</button>
             </div>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card meditation">
           <div class="card-image" role="img" aria-label="Yog Nidra session">
             <img src="assets/images/yog-nidra.jpg" alt="Peaceful Yog Nidra relaxation session" loading="lazy">
           </div>
           <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Meditation</span>
+              <span class="tag">Stress Relief</span>
+            </div>
             <h3>Yog Nidra</h3>
-            <p class="price">₹999</p>
+            <p class="price">₹999<span class="duration">/session</span></p>
             <p class="copy">Guided deep relaxation to release stress and restore inner balance.</p>
+            <ul class="program-features">
+              <li>1-hour guided session</li>
+              <li>Stress management</li>
+              <li>Deep relaxation</li>
+            </ul>
             <div class="card-actions">
               <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Reserve a spot</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('yog-nidra')">Learn More</button>
             </div>
           </div>
         </article>
