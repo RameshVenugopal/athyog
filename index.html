@@ -701,6 +701,14 @@ document.addEventListener('DOMContentLoaded', function() {
               <p id="contact-feedback" class="small muted" aria-live="polite"></p>
             </form>
           </div>
+
+          <div class="contact-map" aria-hidden="false">
+            <!-- Replace PLACE_ID with the real Google Maps Place ID for a pinned location. Example embed format: q=place_id:ChIJ... -->
+            <iframe
+              src="https://www.google.com/maps?q=place_id:PLACE_ID&z=17&output=embed"
+              width="100%" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ath Yog location on Google Maps"></iframe>
+            <p class="small muted" style="margin-top:8px;">Open in <a href="https://www.google.com/maps?q=Kamaldeep+Bunglow,+Erandwane,+Pune" target="_blank" rel="noopener">Google Maps</a></p>
+          </div>
         </aside>
       </div>
     </div>
@@ -708,11 +716,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
-        <div class="brand footer-brand"><span class="logo" aria-hidden="true"></span> ATH YOG</div>
-        <p class="small">© <span id="year"></span> Ath Yog Wellness Foundation. All rights reserved.</p>
+      <div class="footer-col brand-col">
+        <div class="brand footer-brand"><span class="logo" aria-hidden="true"></span><span>ATH YOG</span></div>
+        <p class="small muted">Practical yoga &amp; mindful living — Pune studio &amp; online classes.</p>
+        <form class="newsletter" onsubmit="event.preventDefault();document.getElementById('year').textContent=new Date().getFullYear();document.querySelector('#contact-feedback')?.textContent='Thanks — subscription not configured.';">
+          <label class="small muted" for="f-email">Join our newsletter</label>
+          <div class="newsletter-row">
+            <input id="f-email" type="email" placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </div>
+        </form>
       </div>
-      <nav aria-label="Footer">
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <h4>Explore</h4>
         <ul>
           <li><a href="#services">Classes</a></li>
           <li><a href="#events">Events</a></li>
@@ -721,11 +738,39 @@ document.addEventListener('DOMContentLoaded', function() {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <div class="social">
-        <a href="https://www.facebook.com" aria-label="Facebook">Fb</a>
-        <a href="https://www.instagram.com" aria-label="Instagram">Ig</a>
-        <a href="https://wa.link/a0lxj5" aria-label="WhatsApp">Wa</a>
+
+      <div class="footer-col contact-col">
+        <h4>Contact</h4>
+        <address class="small">
+          Kamaldeep Bunglow, Erandwane<br>
+          <a href="tel:+919370019475">+91 93700 19475</a><br>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+        </address>
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.facebook.com" aria-label="Facebook">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.41c0-2.33 1.39-3.61 3.52-3.61.99 0 1.85.074 2.1.107v2.44h-1.45c-1.14 0-1.36.54-1.36 1.33v1.75h2.73l-.44 2.9h-2.29v7.03C18.34 21.2 22 17.06 22 12.07z"/></svg>
+            </span>
+            <span class="label">Facebook</span>
+          </a>
+          <a class="social-btn" href="https://www.instagram.com" aria-label="Instagram">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.5A4.5 4.5 0 1 0 16.5 13 4.5 4.5 0 0 0 12 8.5zm6.5-2.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/></svg>
+            </span>
+            <span class="label">Instagram</span>
+          </a>
+          <a class="social-btn" href="https://wa.link/a0lxj5" aria-label="WhatsApp">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.87 11.87 0 0 0 12 .5C6.21.5 1.5 5.21 1.5 11c0 1.95.51 3.86 1.48 5.56L.5 23.5l6.79-2.06A11.5 11.5 0 0 0 12 22c5.79 0 10.5-4.71 10.5-10.5 0-1.9-.52-3.67-1.98-5.02zM12 20.1c-1.02 0-2.03-.24-2.93-.69l-.21-.12-4.04 1.22 1.25-3.9-.14-.25A8.35 8.35 0 0 1 3.5 11c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5S17.7 20.1 12 20.1z"/><path fill="currentColor" d="M17.14 14.24c-.29-.15-1.71-.84-1.98-.93s-.47-.14-.67.14-.77.93-.95 1.12c-.17.18-.35.2-.64.06-.29-.15-1.23-.45-2.34-1.44-.87-.77-1.46-1.72-1.63-2.01-.17-.29-.02-.44.13-.59.13-.13.29-.35.43-.53.14-.18.19-.31.29-.51.1-.2.05-.38-.02-.53-.07-.15-.67-1.6-.92-2.19-.24-.57-.49-.49-.67-.5-.17-.01-.36-.01-.55-.01s-.51.07-.78.37c-.26.3-1 1-1 2.45s1.03 2.85 1.17 3.05c.14.2 2.02 3.1 4.9 4.35 2.12 1.02 2.96 1.06 3.22.99.26-.06.84-.34.96-.67.12-.33.12-.6.08-.67-.04-.07-.14-.12-.29-.21z"/></svg>
+            </span>
+            <span class="label">WhatsApp</span>
+          </a>
+        </div>
       </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <small class="muted">© <span id="year"></span> Ath Yog Wellness Foundation • Crafted with care</small>
     </div>
   </footer>
 
