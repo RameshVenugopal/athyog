@@ -639,158 +639,205 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container contact">
       <header class="section-header">
         <h2>Contact &amp; Location</h2>
-        <p>Kamaldeep Bunglow, Bharatkunj -2, Erandwane, Pune, Maharashtra 411038</p>
+        <p class="muted">Reach out to book a class, ask questions, or schedule a visit at our Pune studio.</p>
       </header>
-      <div class="contact-cards">
-        <a class="contact-card" href="tel:+919370019475">
-          <div class="cc-title">Call us</div>
-          <div class="cc-value">+91 93700 19475</div>
-        </a>
-        <a class="contact-card" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">
-          <div class="cc-title">WhatsApp</div>
-          <div class="cc-value">Chat now</div>
-        </a>
-        <a class="contact-card" href="mailto:hello@example.com">
-          <div class="cc-title">Email</div>
-          <div class="cc-value">hello@example.com</div>
-        </a>
+
+      <div class="contact-modern">
+        <div class="contact-left">
+          <div class="contact-cards modern-grid">
+            <a class="contact-card modern" href="tel:+919370019475">
+              <div class="cc-icon">☎</div>
+              <div>
+                <div class="cc-title">Call us</div>
+                <div class="cc-value">+91 93700 19475</div>
+              </div>
+            </a>
+
+            <a class="contact-card modern" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">
+              <div class="cc-icon">🟢</div>
+              <div>
+                <div class="cc-title">WhatsApp</div>
+                <div class="cc-value">Chat now</div>
+              </div>
+            </a>
+
+            <a class="contact-card modern" href="mailto:hello@example.com">
+              <div class="cc-icon">✉</div>
+              <div>
+                <div class="cc-title">Email</div>
+                <div class="cc-value">hello@example.com</div>
+              </div>
+            </a>
+
+            <a class="contact-card modern" href="https://www.google.com/maps/place/Erandwane,+Pune" target="_blank" rel="noopener">
+              <div class="cc-icon">📍</div>
+              <div>
+                <div class="cc-title">Visit</div>
+                <div class="cc-value">Kamaldeep Bunglow, Erandwane</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="contact-note">
+            <p class="small muted">Small batches • Certified instructors • Inclusive classes</p>
+          </div>
+        </div>
+
+        <aside class="contact-right">
+          <div class="contact-panel">
+            <h3>Quick message</h3>
+            <p class="muted">Send us a short message and we'll get back to you.</p>
+            <form id="contact-form" class="contact-form">
+              <div class="field-row">
+                <input name="name" id="c-name" type="text" placeholder="Your name" required>
+                <input name="phone" id="c-phone" type="tel" placeholder="Phone (optional)">
+              </div>
+              <input name="email" id="c-email" type="email" placeholder="Your email" required>
+              <textarea name="message" id="c-message" rows="4" placeholder="How can we help?" required></textarea>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send message</button>
+                <a class="btn btn-ghost" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+              <p id="contact-feedback" class="small muted" aria-live="polite"></p>
+            </form>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
-</main>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="brand footer-brand"><span class="logo" aria-hidden="true"></span> ATH YOG</div>
-      <p class="small">© <span id="year"></span> Ath Yog Wellness Foundation. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand footer-brand"><span class="logo" aria-hidden="true"></span> ATH YOG</div>
+        <p class="small">© <span id="year"></span> Ath Yog Wellness Foundation. All rights reserved.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="#services">Classes</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social">
+        <a href="https://www.facebook.com" aria-label="Facebook">Fb</a>
+        <a href="https://www.instagram.com" aria-label="Instagram">Ig</a>
+        <a href="https://wa.link/a0lxj5" aria-label="WhatsApp">Wa</a>
+      </div>
     </div>
-    <nav aria-label="Footer">
-      <ul>
-        <li><a href="#services">Classes</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="social">
-      <a href="https://www.facebook.com" aria-label="Facebook">Fb</a>
-      <a href="https://www.instagram.com" aria-label="Instagram">Ig</a>
-      <a href="https://wa.link/a0lxj5" aria-label="WhatsApp">Wa</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<button class="whatsapp-fab" onclick="window.open('https://wa.link/a0lxj5','_blank','noopener')" aria-label="Chat on WhatsApp">WhatsApp</button>
+  <button class="whatsapp-fab" onclick="window.open('https://wa.link/a0lxj5','_blank','noopener')" aria-label="Chat on WhatsApp">WhatsApp</button>
 
-<script>
-// Mobile nav toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navList = document.getElementById('nav-list');
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    const open = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!open));
-    navList.classList.toggle('open');
-  });
-}
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (id.length > 1) {
-      const el = document.querySelector(id);
-      if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-    }
-  });
-});
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
-// Event badge
-document.querySelectorAll('.event-card').forEach(card => {
-  const badge = card.querySelector('.badge');
-  const start = new Date(card.dataset.start);
-  if (isNaN(start)) { badge.textContent = 'Date TBA'; return; }
-  const now = new Date();
-  if (start > now) {
-    const diff = start - now;
-    const days = Math.ceil(diff / (1000*60*60*24));
-    badge.textContent = days === 1 ? 'Starts tomorrow' : `Starts in ${days} days`;
-    badge.style.background = 'rgba(167,243,208,.15)';
-    badge.style.borderColor = 'rgba(167,243,208,.5)';
-    badge.style.color = '#dffff2';
-  } else {
-    badge.textContent = 'Past event';
-    badge.style.opacity = .8;
+  <script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navList = document.getElementById('nav-list');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!open));
+      navList.classList.toggle('open');
+    });
   }
-});
-</script>
-<script>
-(function(){
-  // IntersectionObserver for entrance animations
-  const cards = document.querySelectorAll('.testimonial-grid.modern .t-card');
-  if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('inview'); });
-    },{threshold:0.12});
-    cards.forEach(c=>io.observe(c));
-  } else { cards.forEach(c=>c.classList.add('inview')); }
-
-  // Avatar image handling: add .has-image when img loads, remove broken imgs
-  document.querySelectorAll('.avatar').forEach(av => {
-    const img = av.querySelector('img');
-    const initial = av.getAttribute('data-initial') || '';
-    if(!img) return;
-    if(img.complete && img.naturalWidth>0){ av.classList.add('has-image'); }
-    img.addEventListener('load',()=>av.classList.add('has-image'));
-    img.addEventListener('error',()=>{
-      img.style.display='none'; av.classList.remove('has-image');
-      if(initial) av.setAttribute('data-initial', initial);
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      }
     });
   });
-
-  // Add verified badge to first card as example
-  const firstFigcaption = document.querySelector('.testimonial-grid.modern .t-card figcaption');
-  if(firstFigcaption && !firstFigcaption.querySelector('.verified-badge')){
-    const span = document.createElement('span');
-    span.className='verified-badge';
-    span.innerHTML='<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.85L20 8.24l-3.2 3.12L17.8 16 12 13.77 6.2 16l1-4.64L4 8.24l5.61-1.39L12 2z" stroke="currentColor" stroke-width="0" fill="currentColor"/></svg>Verified';
-    firstFigcaption.appendChild(span);
-  }
-
-  // Small-screen carousel
-  const grid = document.querySelector('.testimonial-grid.modern');
-  if(!grid) return;
-  function initCarousel(){
-    if(window.innerWidth<=640){
-      if(grid.classList.contains('carousel')) return; // already initialized
-      grid.classList.add('carousel');
-      let idx=0;
-      const cards = Array.from(grid.querySelectorAll('.t-card'));
-      const indicators = document.createElement('div'); indicators.className='carousel-indicators';
-      cards.forEach((c,i)=>{ const b=document.createElement('button'); if(i===0)b.classList.add('active'); b.addEventListener('click',()=>{moveTo(i)}); indicators.appendChild(b); });
-      grid.appendChild(indicators);
-      const controls=document.createElement('div'); controls.className='carousel-controls';
-      const prev=document.createElement('button'); prev.textContent='‹'; const next=document.createElement('button'); next.textContent='›';
-      prev.addEventListener('click',()=>moveTo((idx-1+cards.length)%cards.length));
-      next.addEventListener('click',()=>moveTo((idx+1)%cards.length));
-      controls.appendChild(prev); controls.appendChild(next); grid.appendChild(controls);
-      function moveTo(i){ idx=i; grid.style.transform=`translateX(${ -idx*100 }%)`; Array.from(indicators.children).forEach((b,j)=>b.classList.toggle('active',i===j)); }
-      // set up wrapping wrapper
-      grid.style.display='flex'; grid.style.transition='transform .45s ease'; grid.style.width='100%'; grid.style.willChange='transform';
-      // autoplay
-      let t = setInterval(()=>{ moveTo((idx+1)%cards.length); },4000);
-      grid.addEventListener('mouseenter',()=>clearInterval(t)); grid.addEventListener('mouseleave',()=>{ t=setInterval(()=>{ moveTo((idx+1)%cards.length); },4000); });
-      // reflow
-      moveTo(0);
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Event badge
+  document.querySelectorAll('.event-card').forEach(card => {
+    const badge = card.querySelector('.badge');
+    const start = new Date(card.dataset.start);
+    if (isNaN(start)) { badge.textContent = 'Date TBA'; return; }
+    const now = new Date();
+    if (start > now) {
+      const diff = start - now;
+      const days = Math.ceil(diff / (1000*60*60*24));
+      badge.textContent = days === 1 ? 'Starts tomorrow' : `Starts in ${days} days`;
+      badge.style.background = 'rgba(167,243,208,.15)';
+      badge.style.borderColor = 'rgba(167,243,208,.5)';
+      badge.style.color = '#dffff2';
     } else {
-      // teardown
-      grid.classList.remove('carousel'); grid.style.transform='none'; grid.style.display='grid'; const ci=grid.querySelector('.carousel-indicators'); if(ci)ci.remove(); const cc=grid.querySelector('.carousel-controls'); if(cc)cc.remove();
+      badge.textContent = 'Past event';
+      badge.style.opacity = .8;
     }
-  }
-  initCarousel(); window.addEventListener('resize',initCarousel);
-})();
-</script>
+  });
+  </script>
+  <script>
+  (function(){
+    // IntersectionObserver for entrance animations
+    const cards = document.querySelectorAll('.testimonial-grid.modern .t-card');
+    if('IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('inview'); });
+      },{threshold:0.12});
+      cards.forEach(c=>io.observe(c));
+    } else { cards.forEach(c=>c.classList.add('inview')); }
+
+    // Avatar image handling: add .has-image when img loads, remove broken imgs
+    document.querySelectorAll('.avatar').forEach(av => {
+      const img = av.querySelector('img');
+      const initial = av.getAttribute('data-initial') || '';
+      if(!img) return;
+      if(img.complete && img.naturalWidth>0){ av.classList.add('has-image'); }
+      img.addEventListener('load',()=>av.classList.add('has-image'));
+      img.addEventListener('error',()=>{
+        img.style.display='none'; av.classList.remove('has-image');
+        if(initial) av.setAttribute('data-initial', initial);
+      });
+    });
+
+    // Add verified badge to first card as example
+    const firstFigcaption = document.querySelector('.testimonial-grid.modern .t-card figcaption');
+    if(firstFigcaption && !firstFigcaption.querySelector('.verified-badge')){
+      const span = document.createElement('span');
+      span.className='verified-badge';
+      span.innerHTML='<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.85L20 8.24l-3.2 3.12L17.8 16 12 13.77 6.2 16l1-4.64L4 8.24l5.61-1.39L12 2z" stroke="currentColor" stroke-width="0" fill="currentColor"/></svg>Verified';
+      firstFigcaption.appendChild(span);
+    }
+
+    // Small-screen carousel
+    const grid = document.querySelector('.testimonial-grid.modern');
+    if(!grid) return;
+    function initCarousel(){
+      if(window.innerWidth<=640){
+        if(grid.classList.contains('carousel')) return; // already initialized
+        grid.classList.add('carousel');
+        let idx=0;
+        const cards = Array.from(grid.querySelectorAll('.t-card'));
+        const indicators = document.createElement('div'); indicators.className='carousel-indicators';
+        cards.forEach((c,i)=>{ const b=document.createElement('button'); if(i===0)b.classList.add('active'); b.addEventListener('click',()=>{moveTo(i)}); indicators.appendChild(b); });
+        grid.appendChild(indicators);
+        const controls=document.createElement('div'); controls.className='carousel-controls';
+        const prev=document.createElement('button'); prev.textContent='‹'; const next=document.createElement('button'); next.textContent='›';
+        prev.addEventListener('click',()=>moveTo((idx-1+cards.length)%cards.length));
+        next.addEventListener('click',()=>moveTo((idx+1)%cards.length));
+        controls.appendChild(prev); controls.appendChild(next); grid.appendChild(controls);
+        function moveTo(i){ idx=i; grid.style.transform=`translateX(${ -idx*100 }%)`; Array.from(indicators.children).forEach((b,j)=>b.classList.toggle('active',i===j)); }
+        // set up wrapping wrapper
+        grid.style.display='flex'; grid.style.transition='transform .45s ease'; grid.style.width='100%'; grid.style.willChange='transform';
+        // autoplay
+        let t = setInterval(()=>{ moveTo((idx+1)%cards.length); },4000);
+        grid.addEventListener('mouseenter',()=>clearInterval(t)); grid.addEventListener('mouseleave',()=>{ t=setInterval(()=>{ moveTo((idx+1)%cards.length); },4000); });
+        // reflow
+        moveTo(0);
+      } else {
+        // teardown
+        grid.classList.remove('carousel'); grid.style.transform='none'; grid.style.display='grid'; const ci=grid.querySelector('.carousel-indicators'); if(ci)ci.remove(); const cc=grid.querySelector('.carousel-controls'); if(cc)cc.remove();
+      }
+    }
+    initCarousel(); window.addEventListener('resize',initCarousel);
+  })();
+  </script>
 </body>
 </html>
