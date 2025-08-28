@@ -601,7 +601,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="testimonial-grid modern">
         <figure class="t-card">
           <div class="t-top">
-            <div class="avatar">S</div>
+            <div class="avatar" data-initial="S">
+              <img src="assets/images/testimonial-shalaka.jpg" alt="Shalaka" loading="lazy">
+            </div>
             <div class="rating" aria-hidden="true">★★★★★</div>
           </div>
           <blockquote>“Ath Yog has transformed my outlook on health and well-being. The personalized weight-loss program was a game-changer.”</blockquote>
@@ -610,7 +612,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <figure class="t-card">
           <div class="t-top">
-            <div class="avatar">P</div>
+            <div class="avatar" data-initial="P">
+              <img src="assets/images/testimonial-pranali.jpg" alt="Pranali" loading="lazy">
+            </div>
             <div class="rating" aria-hidden="true">★★★★★</div>
           </div>
           <blockquote>“I never enjoyed exercise until I discovered Ath Yog. The online classes made fitness accessible and fun.”</blockquote>
@@ -619,7 +623,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <figure class="t-card">
           <div class="t-top">
-            <div class="avatar">Se</div>
+            <div class="avatar" data-initial="Se">
+              <img src="assets/images/testimonial-seema.jpg" alt="Seema" loading="lazy">
+            </div>
             <div class="rating" aria-hidden="true">★★★★★</div>
           </div>
           <blockquote>“Such a welcoming, inclusive atmosphere. Every class felt invigorating and enriching.”</blockquote>
@@ -719,6 +725,72 @@ document.querySelectorAll('.event-card').forEach(card => {
     badge.style.opacity = .8;
   }
 });
+</script>
+<script>
+(function(){
+  // IntersectionObserver for entrance animations
+  const cards = document.querySelectorAll('.testimonial-grid.modern .t-card');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('inview'); });
+    },{threshold:0.12});
+    cards.forEach(c=>io.observe(c));
+  } else { cards.forEach(c=>c.classList.add('inview')); }
+
+  // Avatar image handling: add .has-image when img loads, remove broken imgs
+  document.querySelectorAll('.avatar').forEach(av => {
+    const img = av.querySelector('img');
+    const initial = av.getAttribute('data-initial') || '';
+    if(!img) return;
+    if(img.complete && img.naturalWidth>0){ av.classList.add('has-image'); }
+    img.addEventListener('load',()=>av.classList.add('has-image'));
+    img.addEventListener('error',()=>{
+      img.style.display='none'; av.classList.remove('has-image');
+      if(initial) av.setAttribute('data-initial', initial);
+    });
+  });
+
+  // Add verified badge to first card as example
+  const firstFigcaption = document.querySelector('.testimonial-grid.modern .t-card figcaption');
+  if(firstFigcaption && !firstFigcaption.querySelector('.verified-badge')){
+    const span = document.createElement('span');
+    span.className='verified-badge';
+    span.innerHTML='<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.39 4.85L20 8.24l-3.2 3.12L17.8 16 12 13.77 6.2 16l1-4.64L4 8.24l5.61-1.39L12 2z" stroke="currentColor" stroke-width="0" fill="currentColor"/></svg>Verified';
+    firstFigcaption.appendChild(span);
+  }
+
+  // Small-screen carousel
+  const grid = document.querySelector('.testimonial-grid.modern');
+  if(!grid) return;
+  function initCarousel(){
+    if(window.innerWidth<=640){
+      if(grid.classList.contains('carousel')) return; // already initialized
+      grid.classList.add('carousel');
+      let idx=0;
+      const cards = Array.from(grid.querySelectorAll('.t-card'));
+      const indicators = document.createElement('div'); indicators.className='carousel-indicators';
+      cards.forEach((c,i)=>{ const b=document.createElement('button'); if(i===0)b.classList.add('active'); b.addEventListener('click',()=>{moveTo(i)}); indicators.appendChild(b); });
+      grid.appendChild(indicators);
+      const controls=document.createElement('div'); controls.className='carousel-controls';
+      const prev=document.createElement('button'); prev.textContent='‹'; const next=document.createElement('button'); next.textContent='›';
+      prev.addEventListener('click',()=>moveTo((idx-1+cards.length)%cards.length));
+      next.addEventListener('click',()=>moveTo((idx+1)%cards.length));
+      controls.appendChild(prev); controls.appendChild(next); grid.appendChild(controls);
+      function moveTo(i){ idx=i; grid.style.transform=`translateX(${ -idx*100 }%)`; Array.from(indicators.children).forEach((b,j)=>b.classList.toggle('active',i===j)); }
+      // set up wrapping wrapper
+      grid.style.display='flex'; grid.style.transition='transform .45s ease'; grid.style.width='100%'; grid.style.willChange='transform';
+      // autoplay
+      let t = setInterval(()=>{ moveTo((idx+1)%cards.length); },4000);
+      grid.addEventListener('mouseenter',()=>clearInterval(t)); grid.addEventListener('mouseleave',()=>{ t=setInterval(()=>{ moveTo((idx+1)%cards.length); },4000); });
+      // reflow
+      moveTo(0);
+    } else {
+      // teardown
+      grid.classList.remove('carousel'); grid.style.transform='none'; grid.style.display='grid'; const ci=grid.querySelector('.carousel-indicators'); if(ci)ci.remove(); const cc=grid.querySelector('.carousel-controls'); if(cc)cc.remove();
+    }
+  }
+  initCarousel(); window.addEventListener('resize',initCarousel);
+})();
 </script>
 </body>
 </html>
