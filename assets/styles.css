@@ -1456,3 +1456,10 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 .contact-panel, .contact-map{width:100%}
 .contact-map p{margin-left:0}
 @media (max-width:640px){.contact-map iframe{height:220px}}
+
+.tagline {
+  color: var(--muted);
+  font-size: 14px;
+  margin-left: 16px;
+  font-style: italic;
+}
