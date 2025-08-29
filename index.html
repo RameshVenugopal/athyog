@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <section id="services" class="section">
     <div class="container">
-      <header class="section-header">
+      <header class="section-header scroll-animate">
         <span class="section-tag">Find Your Path</span>
         <h2>Classes &amp; Workshops</h2>
         <p>Transform your mind and body with our curated programs. Join in-studio or online.</p>
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="card-grid">
-        <article class="card weight-loss">
+        <article class="card weight-loss scroll-animate">
           <div class="card-image" role="img" aria-label="Slim Smart Sadhana class">
             <img src="assets/images/slim-smart-sadhana.jpg" alt="A person practicing yoga for weight management" loading="lazy">
           </div>
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </article>
 
-        <article class="card meditation beginner">
+        <article class="card meditation beginner scroll-animate">
           <div class="card-image" role="img" aria-label="Pranayam Workshop class">
             <img src="assets/images/pranayam-workshop.jpg" alt="Pranayam breathing exercises and meditation session" loading="lazy">
           </div>
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </article>
 
-        <article class="card beginner">
+        <article class="card beginner scroll-animate">
           <div class="card-image" role="img" aria-label="Regular Fitness Class">
             <img src="assets/images/regular-fitness.jpg" alt="Regular yoga fitness class in progress" loading="lazy">
           </div>
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </article>
 
-        <article class="card meditation">
+        <article class="card meditation scroll-animate">
           <div class="card-image" role="img" aria-label="Yog Nidra session">
             <img src="assets/images/yog-nidra.jpg" alt="Peaceful Yog Nidra relaxation session" loading="lazy">
           </div>
@@ -369,14 +369,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <section id="events" class="section alt">
     <div class="container">
-      <header class="section-header">
+      <header class="section-header scroll-animate">
         <span class="section-tag">Join Us</span>
         <h2>Upcoming Events</h2>
         <p>Special workshops, retreats, and transformative sessions at our studio.</p>
       </header>
 
       <div class="event-list">
-        <div class="event-item" data-start="2025-03-26T10:57:00+05:30">
+        <div class="event-item scroll-animate" data-start="2025-03-26T10:57:00+05:30">
           <div class="event-date">
             <span class="month">Mar</span>
             <span class="day">26</span>
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-        <div class="event-item" data-start="2025-04-15T09:00:00+05:30">
+        <div class="event-item scroll-animate" data-start="2025-04-15T09:00:00+05:30">
           <div class="event-date">
             <span class="month">Apr</span>
             <span class="day">15</span>
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-        <div class="event-item" data-start="2025-03-31T07:00:00+05:30">
+        <div class="event-item scroll-animate" data-start="2025-03-31T07:00:00+05:30">
           <div class="event-date">
             <span class="month">Mar</span>
             <span class="day">31</span>
@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <section id="about" class="section">
     <div class="container">
-      <header class="section-header">
+      <header class="section-header scroll-animate">
         <span class="section-tag">Our Journey</span>
         <h2>The Ath Yog Story</h2>
         <p>Two decades of transforming lives through authentic yoga practices</p>
@@ -513,7 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-        <div class="story-content">
+        <div class="story-content scroll-animate">
           <div class="story-sections">
             <div class="story-section">
               <h3>Our Philosophy</h3>
@@ -595,12 +595,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <section id="testimonials" class="section alt">
     <div class="container">
-      <header class="section-header">
+      <header class="section-header scroll-animate">
         <h2>What students say</h2>
       </header>
 
       <div class="testimonial-grid modern">
-        <figure class="t-card">
+        <figure class="t-card scroll-animate">
           <div class="t-top">
             <div class="avatar" data-initial="S">
               <img src="assets/images/testimonial-shalaka.jpg" alt="Shalaka" loading="lazy">
@@ -611,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <figcaption><strong>Shalaka</strong><span class="meta"> — Pune</span></figcaption>
         </figure>
 
-        <figure class="t-card">
+        <figure class="t-card scroll-animate">
           <div class="t-top">
             <div class="avatar" data-initial="P">
               <img src="assets/images/testimonial-pranali.jpg" alt="Pranali" loading="lazy">
@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <figcaption><strong>Pranali</strong><span class="meta"> — Pune</span></figcaption>
         </figure>
 
-        <figure class="t-card">
+        <figure class="t-card scroll-animate">
           <div class="t-top">
             <div class="avatar" data-initial="Se">
               <img src="assets/images/testimonial-seema.jpg" alt="Seema" loading="lazy">
@@ -813,13 +813,13 @@ document.addEventListener('DOMContentLoaded', function() {
   <script>
   (function(){
     // IntersectionObserver for entrance animations
-    const cards = document.querySelectorAll('.testimonial-grid.modern .t-card');
+    const animatedElements = document.querySelectorAll('.scroll-animate');
     if('IntersectionObserver' in window){
       const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('inview'); });
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
       },{threshold:0.12});
-      cards.forEach(c=>io.observe(c));
-    } else { cards.forEach(c=>c.classList.add('inview')); }
+      animatedElements.forEach(c=>io.observe(c));
+    } else { animatedElements.forEach(c=>c.classList.add('in-view')); }
 
     // Avatar image handling: add .has-image when img loads, remove broken imgs
     document.querySelectorAll('.avatar').forEach(av => {
