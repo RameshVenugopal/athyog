@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ath Yog Wellness Foundation — Single-file</title>
+<title>Ath Yog Wellness Foundation</title>
 <meta name="description" content="Ath Yog Wellness Foundation in Pune. Practicing and teaching Yog for 20+ years. Join classes, workshops, and Yog Nidra for holistic well-being.">
 
 <!-- Favicon and App Icons -->
@@ -261,10 +261,14 @@ document.addEventListener('DOMContentLoaded', function() {
       </header>
 
       <div class="program-filters">
-        <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn active" data-filter="all">All Programs</button>
         <button class="filter-btn" data-filter="beginner">Beginners</button>
-        <button class="filter-btn" data-filter="weight-loss">Weight Loss</button>
-        <button class="filter-btn" data-filter="meditation">Meditation</button>
+        <button class="filter-btn" data-filter="kids">Kids</button>
+        <button class="filter-btn" data-filter="senior-citizen">Senior Citizen</button>
+        <button class="filter-btn" data-filter="youth">Youth</button>
+        <button class="filter-btn" data-filter="advance">Advance</button>
+        <button class="filter-btn" data-filter="therapy">Therapy</button>
+        <button class="filter-btn" data-filter="health-related">Health Related</button>
       </div>
 
       <div class="card-grid">
@@ -360,6 +364,143 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="card-actions">
               <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Reserve a spot</a>
               <button class="btn btn-outline" onclick="showProgramDetails('yog-nidra')">Learn More</button>
+            </div>
+          </div>
+        </article>
+        <article class="card kids">
+          <div class="card-image" role="img" aria-label="Kids Yoga class">
+            <img src="assets/images/logo.png" alt="Kids yoga class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Kids</span>
+            </div>
+            <h3>Kids Yoga</h3>
+            <p class="price">₹1,500<span class="duration">/month</span></p>
+            <p class="copy">Fun and engaging yoga classes for children to improve focus and flexibility.</p>
+            <ul class="program-features">
+              <li>Games and activities</li>
+              <li>Improves concentration</li>
+              <li>Builds body awareness</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Enroll Now</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('kids-yoga')">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card senior-citizen">
+          <div class="card-image" role="img" aria-label="Senior Citizen Yoga class">
+            <img src="assets/images/logo.png" alt="Senior citizen yoga class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Senior Citizen</span>
+            </div>
+            <h3>Gentle Yoga for Seniors</h3>
+            <p class="price">₹1,800<span class="duration">/month</span></p>
+            <p class="copy">Specially designed yoga for seniors to improve mobility and joint health.</p>
+            <ul class="program-features">
+              <li>Chair yoga options</li>
+              <li>Improves balance</li>
+              <li>Reduces stiffness</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Join a Class</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('senior-yoga')">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card youth">
+          <div class="card-image" role="img" aria-label="Youth Yoga class">
+            <img src="assets/images/logo.png" alt="Youth yoga class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Youth</span>
+            </div>
+            <h3>Dynamic Yoga for Youth</h3>
+            <p class="price">₹2,200<span class="duration">/month</span></p>
+            <p class="copy">Energetic yoga sessions for teenagers to build strength and reduce stress.</p>
+            <ul class="program-features">
+              <li>Improves self-esteem</li>
+              <li>Stress management</li>
+              <li>Builds strength</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Get Started</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('youth-yoga')">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card advance">
+          <div class="card-image" role="img" aria-label="Advance Yoga class">
+            <img src="assets/images/logo.png" alt="Advance yoga class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Advance</span>
+            </div>
+            <h3>Advanced Asana Practice</h3>
+            <p class="price">₹3,500<span class="duration">/month</span></p>
+            <p class="copy">For experienced practitioners to deepen their practice and master complex poses.</p>
+            <ul class="program-features">
+              <li>Inversions and arm balances</li>
+              <li>Deeper backbends</li>
+              <li>Advanced pranayama</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Challenge Yourself</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('advance-yoga')">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card therapy">
+          <div class="card-image" role="img" aria-label="Yoga Therapy class">
+            <img src="assets/images/logo.png" alt="Yoga therapy class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Therapy</span>
+            </div>
+            <h3>Yoga Therapy</h3>
+            <p class="price">₹4,000<span class="duration">/month</span></p>
+            <p class="copy">Personalized yoga sessions to address specific health concerns and injuries.</p>
+            <ul class="program-features">
+              <li>One-on-one sessions</li>
+              <li>Customized practice</li>
+              <li>Pain management</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Book a Consultation</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('yoga-therapy')">Learn More</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card health-related">
+          <div class="card-image" role="img" aria-label="Health Related Yoga class">
+            <img src="assets/images/logo.png" alt="Health related yoga class" loading="lazy">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Health Related</span>
+            </div>
+            <h3>Yoga for PCOS</h3>
+            <p class="price">₹3,000<span class="duration">/month</span></p>
+            <p class="copy">A holistic approach to manage PCOS symptoms through yoga and lifestyle changes.</p>
+            <ul class="program-features">
+              <li>Hormonal balance</li>
+              <li>Stress reduction</li>
+              <li>Improves metabolism</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn btn-primary" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">Join Now</a>
+              <button class="btn btn-outline" onclick="showProgramDetails('pcos-yoga')">Learn More</button>
             </div>
           </div>
         </article>
