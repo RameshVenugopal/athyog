@@ -294,9 +294,62 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
   border-color: var(--accent);
 }
 
-.card-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.card-grid-container {
+  position: relative;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent);
+}
+
+.scroll-btn.prev {
+  left: -22px;
+}
+
+.scroll-btn.next {
+  right: -22px;
+}
+
+.scroll-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.card-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+  margin-inline: -24px;
+  padding-inline: 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.card-grid::-webkit-scrollbar {
+  display: none;
+}
 .card{
-  grid-column:span 12;
+  flex: 0 0 320px;
   background:rgba(255,255,255,.02);
   border:1px solid var(--line);
   border-radius:var(--radius);
