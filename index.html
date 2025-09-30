@@ -294,6 +294,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<style>
+.event-date-range .day-range {
+  font-size: 0.9em;
+  line-height: 1.1;
+  font-weight: 700;
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -927,18 +935,54 @@ document.addEventListener('DOMContentLoaded', function() {
 const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
 const GID = '805507452';
 
-function parseDate(dateStr) {
-  if (!dateStr) return { day: '', month: '' };
+function parseDateRange(dateStr) {
+  if (!dateStr) return { day: '', month: '', isRange: false };
 
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Check if it's a date range (contains dash between dates)
+  const rangePattern = /(\w+)\s+(\d+)-(\d+),?\s*(\d+)/i; // April 15-17, 2025
+  const rangeMatch = dateStr.match(rangePattern);
+
+  if (rangeMatch) {
+    const [, monthName, startDay, endDay, year] = rangeMatch;
+    const monthIndex = months.findIndex(m => m.toLowerCase().startsWith(monthName.toLowerCase().substring(0, 3)));
+
+    if (monthIndex !== -1) {
+      return {
+        day: `${startDay}-${endDay}`,
+        month: months[monthIndex],
+        isRange: true
+      };
+    }
+  }
+
+  // Try single date patterns
+  const singleDatePattern = /(\w+)\s+(\d+),?\s*(\d+)/i; // April 15, 2025
+  const singleMatch = dateStr.match(singleDatePattern);
+
+  if (singleMatch) {
+    const [, monthName, day, year] = singleMatch;
+    const monthIndex = months.findIndex(m => m.toLowerCase().startsWith(monthName.toLowerCase().substring(0, 3)));
+
+    if (monthIndex !== -1) {
+      return {
+        day: day,
+        month: months[monthIndex],
+        isRange: false
+      };
+    }
+  }
+
+  // Fallback to original parsing logic
   let date;
 
-  // Try different parsing methods
   if (dateStr.includes('/')) {
     const parts = dateStr.split('/');
     if (parts.length === 3) {
       date = new Date(parts[2], parts[0] - 1, parts[1]);
     }
-  } else if (dateStr.includes('-')) {
+  } else if (dateStr.includes('-') && !rangeMatch) {
     date = new Date(dateStr);
   } else {
     date = new Date(dateStr);
@@ -956,13 +1000,13 @@ function parseDate(dateStr) {
   }
 
   if (!date || isNaN(date)) {
-    return { day: dateStr.substring(0, 2) || '??', month: 'TBD' };
+    return { day: dateStr.substring(0, 2) || '??', month: 'TBD', isRange: false };
   }
 
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return {
     day: date.getDate(),
-    month: months[date.getMonth()]
+    month: months[date.getMonth()],
+    isRange: false
   };
 }
 
@@ -995,19 +1039,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(`Event ${index + 1}: ${title}, Date: ${dateStr}`);
 
-        const { day, month } = parseDate(dateStr);
+        const { day, month, isRange } = parseDateRange(dateStr);
 
         const eventItem = document.createElement('div');
         eventItem.className = 'event-item';
 
-        eventItem.innerHTML = `
-          <div class="event-date">
+        // Adjust date display for ranges
+        const dateDisplay = isRange ? 
+          `<div class="event-date event-date-range">
+            <span class="month">${month}</span>
+            <span class="day-range">${day}</span>
+          </div>` :
+          `<div class="event-date">
             <span class="month">${month}</span>
             <span class="day">${day}</span>
-          </div>
+          </div>`;
+
+        eventItem.innerHTML = dateDisplay + `
           <div class="event-main">
             <div class="event-header">
-              <div class="event-type">Workshop</div>
+              <div class="event-type">${isRange ? 'Multi-day Event' : 'Workshop'}</div>
               ${status ? `<span class="event-status">${status}</span>` : ''}
             </div>
             <h3 class="event-title">${title}</h3>
