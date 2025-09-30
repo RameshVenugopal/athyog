@@ -294,6 +294,14 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<style>
+.event-date-range .day-range {
+  font-size: 0.9em;
+  line-height: 1.1;
+  font-weight: 700;
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -607,7 +615,104 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2>Upcoming Events</h2>
 <p>Special workshops, retreats, and transformative sessions at our studio.</p>
 </header>
-<div class="event-list"></div>
+<div class="event-list">
+<div class="event-item" data-start="2025-03-26T10:57:00+05:30">
+<div class="event-date">
+<span class="month">Mar</span>
+<span class="day">26</span>
+</div>
+<div class="event-main">
+<div class="event-header">
+<div class="event-type">Workshop</div>
+<span class="event-status">5 spots left</span>
+</div>
+<h3 class="event-title">Yog Nidra for Inner Peace</h3>
+<div class="event-info">
+<div class="info-item">
+<span class="info-label">Time:</span>
+<span class="info-value">10:57 AM - 12:57 PM</span>
+</div>
+<div class="info-item">
+<span class="info-label">Location:</span>
+<span class="info-value">Ath Yog Studio, Erandwane</span>
+</div>
+<div class="info-item">
+<span class="info-label">Price:</span>
+<span class="info-value">₹999 <span class="early-bird">Early Bird: ₹799</span></span>
+</div>
+</div>
+<p class="event-desc">A soothing, guided experience to relax the nervous system and cultivate inner stillness.</p>
+<div class="event-cta">
+<a class="btn btn-primary" href="https://wa.link/a0lxj5" rel="noopener" target="_blank">Register Now</a>
+<button class="btn btn-outline">Learn More</button>
+</div>
+</div>
+</div>
+<div class="event-item" data-start="2025-04-15T09:00:00+05:30">
+<div class="event-date">
+<span class="month">Apr</span>
+<span class="day">15</span>
+</div>
+<div class="event-main">
+<div class="event-header">
+<div class="event-type highlight">3-Day Retreat</div>
+<span class="event-status urgent">Filling Fast</span>
+</div>
+<h3 class="event-title">Weekend Wellness Retreat</h3>
+<div class="event-info">
+<div class="info-item">
+<span class="info-label">Duration:</span>
+<span class="info-value">April 15-17, 2025</span>
+</div>
+<div class="info-item">
+<span class="info-label">Location:</span>
+<span class="info-value">Mulshi, Maharashtra</span>
+</div>
+<div class="info-item">
+<span class="info-label">Price:</span>
+<span class="info-value">₹12,999 <span class="early-bird">Early Bird: ₹10,999</span></span>
+</div>
+</div>
+<p class="event-desc">A transformative retreat combining yoga, meditation, and nature. All meals and accommodation included.</p>
+<div class="event-cta">
+<a class="btn btn-primary" href="https://wa.link/a0lxj5" rel="noopener" target="_blank">Reserve Your Spot</a>
+<button class="btn btn-outline">View Details</button>
+</div>
+</div>
+</div>
+<div class="event-item" data-start="2025-03-31T07:00:00+05:30">
+<div class="event-date">
+<span class="month">Mar</span>
+<span class="day">31</span>
+</div>
+<div class="event-main">
+<div class="event-header">
+<div class="event-type">Special Session</div>
+<span class="event-status">Limited Seats</span>
+</div>
+<h3 class="event-title">Full Moon Meditation Special</h3>
+<div class="event-info">
+<div class="info-item">
+<span class="info-label">Time:</span>
+<span class="info-value">7:00 AM - 9:00 AM</span>
+</div>
+<div class="info-item">
+<span class="info-label">Location:</span>
+<span class="info-value">Ath Yog Garden</span>
+</div>
+<div class="info-item">
+<span class="info-label">Price:</span>
+<span class="info-value">₹599</span>
+</div>
+</div>
+<p class="event-desc">Harness the energy of the full moon in this special outdoor meditation session. Mats and cushions provided.</p>
+<div class="event-cta">
+<a class="btn btn-primary" href="https://wa.link/a0lxj5" rel="noopener" target="_blank">Book Now</a>
+<button class="btn btn-outline">More Info</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="section" id="about">
@@ -927,18 +1032,54 @@ document.addEventListener('DOMContentLoaded', function() {
 const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
 const GID = '805507452';
 
-function parseDate(dateStr) {
-  if (!dateStr) return { day: '', month: '' };
+function parseDateRange(dateStr) {
+  if (!dateStr) return { day: '', month: '', isRange: false };
 
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Check if it's a date range (contains dash between dates)
+  const rangePattern = /(\w+)\s+(\d+)-(\d+),?\s*(\d+)/i; // April 15-17, 2025
+  const rangeMatch = dateStr.match(rangePattern);
+
+  if (rangeMatch) {
+    const [, monthName, startDay, endDay, year] = rangeMatch;
+    const monthIndex = months.findIndex(m => m.toLowerCase().startsWith(monthName.toLowerCase().substring(0, 3)));
+
+    if (monthIndex !== -1) {
+      return {
+        day: `${startDay}-${endDay}`,
+        month: months[monthIndex],
+        isRange: true
+      };
+    }
+  }
+
+  // Try single date patterns
+  const singleDatePattern = /(\w+)\s+(\d+),?\s*(\d+)/i; // April 15, 2025
+  const singleMatch = dateStr.match(singleDatePattern);
+
+  if (singleMatch) {
+    const [, monthName, day, year] = singleMatch;
+    const monthIndex = months.findIndex(m => m.toLowerCase().startsWith(monthName.toLowerCase().substring(0, 3)));
+
+    if (monthIndex !== -1) {
+      return {
+        day: day,
+        month: months[monthIndex],
+        isRange: false
+      };
+    }
+  }
+
+  // Fallback to original parsing logic
   let date;
 
-  // Try different parsing methods
   if (dateStr.includes('/')) {
     const parts = dateStr.split('/');
     if (parts.length === 3) {
       date = new Date(parts[2], parts[0] - 1, parts[1]);
     }
-  } else if (dateStr.includes('-')) {
+  } else if (dateStr.includes('-') && !rangeMatch) {
     date = new Date(dateStr);
   } else {
     date = new Date(dateStr);
@@ -956,13 +1097,13 @@ function parseDate(dateStr) {
   }
 
   if (!date || isNaN(date)) {
-    return { day: dateStr.substring(0, 2) || '??', month: 'TBD' };
+    return { day: dateStr.substring(0, 2) || '??', month: 'TBD', isRange: false };
   }
 
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return {
     day: date.getDate(),
-    month: months[date.getMonth()]
+    month: months[date.getMonth()],
+    isRange: false
   };
 }
 
@@ -995,19 +1136,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(`Event ${index + 1}: ${title}, Date: ${dateStr}`);
 
-        const { day, month } = parseDate(dateStr);
+        const { day, month, isRange } = parseDateRange(dateStr);
 
         const eventItem = document.createElement('div');
         eventItem.className = 'event-item';
 
-        eventItem.innerHTML = `
-          <div class="event-date">
+        // Adjust date display for ranges
+        const dateDisplay = isRange ? 
+          `<div class="event-date event-date-range">
+            <span class="month">${month}</span>
+            <span class="day-range">${day}</span>
+          </div>` :
+          `<div class="event-date">
             <span class="month">${month}</span>
             <span class="day">${day}</span>
-          </div>
+          </div>`;
+
+        eventItem.innerHTML = dateDisplay + `
           <div class="event-main">
             <div class="event-header">
-              <div class="event-type">Workshop</div>
+              <div class="event-type">${isRange ? 'Multi-day Event' : 'Workshop'}</div>
               ${status ? `<span class="event-status">${status}</span>` : ''}
             </div>
             <h3 class="event-title">${title}</h3>
