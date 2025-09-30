@@ -301,6 +301,23 @@ document.addEventListener('DOMContentLoaded', function() {
   line-height: 1.1;
   font-weight: 700;
 }
+.event-desc p {
+  margin-bottom: 0.7em;
+  font-size: 1.11em;
+  line-height: 1.7;
+}
+.event-desc ul {
+  margin-bottom: 0.7em;
+  margin-top: 0.2em;
+  padding-left: 1.3em;
+  font-size: 1.06em;
+  line-height: 1.6;
+}
+.event-desc {
+  margin-top: 17px;
+  margin-bottom: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -935,6 +952,20 @@ document.addEventListener('DOMContentLoaded', function() {
 const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
 const GID = '805507452';
 
+function formatDescription(desc) {
+  if (!desc) return '';
+  desc = desc.replace(/\r\n/g, '\n');
+  const lines = desc.split('\n').map(l => l.trim()).filter(Boolean);
+  let intro = `<p>${lines[0]}</p>`;
+  let ul = '';
+  if (lines.length > 1) {
+    ul = '<ul>' + lines.slice(1).map(line => `<li>${line.replace(/^[-•]+\s*/, '')}</li>`).join('') + '</ul>';
+  }
+  return intro + ul;
+}
+
+
+
 function parseDateRange(dateStr) {
   if (!dateStr) return { day: '', month: '', isRange: false };
 
@@ -1067,7 +1098,7 @@ document.addEventListener('DOMContentLoaded', function() {
               ${location ? `<div class="info-item"><span class="info-label">Location:</span><span class="info-value">${location}</span></div>` : ''}
               ${price ? `<div class="info-item"><span class="info-label">Price:</span><span class="info-value">${price}</span></div>` : ''}
             </div>
-            ${desc ? `<p class="event-desc">${desc}</p>` : ''}
+            ${desc ? `<p class="event-desc">${formatDescription(desc)}</p>` : ''}
             <div class="event-cta">
               ${waLink ? `<a class="btn btn-primary" href="${waLink}" target="_blank" rel="noopener">Register Now</a>` : ''}
             </div>
