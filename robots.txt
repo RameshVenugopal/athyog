@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://athyog.com/sitemap.xml
+Sitemap: https://athyog.in/sitemap.xml
+
+# If you need to block staging or private paths, add Disallow rules here
+# Disallow: /private
