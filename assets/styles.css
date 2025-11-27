@@ -398,6 +398,122 @@ img{max-width:100%;display:block} a{color:inherit} .container{max-width:var(--ma
 .card h3{margin:0 0 8px;font-size:clamp(18px,2.6vw,22px)}
 .card .price{
   margin:0 0 12px;
+
+/* Profile-specific: achievements gallery */
+.profile .achievements{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  align-items: start;
+}
+.profile .achievements .achievement{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.profile .achievements .achievement img{
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 0 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+.profile .achievements .achievement figcaption{
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.profile .achievements .achievement:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+@media (max-width:640px){
+  .profile .achievements .achievement img{ height:96px; }
+}
+
+/* Profile: video previews */
+.profile .videos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:18px;
+}
+.profile .video-card{
+  background: rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.03);
+  border-radius:12px;
+  overflow:hidden;
+}
+.profile .video-card video{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+.profile .video-caption{
+  padding:10px 12px 16px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+}
+.profile .video-program-title{
+  padding:12px 12px 6px;
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+}
+
+/* Program rows: pair program text with video */
+.profile .programs{display:grid;gap:20px}
+.profile .program-row{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
+.profile .program-empty{min-height:1px}
+@media (max-width:840px){
+  .profile .program-row{grid-template-columns:1fr}
+  .profile .program-row .video-card{order:2}
+}
+
+/* Achievements gallery */
+.profile .section-gallery{margin-top:24px}
+.profile .gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap:14px;
+  margin-top:12px;
+}
+.profile .gallery-item{
+  background: rgba(255,255,255,0.02);
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.03);
+  text-align:center;
+  padding:8px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.profile .gallery-item img{
+  width:100%;
+  height:110px;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+}
+.profile .gallery-item figcaption{
+  margin-top:8px;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:600;
+}
+.profile .gallery-item:hover{transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.45);}
+@media (max-width:840px){
+  .profile .videos{ grid-template-columns:1fr; }
+  .profile .video-card video{ height:180px; }
+}
   font-weight:800;
   font-size: 24px;
   color: var(--accent);

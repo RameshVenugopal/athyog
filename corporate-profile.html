@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ath Yog Corporate Wellness – Proposal & Instructor Profile</title>
+  <meta name="description" content="Evidence-based corporate yoga, breathwork & mindfulness programs by Yog Guru Ashwini Patil. Trusted by leading companies in Pune and across India." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #fafafa;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #10b981;
+      --accent-light: #d1fae5;
+      --line: #e5e7eb;
+      --radius: 12px;
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.06), 0 4px 6px -2px rgba(0,0,0,0.04);
+    }
+    body { background:#f9fafb; font-family:'Inter', sans-serif; color:var(--text); line-height:1.6; margin:0; }
+    .profile { max-width:960px; margin:40px auto; background:var(--bg); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1px solid var(--line); }
+    .header { position:relative; padding:60px 60px 40px; background:linear-gradient(135deg, rgba(16,185,129,0.05) 0%, rgba(236,253,245,0.02) 100%); border-bottom:1px solid var(--line); display:grid; grid-template-columns:1fr 220px; gap:40px; align-items:center; }
+    .logo { width:72px; height:72px; border-radius:14px; box-shadow:var(--shadow); display:block; }
+    .header h1 { margin:0 0 12px; font-size:40px; font-weight:800; line-height:1.1; }
+    .header p { margin:0 0 24px; font-size:18px; color:var(--muted); max-width:600px; }
+    .btn-primary { background:linear-gradient(90deg, #10b981, #059669); color:#fff; padding:14px 28px; border-radius:10px; font-weight:600; text-decoration:none; box-shadow:0 4px 12px rgba(16,185,129,0.25); transition:all .2s; display:inline-block; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(16,185,129,0.3); }
+    .btn-secondary { background:transparent; border:1px solid var(--line); color:var(--text); padding:12px 24px; border-radius:10px; text-decoration:none; margin-left:12px; display:inline-block; }
+    .headshot { width:220px; height:220px; border-radius:20px; object-fit:cover; border:6px solid #fff; box-shadow:var(--shadow); }
+
+    .container { padding:60px; }
+    .section-title { font-size:28px; font-weight:700; margin:0 0 40px; position:relative; padding-bottom:12px; }
+    .section-title:after { content:''; position:absolute; left:0; bottom:0; width:80px; height:4px; background:var(--accent); border-radius:2px; }
+
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-bottom:60px; }
+    .metric { text-align:center; padding:28px 20px; background:var(--surface); border-radius:var(--radius); border:1px solid var(--line); }
+    .metric-num { font-size:36px; font-weight:800; color:var(--accent); margin-bottom:8px; }
+    .metric-label { color:var(--muted); font-size:15px; }
+
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:60px; }
+    .card { background:var(--surface); padding:32px; border-radius:var(--radius); border:1px solid var(--line); }
+    .card h3 { font-size:22px; margin:0 0 20px; }
+    .card ul { margin:0; padding-left:22px; }
+    .card li { margin-bottom:12px; color:var(--muted); position:relative; }
+    .card li:before { content:"✓"; color:var(--accent); position:absolute; left:-22px; font-weight:bold; }
+
+    .case-study { background:linear-gradient(90deg, var(--accent-light), #fff); padding:28px; border-radius:var(--radius); border-left:5px solid var(--accent); margin-top:32px; }
+    .case-study h4 { margin:0 0 12px; font-size:20px; }
+
+    .programs { display:grid; gap:40px; margin:60px 0; }
+    .program-row { display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+    .program { background:var(--surface); padding:32px; border-radius:var(--radius); border:1px solid var(--line); }
+    .tag { display:inline-block; background:var(--accent-light); color:var(--accent); font-weight:600; font-size:12px; padding:6px 14px; border-radius:30px; margin-bottom:12px; }
+    .video-card video { width:100%; height:280px; object-fit:cover; border-radius:12px; background:#000; }
+    .video-caption { padding:12px 0 0; font-size:14px; color:var(--muted); font-weight:600; }
+
+    .testimonial { background:var(--surface); padding:40px; border-radius:var(--radius); border-left:4px solid var(--accent); font-style:italic; font-size:18px; position:relative; margin:60px 0; }
+    .testimonial:after { content:"”"; font-size:140px; position:absolute; top:-30px; right:30px; color:rgba(16,185,129,0.1); line-height:1; }
+    .author { margin-top:24px; font-weight:600; color:var(--text); font-style:normal; font-size:16px; }
+
+    .instructor { display:grid; grid-template-columns:280px 1fr; gap:50px; align-items:start; background:var(--surface); padding:50px; border-radius:var(--radius); border:1px solid var(--line); margin:60px 0; }
+    .instructor img { width:280px; height:350px; border-radius:var(--radius); object-fit:cover; box-shadow:var(--shadow); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:16px; margin-top:32px; }
+    .gallery-item { position:relative; overflow:hidden; border-radius:12px; cursor:pointer; }
+    .gallery-item img { width:100%; height:140px; object-fit:cover; transition:transform .3s; }
+    .gallery-item:hover img { transform:scale(1.1); }
+    figcaption { padding:8px; text-align:center; font-size:13px; color:var(--muted); font-weight:600; }
+
+    .pricing-table table { width:100%; border-collapse:collapse; background:var(--surface); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .pricing-table th { background:var(--accent); color:#fff; padding:18px; text-align:left; }
+    .pricing-table td { padding:18px; border-bottom:1px solid var(--line); }
+    .pricing-table tr:last-child td { border:none; }
+
+    .logos { display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-items:center; margin:60px 0; padding:32px 0; border-top:1px solid var(--line); opacity:0.75; }
+    .logos img { height:44px; filter:grayscale(100%); transition:all .3s; }
+    .logos img:hover { filter:grayscale(0); opacity:1; }
+
+    .footer-cta { background:linear-gradient(135deg, #10b981, #059669); color:#fff; padding:80px 40px; text-align:center; }
+    .footer-cta h3 { font-size:36px; margin:0 0 16px; }
+    .footer-cta p { font-size:19px; opacity:0.95; max-width:700px; margin:0 auto 32px; }
+    .footer-cta .btn-primary { background:#fff; color:#10b981; font-size:19px; padding:18px 40px; }
+
+    @media (max-width:1024px) {
+      .header h1 { font-size:32px; }
+      .metrics { grid-template-columns:repeat(2,1fr); gap:24px; }
+    }
+
+    @media (max-width:768px) {
+      body { font-size:14px; }
+      .profile { border-radius:0; }
+      .header, .container { padding:32px 20px; }
+      .header { grid-template-columns:1fr; text-align:center; gap:24px; }
+      .headshot { width:180px; height:180px; justify-self:center; }
+      .header h1 { font-size:28px; margin-bottom:8px; }
+      .header h1 span { font-size:18px; display:block; }
+      .header p { font-size:15px; max-width:100%; }
+      .btn-primary, .btn-secondary { font-size:14px; padding:12px 20px; }
+      .btn-secondary { margin-left:8px; }
+
+      .section-title { font-size:22px; margin-bottom:28px; }
+      .metrics { grid-template-columns:repeat(2,1fr); gap:16px; }
+      .metric { padding:20px 12px; }
+      .metric-num { font-size:28px; }
+      .metric-label { font-size:13px; }
+
+      .grid, .programs { gap:32px; }
+      .grid { grid-template-columns:1fr; }
+      .card { padding:24px; }
+      .card h3 { font-size:18px; margin-bottom:16px; }
+      .card ul { padding-left:18px; }
+      .card li { margin-bottom:10px; font-size:14px; }
+
+      .case-study { padding:20px; margin-top:24px; }
+      .case-study h4 { font-size:16px; margin-bottom:8px; }
+
+      .program-row { grid-template-columns:1fr; gap:24px; }
+      .program { padding:24px; }
+      .program h3 { font-size:18px; }
+      .program p { font-size:14px; }
+      .video-card video { height:200px; }
+      .video-caption { font-size:13px; }
+
+      .pricing-table th { padding:14px; font-size:14px; }
+      .pricing-table td { padding:14px; font-size:13px; }
+
+      .testimonial { padding:24px; font-size:16px; margin:40px 0; }
+      .testimonial:after { font-size:80px; top:-20px; right:20px; }
+      .author { font-size:14px; }
+
+      .instructor { grid-template-columns:1fr; gap:28px; padding:32px 20px; text-align:center; }
+      .instructor img { width:220px; height:280px; margin:0 auto; }
+      .instructor h3 { font-size:20px; }
+      .gallery-grid { grid-template-columns:repeat(auto-fit, minmax(110px,1fr)); gap:12px; margin-top:24px; }
+      .gallery-item img { height:110px; }
+      figcaption { font-size:11px; padding:6px 4px; }
+
+      .footer-cta { padding:50px 20px; }
+      .footer-cta h3 { font-size:26px; }
+      .footer-cta p { font-size:15px; }
+      .footer-cta .btn-primary { font-size:14px; padding:14px 28px; }
+
+      .logos { gap:20px; padding:20px 0; }
+      .logos img { height:36px; }
+    }
+
+    @media (max-width:480px) {
+      .header, .container { padding:24px 16px; }
+      .headshot { width:140px; height:140px; border-width:4px; }
+      .header h1 { font-size:24px; margin-bottom:6px; }
+      .header h1 span { font-size:14px; }
+      .header p { font-size:14px; }
+      .btn-primary, .btn-secondary { display:block; width:100%; text-align:center; margin-top:8px; }
+      .btn-secondary { margin-left:0; margin-top:8px; }
+
+      .section-title { font-size:20px; margin-bottom:24px; }
+      .metrics { grid-template-columns:1fr; gap:12px; }
+      .metric { padding:16px 12px; }
+      .metric-num { font-size:24px; }
+      .metric-label { font-size:12px; }
+
+      .card { padding:20px; }
+      .card h3 { font-size:16px; }
+      .card ul { padding-left:16px; }
+      .card li { font-size:13px; }
+
+      .case-study { padding:16px; }
+      .case-study h4 { font-size:14px; }
+      .case-study p { font-size:13px; }
+
+      .program { padding:20px; }
+      .program h3 { font-size:16px; }
+      .program p { font-size:13px; }
+      .tag { font-size:11px; padding:5px 10px; }
+      .video-card video { height:160px; }
+
+      .testimonial { padding:16px; font-size:14px; margin:32px 0; }
+      .testimonial:after { font-size:60px; top:-10px; right:10px; }
+
+      .instructor { padding:20px; }
+      .instructor img { width:180px; height:240px; }
+      .instructor h3 { font-size:18px; margin-bottom:8px; }
+      .instructor p { font-size:13px; }
+      .gallery-grid { grid-template-columns:repeat(auto-fit, minmax(90px,1fr)); gap:10px; }
+      .gallery-item img { height:90px; }
+      figcaption { font-size:10px; padding:4px 2px; }
+
+      .pricing-table th { padding:10px 8px; font-size:12px; }
+      .pricing-table td { padding:10px 8px; font-size:11px; }
+
+      .footer-cta { padding:40px 16px; }
+      .footer-cta h3 { font-size:22px; margin-bottom:8px; }
+      .footer-cta p { font-size:13px; }
+      .footer-cta .btn-primary { font-size:13px; padding:12px 24px; }
+
+      .logos { gap:16px; padding:16px 0; }
+      .logos img { height:32px; }
+    }
+
+    @media print {
+      body { background:#fff; margin:0; }
+      .profile { box-shadow:none; border:none; max-width:none; margin:0; }
+      .footer-cta { background:#10b981 !important; color:white !important; -webkit-print-color-adjust:exact; color-adjust:exact; }
+    }
+  </style>
+</head>
+<body>
+
+<main class="profile">
+
+  <!-- Hero Header -->
+  <header class="header">
+    <div>
+      <img src="https://athyog.in/assets/images/logo.png" alt="Ath Yog Wellness Foundation Logo" class="logo">
+      <h1>Ashwini Patil<br><span style="font-size:28px;font-weight:600;color:var(--muted);">Corporate Yoga & Wellbeing Specialist | Pune</span></h1>
+      <p>Evidence-based yoga, breathwork & mindfulness programs that reduce stress, prevent burnout, and improve focus & productivity for modern workplaces.</p>
+      <div style="margin-top:24px;">
+        <a href="https://wa.link/a0lxj5" target="_blank" class="btn-primary">Book Free 20-min Demo Session</a>
+        <a href="mailto:info@athyog.in" class="btn-secondary">Request Detailed Proposal</a>
+      </div>
+    </div>
+    <img src="https://athyog.in/assets/images/guru.avif" alt="Yog Guru Ashwini Patil" class="headshot">
+  </header>
+
+  <div class="container">
+
+    <!-- Key Metrics -->
+    <section class="metrics">
+      <div class="metric"><div class="metric-num">20+</div><div class="metric-label">Years of Expertise</div></div>
+      <div class="metric"><div class="metric-num">5,000+</div><div class="metric-label">Lives Transformed</div></div>
+      <div class="metric"><div class="metric-num">12+</div><div class="metric-label">Certified Instructors</div></div>
+      <div class="metric"><div class="metric-num">95%</div><div class="metric-label">Client Renewal Rate</div></div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <h2 class="section-title">Why Leading Companies Choose Ath Yog</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Proven Impact</h3>
+        <ul>
+          <li>Pre- and post-program assessments</li>
+          <li>Clinically safe & therapeutic approach</li>
+          <li>Documented ROI: reduced sick leaves & higher engagement</li>
+          <li>95% program continuation rate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Maximum Flexibility</h3>
+        <ul>
+          <li>On-site (Pune & Pan-India), Live Online, or Hybrid</li>
+          <li>20–60 min sessions or full-day retreats</li>
+          <li>Customised for desk workers & leadership teams</li>
+          <li>No mats or changing required (chair-based options)</li>
+        </ul>
+
+        <div class="case-study">
+          <h4>Case Study – Leading IT Firm, Pune</h4>
+          <p><strong>8-week program • 180 employees</strong><br>→ 34% reduction in perceived stress<br>→ 18% decrease in musculoskeletal pain<br>→ 91% felt more energised at work</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programs -->
+    <h2 class="section-title">Signature Corporate Programs</h2>
+    <div class="programs">
+
+      <div class="program-row">
+        <div class="program">
+          <span class="tag">Most Popular</span>
+          <h3>Chair Yoga & Movement Breaks</h3>
+          <p>30–45 min desk-friendly sessions that relieve back/neck pain, improve circulation and reset focus — perfect for long screen hours.</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline poster="https://athyog.in/assets/images/halfmarathon.jpeg">
+            <source src="https://athyog.in/assets/video/chairyoga.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-caption">Sample Chair Yoga session</div>
+        </div>
+      </div>
+
+      <div class="program-row">
+        <div class="program">
+          <span class="tag">High Impact</span>
+          <h3>Mindfulness & Science-Backed Breathwork</h3>
+          <p>Proven techniques used by Google & NHS. Lowers cortisol, enhances emotional regulation and decision-making under pressure.</p>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline poster="https://athyog.in/assets/images/hero.jpg">
+            <source src="https://athyog.in/assets/video/medicalstudents.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-caption">Breathwork for focus & calm</div>
+        </div>
+      </div>
+
+      <div class="program-row">
+        <div class="program">
+          <span class="tag">Team Experience</span>
+          <h3>Wellness Day / Off-site Retreat</h3>
+          <p>Half or full-day immersive experience combining yoga, pranayama, meditation and team coaching for deep recharge.</p>
+        </div>
+        <div class="video-card">
+          <div style="background:var(--surface); height:280px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:18px;">
+            Photo from recent corporate retreat coming soon
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Transparent Pricing -->
+    <h2 class="section-title">Transparent Pricing (Per Month, excl. GST)</h2>
+    <div class="pricing-table">
+      <table>
+        <tr><th>Program</th><th>Group Size</th><th>Investment</th></tr>
+        <tr><td>Weekly Chair Yoga (1 session/week)</td><td>10–30 employees</td><td>₹18,000 – ₹28,000</td></tr>
+        <tr><td>Twice Weekly Mixed Program</td><td>10–50 employees</td><td>₹32,000 – ₹55,000</td></tr>
+        <tr><td>Full Wellness Package + Retreat</td><td>50+ employees</td><td>Custom Quote</td></tr>
+      </table>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial">
+      “Ath Yog’s program was the highest-rated wellbeing initiative we’ve ever run. Employees still use the techniques daily — a true game-changer for our culture.”
+      <div class="author">— Head of People & Culture, Leading IT Company (Pune)</div>
+    </div>
+
+    <!-- Instructor -->
+    <h2 class="section-title">Meet Your Lead Instructor</h2>
+    <section class="instructor">
+      <img src="https://athyog.in/assets/images/guru.avif" alt="Yog Guru Ashwini Patil">
+      <div>
+        <h3>Yog Guru Ashwini Patil</h3>
+        <p style="font-weight:600;color:var(--accent);margin-bottom:8px;">Therapeutic Yoga Specialist • 20+ years • Pune</p>
+        <p>Ashwini combines traditional Hatha & Iyengar yoga with modern neuroscience and clinical safety standards to deliver programs that are accessible, measurable, and highly effective in corporate environments.</p>
+        <p>Trained under senior Iyengar teachers and certified in Yoga Therapy, she has transformed over 5,000 lives through authentic, result-oriented yoga.</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <h2 class="section-title">Experience & Credentials</h2>
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img src="https://athyog.in/assets/images/halfmarathon.jpeg" alt="Half Marathon">
+        <figcaption>Half Marathon Finisher</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://athyog.in/assets/images/cert1.jpg" alt="Certification">
+        <figcaption>Yoga Therapy Certification</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://athyog.in/assets/images/pranayam-workshop.jpg" alt="Pranayama Workshop">
+        <figcaption>Pranayama Workshop</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://athyog.in/assets/images/regular-fitness.jpg" alt="Regular Class">
+        <figcaption>Regular Group Class</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img src="https://athyog.in/assets/images/slim-smart-sadhana.jpg" alt="Slim Smart Sadhana">
+        <figcaption>Slim Smart Sadhana Batch</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+  <!-- Final CTA -->
+  <footer class="footer-cta">
+    <h3>Start Building a Calmer, More Focused Workplace Today</h3>
+    <p>Book a complimentary 20-minute discovery call + free pilot session for your team.</p>
+    <a href="https://wa.link/a0lxj5" target="_blank" class="btn-primary">Yes, Schedule Free Demo Now</a>
+    <p style="margin-top:32px;opacity:0.9;font-size:16px;">
+      📞 +91 93700 19475 &nbsp;&nbsp; ✉️ info@athyog.in &nbsp;&nbsp; 🌐 athyog.in
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
