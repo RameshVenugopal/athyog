@@ -1166,9 +1166,28 @@ document.addEventListener('DOMContentLoaded', function() {
       function getYouTubeId(url) {
         try {
           const u = new URL(url, location.href);
-          if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
-          if (u.hostname.includes('youtube.com') || u.hostname.includes('www.youtube.com')) return u.searchParams.get('v');
-        } catch (e) { /* ignore */ }
+          const host = u.hostname.toLowerCase();
+
+          // Short youtu.be links
+          if (host.includes('youtu.be')) return u.pathname.slice(1);
+
+          // Standard youtube.com links
+          if (host.includes('youtube.com') || host.includes('www.youtube.com')) {
+            // /shorts/VIDEO_ID
+            if (u.pathname.startsWith('/shorts/')) {
+              const parts = u.pathname.split('/').filter(Boolean);
+              return parts[1] || null;
+            }
+            // /embed/VIDEO_ID
+            if (u.pathname.startsWith('/embed/')) {
+              const parts = u.pathname.split('/').filter(Boolean);
+              return parts[1] || null;
+            }
+            // ?v=VIDEO_ID (watch links)
+            const v = u.searchParams.get('v');
+            if (v) return v;
+          }
+        } catch (e) { /* ignore malformed URLs */ }
         return null;
       }
 
