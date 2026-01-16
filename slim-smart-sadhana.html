@@ -92,6 +92,7 @@
             padding: 2px;
             background: linear-gradient(45deg, var(--accent), transparent, var(--accent2));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0.6;
@@ -412,6 +413,7 @@
             margin-bottom: 20px;
             background: linear-gradient(to right, #fff, #e2e8f0);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
@@ -984,27 +986,26 @@
                 <div style="flex: 1; height: 1px; background: var(--line);"></div>
             </div>
 
-            <form
+            <form id="enrollmentForm" onsubmit="sendToWhatsapp(event)"
                 style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: var(--surface); padding: 40px; border-radius: var(--radius); border: 1px solid var(--line);">
-                <input type="text" placeholder="Your Name"
+                <input type="text" id="enquiryName" placeholder="Your Name" required
                     style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); padding: 16px; border-radius: 8px; color: var(--text); font-family: inherit;">
-                <input type="email" placeholder="Email Address"
+                <input type="email" id="enquiryEmail" placeholder="Email Address"
                     style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); padding: 16px; border-radius: 8px; color: var(--text); font-family: inherit;">
-                <input type="text" placeholder="Phone Number"
+                <input type="tel" id="enquiryPhone" placeholder="Phone Number" required
                     style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); padding: 16px; border-radius: 8px; color: var(--text); font-family: inherit;">
-                <select
+                <select id="enquirySource"
                     style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); padding: 16px; border-radius: 8px; color: var(--muted); font-family: inherit;">
-                    <option>How did you hear about us?</option>
-                    <option>Social Media</option>
-                    <option>Friend/Referral</option>
-                    <option>Corporate Wellness</option>
-                    <option>Other</option>
+                    <option value="" disabled selected>How did you hear about us?</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Friend/Referral">Friend/Referral</option>
+                    <option value="Corporate Wellness">Corporate Wellness</option>
+                    <option value="Other">Other</option>
                 </select>
-                <textarea placeholder="Tell us about your wellness goals or concerns"
+                <textarea id="enquiryMessage" placeholder="Tell us about your wellness goals or concerns"
                     style="grid-column: span 2; background: rgba(255,255,255,0.03); border: 1px solid var(--line); padding: 16px; border-radius: 8px; color: var(--text); font-family: inherit; height: 120px;"></textarea>
                 <button type="submit" class="btn btn-primary"
-                    style="grid-column: span 2; padding: 18px; font-size: 18px;">Request
-                    Enrollment Details</button>
+                    style="grid-column: span 2; padding: 18px; font-size: 18px;">Request Enrollment Details</button>
             </form>
         </div>
     </section>
@@ -1092,6 +1093,34 @@
                 }
             });
         });
+
+        // WhatsApp Form Handling
+        function sendToWhatsapp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('enquiryName').value;
+            const email = document.getElementById('enquiryEmail').value;
+            const phone = document.getElementById('enquiryPhone').value;
+            const source = document.getElementById('enquirySource').value;
+            const message = document.getElementById('enquiryMessage').value;
+
+            if (!name || !phone) {
+                alert('Please fill in your Name and Phone Number.');
+                return;
+            }
+
+            const whatsappMessage = `*New Enrollment Inquiry - Slim Smart Sadhana*%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Heard From:* ${source}%0A` +
+                `*Goals/Concerns:* ${message}`;
+
+            const phoneNumber = '919370019475';
+            const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+            window.open(url, '_blank');
+        }
     </script>
 
 </body>
