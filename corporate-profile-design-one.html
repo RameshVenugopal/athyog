@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ath Yog | Corporate Wellness & Holistic Wellbeing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root {
+            --earth-green: #5d6d5a;
+            --muted-blue: #7a8d9b;
+            --soft-beige: #f5f2ed;
+            --sage: #a8b5a2;
+            --deep-slate: #3a4145;
+            --clay: #b58d7c;
+        }
+        @layer base {
+            body {
+                font-family: 'Cormorant Garamond', serif;
+                background-color: var(--soft-beige);
+                color: var(--deep-slate);
+                font-size: clamp(1rem, 1vw + 0.75rem, 1.25rem);
+            }
+            h1, h2, h3, h4, .sans {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                letter-spacing: -0.02em;
+            }
+        }
+        .full-bleed-bg {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .text-clamp-h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+        .text-clamp-h2 { font-size: clamp(2rem, 5vw, 3rem); }
+        .whitespace-section { padding-top: clamp(4rem, 10vw, 10rem); padding-bottom: clamp(4rem, 10vw, 10rem); }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "earth": "#5d6d5a",
+                        "serene": "#7a8d9b",
+                        "beige": "#f5f2ed",
+                        "sage": "#a8b5a2",
+                        "slate": "#3a4145",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="selection:bg-sage/30">
+    <header class="fixed top-0 z-50 w-full bg-beige/80 backdrop-blur-sm">
+        <div class="max-w-[1000px] mx-auto px-8 py-6 flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="assets/images/logo.png" alt="Ath Yog Logo" class="h-14 w-auto object-contain">
+            </div>
+            <nav class="hidden md:flex items-center gap-12">
+                <a class="sans text-xs font-medium uppercase tracking-widest hover:text-earth transition-colors"
+                    href="#why">Why Choose</a>
+                <a class="sans text-xs font-medium uppercase tracking-widest hover:text-earth transition-colors"
+                    href="#programs">Programs</a>
+                <a class="sans text-xs font-medium uppercase tracking-widest hover:text-earth transition-colors"
+                    href="#instructor">Instructor</a>
+            </nav>
+            <a href="https://wa.link/a0lxj5" target="_blank"
+                class="sans text-xs font-semibold uppercase tracking-widest border-b border-earth pb-1 hover:text-earth/60 transition-all">
+                Book Demo
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="Corporate yoga session"
+                    class="w-full h-full object-cover object-top scale-110 opacity-60 mix-blend-multiply" loading="lazy"
+                    src="assets/images/hero.jpg" />
+            </div>
+            <div class="relative z-10 max-w-[800px] px-8 text-center space-y-12">
+                <div class="space-y-6">
+                    <span class="sans text-xs font-medium uppercase tracking-[0.3em] text-earth">Pune • Corporate
+                        Sanctuary</span>
+                    <h1 class="text-clamp-h1 font-light leading-tight text-slate">
+                        Ashwini Patil<br><span class="italic font-serif text-earth text-[0.6em]">Corporate Wellness
+                            Specialist</span>
+                    </h1>
+                    <p class="text-xl max-w-xl mx-auto font-light italic text-slate/80 leading-relaxed">
+                        Evidence-based yoga, breathwork & mindfulness programs that reduce stress, prevent burnout, and
+                        improve focus for modern workplaces.
+                    </p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 pt-8">
+                    <a href="https://wa.link/a0lxj5" target="_blank"
+                        class="sans bg-earth text-white px-10 py-5 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-slate transition-all shadow-sm">Book
+                        Free Demo Session</a>
+                    <div class="flex gap-6">
+                        <span class="sans text-[10px] uppercase tracking-widest flex items-center gap-2 text-earth">
+                            <span class="material-symbols-outlined text-sm">filter_vintage</span> Resilience
+                        </span>
+                        <span class="sans text-[10px] uppercase tracking-widest flex items-center gap-2 text-earth">
+                            <span class="material-symbols-outlined text-sm">waves</span> Balance
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-earth/5 py-16 px-8 border-y border-earth/10">
+            <div class="max-w-[1000px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+                <div class="text-center space-y-1">
+                    <p class="sans text-2xl font-light text-earth italic">20+</p>
+                    <p class="sans text-[10px] uppercase tracking-[0.2em] text-slate/60">Years of Expertise</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <p class="sans text-2xl font-light text-earth italic">5,000+</p>
+                    <p class="sans text-[10px] uppercase tracking-[0.2em] text-slate/60">Lives Transformed</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <p class="sans text-2xl font-light text-earth italic">12+</p>
+                    <p class="sans text-[10px] uppercase tracking-[0.2em] text-slate/60">Certified Instructors</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <p class="sans text-2xl font-light text-earth italic">95%</p>
+                    <p class="sans text-[10px] uppercase tracking-[0.2em] text-slate/60">Client Renewal Rate</p>
+                </div>
+            </div>
+        </section>
+        <section class="whitespace-section px-8" id="programs">
+            <div class="max-w-[800px] mx-auto text-center mb-24">
+                <h2 class="text-clamp-h2 font-light text-slate mb-8">Signature Corporate <span
+                        class="italic font-serif">Offerings</span></h2>
+                <p class="text-lg text-slate/60 max-w-lg mx-auto leading-relaxed">Customized programs blending
+                    traditional wisdom with modern wellness needs for teams.</p>
+            </div>
+            <div class="max-w-[1000px] mx-auto space-y-32">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 grid grid-cols-2 gap-4">
+                        <img src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.08.jpeg"
+                            alt="Corporate Chair Yoga Session" class="w-full aspect-square object-cover rounded-sm">
+                        <img src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.11.jpeg"
+                            alt="Employees practicing yoga at desk"
+                            class="w-full aspect-square object-cover rounded-sm">
+                        <img src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.15.jpeg"
+                            alt="Ath Yog wellness session" class="w-full aspect-square object-cover rounded-sm">
+                        <img src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.17.jpeg"
+                            alt="Chair yoga movement break" class="w-full aspect-square object-cover rounded-sm">
+                    </div>
+                    <div class="space-y-6 order-1 md:order-2">
+                        <span class="sans text-[10px] uppercase tracking-widest text-earth font-bold">Most
+                            Popular</span>
+                        <h3 class="sans text-3xl font-light">Chair Yoga & Movement Breaks</h3>
+                        <p class="italic text-slate/70 leading-relaxed">30–45 min desk-friendly sessions that relieve
+                            back/neck pain, improve circulation and reset focus — perfect for long screen hours.</p>
+                        <ul class="sans text-xs space-y-3 pt-4">
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-earth rounded-full"></span>
+                                Relieve musculoskeletal issues</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-earth rounded-full"></span>
+                                Boost energy and focus</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-earth rounded-full"></span> No
+                                equipment needed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-6">
+                        <span class="sans text-[10px] uppercase tracking-widest text-serene font-bold">High
+                            Impact</span>
+                        <h3 class="sans text-3xl font-light">Mindfulness & Science-Backed Breathwork</h3>
+                        <p class="italic text-slate/70 leading-relaxed">Proven techniques used by Google & NHS. Lowers
+                            cortisol, enhances emotional regulation and decision-making under pressure.</p>
+                        <ul class="sans text-xs space-y-3 pt-4">
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-serene rounded-full"></span>
+                                Stress management</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-serene rounded-full"></span>
+                                Improved resilience</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-serene rounded-full"></span>
+                                Better team dynamics</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-sm overflow-hidden aspect-video bg-black">
+                        <video controls preload="metadata" playsinline poster="assets/images/hero.jpg"
+                            class="w-full h-full">
+                            <source src="assets/video/medicalstudents.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/0mcIFmAD8_A"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                            class="aspect-video rounded-sm shadow-md"></iframe>
+                    </div>
+                    <div class="space-y-6 order-1 md:order-2">
+                        <span class="sans text-[10px] uppercase tracking-widest text-clay font-bold">Team
+                            Experience</span>
+                        <h3 class="sans text-3xl font-light">Wellness Day / Off-site Retreat</h3>
+                        <p class="italic text-slate/70 leading-relaxed">Half or full-day immersive experience combining
+                            yoga, pranayama, meditation and team coaching for deep recharge.</p>
+                        <ul class="sans text-xs space-y-3 pt-4">
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-clay rounded-full"></span> Team
+                                bonding</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-clay rounded-full"></span> Deep
+                                relaxation</li>
+                            <li class="flex items-center gap-3"><span class="w-1 h-1 bg-clay rounded-full"></span>
+                                Renewed energy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="whitespace-section px-8" id="why">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="grid md:grid-cols-2 gap-20 items-start">
+                    <div class="sticky top-32 space-y-8">
+                        <h2 class="text-clamp-h2 font-light text-slate">Why Leading <span
+                                class="italic font-serif text-earth">Companies Choose Us</span></h2>
+                        <p class="text-lg italic text-slate/70 leading-relaxed">Proven programs that deliver measurable
+                            ROI through reduced stress and enhanced productivity.</p>
+                    </div>
+                    <div class="space-y-16">
+                        <div class="space-y-4">
+                            <h4 class="sans text-sm font-semibold uppercase tracking-widest text-earth">Proven Impact
+                            </h4>
+                            <ul class="text-slate/70 space-y-2 text-sm italic">
+                                <li>• Pre- and post-program assessments</li>
+                                <li>• Clinically safe & therapeutic approach</li>
+                                <li>• Documented ROI: reduced sick leaves & higher engagement</li>
+                                <li>• 95% program continuation rate</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="sans text-sm font-semibold uppercase tracking-widest text-earth">Maximum
+                                Flexibility</h4>
+                            <ul class="text-slate/70 space-y-2 text-sm italic">
+                                <li>• On-site (Pune & Pan-India), Live Online, or Hybrid</li>
+                                <li>• 20–60 min sessions or full-day retreats</li>
+                                <li>• Customised for desk workers & leadership teams</li>
+                                <li>• No mats or changing required (chair-based options)</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="sans text-sm font-semibold uppercase tracking-widest text-earth">Case Study –
+                                Leading IT Firm</h4>
+                            <p class="text-slate/70"><strong class="text-slate">8-week program • 180
+                                    employees</strong><br>
+                                → 34% reduction in perceived stress<br>
+                                → 18% decrease in musculoskeletal pain<br>
+                                → 91% felt more energied at work</p>
+                        </div>
+                        <div class="border-t border-earth/20 pt-16">
+                            <p class="italic text-xl text-slate mb-6">"Ath Yog’s program was the highest-rated wellbeing
+                                initiative we’ve ever run."</p>
+                            <p class="sans text-[10px] uppercase tracking-widest text-slate/50">— Head of People &
+                                Culture, Leading IT Company (Pune)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="whitespace-section px-8 bg-beige" id="instructor">
+            <div class="max-w-[900px] mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div
+                        class="w-full md:w-1/2 aspect-[3/4] bg-slate/5 rounded-sm overflow-hidden border border-earth/10 shadow-lg">
+                        <img alt="Yog Guru Ashwini Patil" class="w-full h-full object-cover"
+                            src="assets/images/guru.avif" loading="lazy" />
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-8">
+                        <div class="space-y-2">
+                            <span class="sans text-[10px] uppercase tracking-[0.3em] text-earth">The Guide</span>
+                            <h3 class="sans text-4xl font-light">Yog Guru Ashwini Patil</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="sans text-[9px] uppercase tracking-wider border border-earth/30 px-3 py-1 text-earth">Yoga
+                                & Wellness Trainer</span>
+                            <span
+                                class="sans text-[9px] uppercase tracking-wider border border-earth/30 px-3 py-1 text-earth">PCOD/PCOS
+                                Specialist</span>
+                        </div>
+                        <p class="italic text-slate/70 leading-relaxed">
+                            Dedicated and certified Yoga & Wellness Trainer with extensive experience in therapeutic
+                            yoga, women's wellness, PCOD/PCOS yoga therapy, and holistic practices. With 20+ years of
+                            dedicated teaching, Ashwini combines traditional authentic yoga with modern neuroscience and
+                            clinical safety standards. She has transformed over 5,000 lives through result-oriented,
+                            evidence-based practices.
+                        </p>
+                        <div class="space-y-6 pt-4 border-t border-earth/10">
+                            <div>
+                                <h4 class="sans text-[10px] uppercase tracking-widest text-earth font-bold mb-3">
+                                    Certifications</h4>
+                                <ul class="sans text-[11px] space-y-2 text-slate/70">
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> YCB Level-II (Govt. of India)
+                                    </li>
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> Yog Gurukul, Talwade, Nashik
+                                        (Yog Shikshak, Prabodh)</li>
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> Certified Face Yoga & Zumba
+                                        Trainer</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="sans text-[10px] uppercase tracking-widest text-earth font-bold mb-3">
+                                    Specialization</h4>
+                                <ul class="sans text-[11px] space-y-2 text-slate/70">
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> PCOD/PCOS Yog Therapy</li>
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> Pranayam & Yoga Nidra
+                                        Specialization</li>
+                                    <li class="flex items-center gap-2"><span
+                                            class="w-1 h-1 bg-earth rounded-full"></span> Spine Health & Back Care</li>
+                                </ul>
+                            </div>
+                            <div class="pt-2 flex gap-8">
+                                <span class="sans text-[10px] uppercase tracking-widest text-slate/50">Languages:
+                                    English, Hindi, Marathi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="whitespace-section px-8 bg-beige/50" id="credentials">
+            <div class="max-w-[1000px] mx-auto text-center mb-16">
+                <span class="sans text-[10px] uppercase tracking-[0.4em] text-earth">Gallery</span>
+                <h2 class="text-clamp-h2 font-light mt-4">Experience & <span
+                        class="italic font-serif">Credentials</span></h2>
+            </div>
+            <div class="max-w-[1000px] mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="space-y-2">
+                    <img src="assets/images/halfmarathon.jpeg" alt="Half Marathon"
+                        class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <p class="sans text-[9px] uppercase tracking-widest text-center text-slate/40">Marathon Finisher</p>
+                </div>
+                <div class="space-y-2">
+                    <img src="https://athyog.in/assets/images/cert1.jpg" alt="Certification"
+                        class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <p class="sans text-[9px] uppercase tracking-widest text-center text-slate/40">Yoga Therapy Cert</p>
+                </div>
+                <div class="space-y-2">
+                    <img src="assets/images/pranayam-workshop.jpg" alt="Pranayama Workshop"
+                        class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <p class="sans text-[9px] uppercase tracking-widest text-center text-slate/40">Pranayama Workshop
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <img src="assets/images/regular-fitness.jpg" alt="Regular Class"
+                        class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <p class="sans text-[9px] uppercase tracking-widest text-center text-slate/40">Regular Session</p>
+                </div>
+                <div class="space-y-2">
+                    <img src="assets/images/slim-smart-sadhana.jpg" alt="Slim Smart Sadhana"
+                        class="w-full aspect-square object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <p class="sans text-[9px] uppercase tracking-widest text-center text-slate/40">Sadhana Batch</p>
+                </div>
+            </div>
+        </section>
+        <section class="whitespace-section px-8 bg-slate text-beige" id="pricing">
+            <div class="max-w-[1000px] mx-auto">
+                <div class="text-center mb-24">
+                    <span class="sans text-[10px] uppercase tracking-[0.4em] text-sage">Investment</span>
+                    <h2 class="text-clamp-h2 font-light mt-4">Transparent Pricing <span class="italic font-serif">(Per
+                            Month, excl. GST)</span></h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="p-10 border border-beige/10 space-y-12">
+                        <div class="space-y-4">
+                            <h4 class="sans text-xs uppercase tracking-widest text-sage">Weekly Chair Yoga</h4>
+                            <p class="text-2xl font-light italic">1 session/week</p>
+                        </div>
+                        <ul class="sans text-xs space-y-5 opacity-70">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> 10–30 employees</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> Desk-friendly</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> ₹18,000 – ₹28,000</li>
+                        </ul>
+                        <button
+                            class="w-full sans text-[10px] uppercase tracking-widest border border-beige/40 py-4 hover:bg-beige hover:text-slate transition-all">Enquire</button>
+                    </div>
+                    <div class="p-10 border border-sage/50 bg-white/5 space-y-12">
+                        <div class="space-y-4">
+                            <h4 class="sans text-xs uppercase tracking-widest text-sage">Twice Weekly Mixed</h4>
+                            <p class="text-2xl font-light italic">Yoga + Breathwork</p>
+                        </div>
+                        <ul class="sans text-xs space-y-5 opacity-70">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> 10–50 employees</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> Hybrid options</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> ₹32,000 – ₹55,000</li>
+                        </ul>
+                        <button
+                            class="w-full sans bg-sage text-slate text-[10px] uppercase tracking-widest py-4 hover:bg-beige transition-all">Join</button>
+                    </div>
+                    <div class="p-10 border border-beige/10 space-y-12">
+                        <div class="space-y-4">
+                            <h4 class="sans text-xs uppercase tracking-widest text-sage">Full Wellness Package</h4>
+                            <p class="text-2xl font-light italic">+ Retreat</p>
+                        </div>
+                        <ul class="sans text-xs space-y-5 opacity-70">
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> 50+ employees</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> Comprehensive</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-symbols-outlined text-sm">check</span> Custom Quote</li>
+                        </ul>
+                        <button
+                            class="w-full sans text-[10px] uppercase tracking-widest border border-beige/40 py-4 hover:bg-beige hover:text-slate transition-all">Consult</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0 bg-earth/20">
+                <img alt="Team wellness session" class="w-full h-full object-cover grayscale opacity-20" loading="lazy"
+                    src="https://images.unsplash.com/photo-1592432678016-e910a881cdda?auto=format&fit=crop&q=80&w=2000" />
+            </div>
+            <div class="relative z-10 max-w-[700px] px-8 text-center space-y-12">
+                <h2 class="text-clamp-h2 font-light text-slate">Begin your team's <span
+                        class="italic font-serif">transformation.</span></h2>
+                <div class="space-y-8">
+                    <p class="sans text-xs uppercase tracking-[0.3em] text-slate/60">Available Pan-India</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                        <a href="https://wa.link/a0lxj5" target="_blank"
+                            class="sans bg-slate text-beige px-12 py-5 text-xs font-bold uppercase tracking-widest hover:bg-earth transition-all">Free
+                            Consultation</a>
+                        <a href="mailto:info@athyog.in"
+                            class="sans border-b border-slate text-slate px-4 py-2 text-xs font-bold uppercase tracking-widest hover:text-earth hover:border-earth transition-all">Request
+                            Proposal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-beige pt-32 pb-16 px-8 border-t border-earth/10">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-32">
+                <div class="space-y-8">
+                    <div class="flex items-center">
+                        <img src="assets/images/logo.png" alt="Ath Yog Logo" class="h-12 w-auto object-contain">
+                    </div>
+                    <p class="italic text-slate/50 leading-relaxed text-base">
+                        Evidence-based wellness for modern workplaces, led by Yog Guru Ashwini Patil.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="sans text-[10px] uppercase tracking-widest text-slate font-bold">Programs</h5>
+                    <ul class="sans text-xs space-y-4 text-slate/60">
+                        <li><a class="hover:text-earth transition-colors" href="#programs">Chair Yoga</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="#programs">Breathwork</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="#programs">Retreats</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="https://wa.link/a0lxj5"
+                                target="_blank">Custom Program</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="sans text-[10px] uppercase tracking-widest text-slate font-bold">About</h5>
+                    <ul class="sans text-xs space-y-4 text-slate/60">
+                        <li><a class="hover:text-earth transition-colors" href="#why">Why Us</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="#instructor">Instructor</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="#why">Case Studies</a></li>
+                        <li><a class="hover:text-earth transition-colors" href="https://www.athyog.in"
+                                target="_blank">Main Website</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="sans text-[10px] uppercase tracking-widest text-slate font-bold">Contact</h5>
+                    <ul class="sans text-xs space-y-4 text-slate/60">
+                        <li>+91 93700 19475</li>
+                        <li>info@athyog.in</li>
+                        <li><a class="hover:text-earth transition-colors" href="https://www.athyog.in">www.athyog.in</a>
+                        </li>
+                        <li class="flex gap-6 pt-2">
+                            <span
+                                class="material-symbols-outlined text-sm cursor-pointer hover:text-earth">filter_vintage</span>
+                            <span class="material-symbols-outlined text-sm cursor-pointer hover:text-earth">mail</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-earth/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                <p class="sans text-[9px] uppercase tracking-[0.2em] text-slate/40">© 2026 Ath Yog. Designed for
+                    Corporate Wellbeing.</p>
+                <div class="flex gap-8 sans text-[9px] uppercase tracking-[0.2em] text-slate/40">
+                    <a class="hover:text-earth transition-colors" href="privacy-policy.html">Privacy</a>
+                    <a class="hover:text-earth transition-colors" href="terms-of-service.html">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
