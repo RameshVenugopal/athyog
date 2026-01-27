@@ -43,8 +43,11 @@ Ath Yog Wellness Foundation has been transforming lives through authentic yoga p
 ## 📁 Project Structure
 
 ```
-athyog-site/
+ath-yog-site/
 ├── index.html                 # Main homepage
+├── corporate-profile.html     # Redirects to new corporate profile
+├── corporate-profile-design-one.html # New Corporate Profile Page
+├── slim-smart-sadhana.html    # Detailed program page
 ├── privacy-policy.html        # Privacy policy page
 ├── terms-of-service.html      # Terms of service page
 ├── sitemap.xml               # SEO sitemap
@@ -102,28 +105,26 @@ athyog-site/
 
 ## 🎨 Design System
 
-### Color Palette
+### Color Palette (Vibrant & Playful)
 
-- **Primary Background**: `#0f0f10` (Dark charcoal)
-- **Surface**: `#121214` (Slightly lighter dark)
-- **Text**: `#e8e8ea` (Light gray)
-- **Muted Text**: `#b3b3b7` (Medium gray)
-- **Accent**: `#a7f3d0` (Mint green)
-- **Accent Ink**: `#0b3b2d` (Dark green)
+- **Primary**: `#ff6b6b` (Coral Red) - Used for primary actions and highlights
+- **Accent**: `#4ecdc4` (Teal) - Used for secondary actions and gradients
+- **Navy**: `#2c3e50` (Deep Blue) - Used for text and strong contrasts and borders
+- **Cream**: `#fffaf0` (Warm White) - Main background color
+- **Lavender**: `#e0d7ff` (Soft Purple) - Used for decorative elements
+- **Mint**: `#d7fff1` (Soft Green) - Used for decorative elements
 
 ### Typography
 
-- **Font Family**: Inter (300, 400, 500, 600, 700, 900)
-- **Heading Scale**: Responsive clamp() functions
-- **Body Text**: 1.6 line height, optimized for readability
+- **Headings**: Fredoka (Rounded, friendly font)
+- **Body**: Quicksand (Clean, modern sans-serif)
 
 ### Components
 
-- **Cards**: Program/service display with hover effects
-- **Buttons**: Primary, ghost, and outline variants
-- **Navigation**: Responsive header with mobile menu
-- **Forms**: Contact form with validation
-- **Modals**: Program detail overlays (framework ready)
+- **Cards**: "Glassmorphism" inspired with gradients, rounded corners, and hover lift effects
+- **Buttons**: Rounded, pill-shaped with shadow and scale effects on hover
+- **Navigation**: Sticky header with blur effect
+- **Dynamic Elements**: Smooth scrolling, fade-in animations on scroll
 
 ## 📱 Responsive Breakpoints
 

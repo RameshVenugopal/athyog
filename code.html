@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ath Yog | Joyful Corporate Wellness &amp; Community</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Fredoka:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #ff6b6b;--accent: #4ecdc4;--navy: #2c3e50;--cream: #fffaf0;--lavender: #e0d7ff;
+            --mint: #d7fff1;
+        }
+        @layer base {
+            body {
+                font-family: 'Quicksand', sans-serif;
+                background-color: var(--cream);
+                color: var(--navy);
+                font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+            }
+            h1, h2, h3, h4 {
+                font-family: 'Fredoka', sans-serif;
+            }
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff6b6b 0%, #d7fff1 100%);
+        }
+        .asymmetric-card {
+            border-radius: 40px 15px 40px 15px;
+        }
+        .asymmetric-card-alt {
+            border-radius: 15px 40px 15px 40px;
+        }
+        .organic-divider {
+            aspect-ratio: 960/100;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .text-clamp-h1 { font-size: clamp(2.5rem, 5vw + 1rem, 5rem); }
+        .text-clamp-h2 { font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem); }.reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6b6b",
+                        "accent": "#4ecdc4",
+                        "navy": "#2c3e50",
+                        "cream": "#fffaf0",
+                        "lavender": "#e0d7ff",
+                        "mint": "#d7fff1",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="selection:bg-accent/30 overflow-x-hidden">
+<header class="fixed top-0 z-50 w-full bg-cream/80 backdrop-blur-lg border-b border-accent/20">
+<div class="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-2 rounded-full rotate-12">
+<span class="material-symbols-outlined text-white text-2xl">diversity_3</span>
+</div>
+<h1 class="text-navy text-2xl font-bold tracking-tight">Ath Yog</h1>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-bold hover:text-primary transition-colors flex items-center gap-1" href="#programs">
+<span class="material-symbols-outlined text-lg">celebration</span> Programs
+                </a>
+<a class="text-sm font-bold hover:text-primary transition-colors flex items-center gap-1" href="#why-us">
+<span class="material-symbols-outlined text-lg">favorite</span> Why Us
+                </a>
+<a class="text-sm font-bold hover:text-primary transition-colors flex items-center gap-1" href="#instructor">
+<span class="material-symbols-outlined text-lg">person_celebrate</span> The Guru
+                </a>
+<a class="text-sm font-bold hover:text-primary transition-colors flex items-center gap-1" href="#pricing">
+<span class="material-symbols-outlined text-lg">local_activity</span> Pricing
+                </a>
+</nav>
+<button class="bg-accent text-navy px-8 py-3 rounded-full text-sm font-black hover:scale-105 transition-transform shadow-[4px_4px_0px_0px_rgba(44,62,80,1)]">
+                Join the Circle
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<section class="hero-gradient w-full min-h-[90vh] flex items-center px-6 py-20 relative overflow-hidden">
+<div class="absolute -top-20 -left-20 w-96 h-96 bg-lavender/40 rounded-full blur-3xl"></div>
+<div class="absolute bottom-10 right-10 w-64 h-64 bg-accent/30 rounded-full blur-3xl"></div>
+<div class="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+<div class="space-y-10">
+<div class="space-y-6">
+<span class="inline-block bg-navy/10 text-navy border-2 border-navy/20 px-6 py-2 rounded-full text-sm font-black uppercase tracking-widest">
+                            Collective Joy &amp; Vitality
+                        </span>
+<h1 class="text-navy text-clamp-h1 font-bold leading-[1.05]">
+                            Ath Yog Corporate Wellness
+                        </h1>
+<p class="text-navy/80 text-2xl font-semibold max-w-xl">
+                            Yog Guru Ashwini Patil – Evidence-based programs built for community, connection, and thriving together.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="bg-lavender text-navy px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 border-2 border-navy/5">
+<span class="material-symbols-outlined text-primary">psychology_alt</span> Stress Reduction
+                        </span>
+<span class="bg-mint text-navy px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 border-2 border-navy/5">
+<span class="material-symbols-outlined text-accent">energy_savings_leaf</span> Burnout Prevention
+                        </span>
+</div>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary text-white px-10 py-5 rounded-[2rem] font-black text-xl hover:shadow-[8px_8px_0px_0px_rgba(44,62,80,1)] transition-all transform hover:-translate-y-1">Get Started Today</button>
+<button class="bg-white/40 backdrop-blur-sm text-navy border-2 border-navy px-10 py-5 rounded-[2rem] font-black text-xl hover:bg-white transition-all">See the Magic</button>
+</div>
+</div>
+<div class="hidden lg:block relative">
+<div class="bg-white p-6 rounded-[3rem] shadow-2xl rotate-3">
+<img alt="Stylized illustration of a happy team" class="rounded-[2.5rem] w-full object-cover aspect-[4/3]" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7Yui5eB9RqdNPRq3M0GYS_gN4ZKpd6vFsBTkUzALBnG1UFcsz9vhtjSl3OzPpI8e6_1SqRGdgRmSGQ_3oylmOHXJuO38XHOvkogqEVe5kHp8-e6KlTSOoZPtb4qCR0pH5iqijerqCQxlsMuIelnuZtZZ_sZ_VeE0J3v04k3XN4AOOrZ9rBTC1sbiwh3AOHvndWC_qOGq70o_HW_r5hOXyQCx3onVE5wgIIXgpQmHXIN2zQzdyJUbg15L0MoRG_ZL6ixCEjoZ4uU"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-accent p-6 rounded-3xl shadow-xl -rotate-6 text-navy">
+<p class="font-black text-2xl">Pune's finest</p>
+<p class="font-bold opacity-80">Wellness Circle</p>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full bg-navy py-16 px-6 relative z-20">
+<div class="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="text-center group">
+<p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">20+ Years</p>
+<p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Deep Expertise</p>
+</div>
+<div class="text-center group">
+<p class="text-primary text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">5,000+</p>
+<p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Lives Transformed</p>
+</div>
+<div class="text-center group">
+<p class="text-lavender text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">12+</p>
+<p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Expert Guides</p>
+</div>
+<div class="text-center group">
+<p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">95%</p>
+<p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Happy Renewals</p>
+</div>
+</div>
+</section>
+<section class="w-full max-w-[1280px] mx-auto px-6 py-32" id="programs">
+<div class="text-center mb-20">
+<h2 class="text-primary font-black uppercase tracking-[0.3em] mb-4">Our Programs</h2>
+<h3 class="text-navy text-clamp-h2 font-bold max-w-2xl mx-auto leading-tight">Holistic Playbooks for Thriving Teams</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-10">
+<div class="bg-lavender/30 p-10 asymmetric-card border-b-8 border-r-8 border-navy hover:translate-y-[-10px] transition-all group">
+<div class="w-20 h-20 bg-lavender rounded-3xl flex items-center justify-center text-navy mb-8 group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined !text-4xl">chair_alt</span>
+</div>
+<h4 class="text-navy text-2xl font-black mb-4">Chair Yoga</h4>
+<p class="text-navy/70 font-medium leading-relaxed mb-8 text-lg">Desk-side relief that brings immediate comfort. Perfectly playful sequences to keep your posture proud and your spirit light.</p>
+<div class="rounded-2xl overflow-hidden shadow-lg">
+<img alt="Artistic representation of chair yoga" class="w-full h-52 object-cover grayscale-0 group-hover:scale-110 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2iWHLMCe3ihaEL2GGtptD_L42nCNPkJVIVYnDzPTVUXOFcc4RDRoyD3Fs7qgS8N4RGsqg9lwozU13oGXmcyxDSd7LmF8-1K6VPMgE9ttAHiL8sXqPEK586MUB-YIu-FK5ie4o0wH_chm93Yo4R4AsWPf9L7tJhuwvsQvQv3TBzT6Jnu7rff3cHnPO9VPk4OTQRLDku0ok6atBfNI-W6qZAldYK6x-LMS7Ijvy2fDuY-4KRmsjIMd3kxQYO9D8M3D_eNCSbwXidJI"/>
+</div>
+</div>
+<div class="bg-mint/30 p-10 asymmetric-card-alt border-b-8 border-r-8 border-navy hover:translate-y-[-10px] transition-all group mt-8 md:mt-0">
+<div class="w-20 h-20 bg-mint rounded-3xl flex items-center justify-center text-navy mb-8 group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined !text-4xl">air</span>
+</div>
+<h4 class="text-navy text-2xl font-black mb-4">Breathwork</h4>
+<p class="text-navy/70 font-medium leading-relaxed mb-8 text-lg">Harness the power of your breath to calm the mind and spark focus. Science-backed, community-driven, and purely refreshing.</p>
+<div class="rounded-2xl overflow-hidden shadow-lg">
+<img alt="Calm stylized breathing artwork" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuf08opsen2ns0xTAjLeQ4CndCCuQkDbSW1zAX2Rq1TsvWqsI_b4gkbipJjsl_8y7aLP20-Cw0LMazko8ICqqH3x1bEHJNJdqw5jDvOpzTUSkPX-z3xjGHvI8xiUZWDxstTthnP4jc2BXSEjC8l9kmRnAP0md9oGmPN0hzmwOqOho2WMEigGd5jeuriuLeiKan_wkZWzaIKmCyNEF_N9jdgBwOF26qe2JcCFyz4-bozLwBmzlItkvabG5DEwxeqhFRn86ExVTWLdo"/>
+</div>
+</div>
+<div class="bg-primary/10 p-10 asymmetric-card border-b-8 border-r-8 border-navy hover:translate-y-[-10px] transition-all group mt-8 md:mt-0">
+<div class="w-20 h-20 bg-primary/20 rounded-3xl flex items-center justify-center text-primary mb-8 group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined !text-4xl">forest</span>
+</div>
+<h4 class="text-navy text-2xl font-black mb-4">Corporate Retreats</h4>
+<p class="text-navy/70 font-medium leading-relaxed mb-8 text-lg">Escape the mundane with our immersive team-building retreats. Reconnect with nature and each other in Pune's most serene spots.</p>
+<div class="rounded-2xl overflow-hidden shadow-lg">
+<img alt="Artistic retreat caricature" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt09fuxlFcJhMLnClq-x0mUwCPD1uOQFpaAM5UWqWLlmZBT5kTJmNhdz_YgTfNNz76EyyGxVUV7uRZzf_FTd0xUZEAr-wy-n0i-_vAnjGoO5hI7J0ONI8mvxfsgth9nOFaWTTAkCervck2j-hrEkiqPZx9EhzERGei1PEgmQlWQk1MIdkqKoDZB-tdhjVW_mZQRcbvRoxocFL4AuOy5kOjOHB20bzqdXEnRDCt9F9vRelE3lLT_ROJi-Ev0c7XiLGaTKk_m4tlUOQ"/>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-32 px-6" id="why-us">
+<div class="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-12">
+<h2 class="text-navy text-clamp-h2 font-black leading-tight">Why the Ath Yog Circle?</h2>
+<div class="space-y-10">
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-3xl">insights</span>
+</div>
+<div>
+<h4 class="text-navy text-2xl font-black mb-2">Impact You Can Feel</h4>
+<p class="text-navy/70 text-lg">We don't just teach yoga; we build culture. Watch employee engagement soar by 40% as your team learns to breathe together.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-lavender flex items-center justify-center text-navy group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-3xl">fluid</span>
+</div>
+<div>
+<h4 class="text-navy text-2xl font-black mb-2">Total Flexibility</h4>
+<p class="text-navy/70 text-lg">From virtual micro-breaks to hybrid deep-dives, we adapt to your workflow. No corporate rigidity here—just fluid wellness.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="bg-mint p-12 asymmetric-card shadow-2xl relative z-10 border-4 border-navy">
+<span class="material-symbols-outlined text-navy/20 !text-8xl absolute top-4 right-4 -z-0">format_quote</span>
+<p class="text-navy font-bold text-2xl italic leading-relaxed mb-8 relative z-10">
+                            "Ath Yog didn't just give us classes; they gave us a community. Our Tuesday Chair Yoga is now the heart of our workplace culture. We've never felt more connected or energized."
+                        </p>
+<div class="flex items-center gap-5">
+<div class="w-16 h-16 rounded-full bg-navy/20 border-2 border-navy overflow-hidden">
+<span class="material-symbols-outlined text-navy !text-5xl translate-y-2">face_6</span>
+</div>
+<div>
+<p class="font-black text-navy text-xl">Wellness Director</p>
+<p class="text-navy/60 font-bold uppercase tracking-widest text-sm">Pune Tech Collective</p>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 asymmetric-card -z-0"></div>
+</div>
+</div>
+</section>
+<section class="bg-cream py-32 px-6" id="instructor">
+<div class="max-w-[1100px] mx-auto bg-white p-10 md:p-20 rounded-[4rem] shadow-2xl border-2 border-navy relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-lavender/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+<div class="flex flex-col md:flex-row items-center gap-16 relative z-10">
+<div class="w-72 h-72 md:w-96 md:h-96 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-accent bg-mint/20 rotate-[-4deg]">
+<div class="w-full h-full flex items-center justify-center">
+<span class="material-symbols-outlined text-accent !text-[12rem]">person_pin</span>
+</div>
+</div>
+<div class="space-y-8 flex-1">
+<div>
+<h2 class="text-primary font-black uppercase tracking-[0.2em] mb-3">Meet Your Guide</h2>
+<h3 class="text-navy text-clamp-h2 font-black leading-none">Ashwini Patil</h3>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="bg-navy text-white px-5 py-2 rounded-full text-sm font-bold">M.Sc. Yogic Sciences</span>
+<span class="bg-accent text-navy px-5 py-2 rounded-full text-sm font-bold">RYT 500+ Expert</span>
+<span class="bg-lavender text-navy px-5 py-2 rounded-full text-sm font-bold">Community Catalyst</span>
+</div>
+<p class="text-navy/80 text-xl font-medium leading-relaxed">
+                            With 20+ years of wisdom, Ashwini Patil bridges the gap between ancient traditions and modern joy. Her sessions aren't just about poses; they're about building a collective heartbeat in the corporate world. Certified therapist and a relentless advocate for workplace happiness.
+                        </p>
+<div class="flex gap-6">
+<a class="w-12 h-12 bg-navy text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="w-12 h-12 bg-navy text-white rounded-full flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="material-symbols-outlined">explore</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 bg-white" id="pricing">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-accent font-black uppercase tracking-[0.3em] mb-4">Investment</h2>
+<h3 class="text-navy text-clamp-h2 font-bold">Joyful Wellness for Every Budget</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-8 items-end">
+<div class="bg-lavender/20 p-10 rounded-[3rem] border-2 border-navy flex flex-col group">
+<h4 class="text-navy text-2xl font-black mb-2">Seedling</h4>
+<p class="text-navy/60 font-bold mb-8">Nurturing small teams.</p>
+<div class="mb-10">
+<span class="text-5xl font-black text-navy">Custom</span>
+</div>
+<ul class="space-y-5 mb-10 flex-grow">
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-primary">check_circle</span> 2 Virtual Sessions</li>
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-primary">check_circle</span> Daily Micro-Meditations</li>
+<li class="flex items-center gap-3 font-bold text-navy/30"><span class="material-symbols-outlined">cancel</span> In-person Workshops</li>
+</ul>
+<button class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all">Plant the Seed</button>
+</div>
+<div class="bg-navy p-10 rounded-[3.5rem] shadow-2xl flex flex-col relative transform scale-105 border-4 border-primary">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-primary text-white px-8 py-2 rounded-full text-sm font-black uppercase tracking-widest shadow-xl">Best Value</div>
+<h4 class="text-white text-3xl font-black mb-2">Blooming</h4>
+<p class="text-white/60 font-bold mb-8">For the thriving enterprise.</p>
+<div class="mb-10">
+<span class="text-6xl font-black text-accent">Custom</span>
+</div>
+<ul class="space-y-5 mb-10 flex-grow">
+<li class="flex items-center gap-3 font-bold text-white"><span class="material-symbols-outlined text-accent">stars</span> 4 Hybrid Sessions</li>
+<li class="flex items-center gap-3 font-bold text-white"><span class="material-symbols-outlined text-accent">stars</span> Chair Yoga Mastery</li>
+<li class="flex items-center gap-3 font-bold text-white"><span class="material-symbols-outlined text-accent">stars</span> Joy Report &amp; Insights</li>
+</ul>
+<button class="w-full bg-primary text-white font-black py-5 rounded-3xl hover:shadow-[0px_10px_20px_-5px_rgba(255,107,107,0.5)] transition-all transform hover:scale-105">Get the Proposal</button>
+</div>
+<div class="bg-mint/30 p-10 rounded-[3rem] border-2 border-navy flex flex-col group">
+<h4 class="text-navy text-2xl font-black mb-2">Evergreen</h4>
+<p class="text-navy/60 font-bold mb-8">Cultural transformation.</p>
+<div class="mb-10">
+<span class="text-5xl font-black text-navy">Custom</span>
+</div>
+<ul class="space-y-5 mb-10 flex-grow">
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-accent">check_circle</span> Unlimited In-person</li>
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-accent">check_circle</span> Executive Flow Coaching</li>
+<li class="flex items-center gap-3 font-bold"><span class="material-symbols-outlined text-accent">check_circle</span> Annual Pune Retreat</li>
+</ul>
+<button class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all">Go Evergreen</button>
+</div>
+</div>
+</div>
+</section>
+<section class="hero-gradient w-full px-6 py-32">
+<div class="max-w-[1200px] mx-auto bg-navy rounded-[4rem] p-10 md:p-20 flex flex-col lg:flex-row items-center justify-between gap-16 relative overflow-hidden shadow-2xl border-4 border-accent">
+<div class="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 text-white max-w-xl text-center lg:text-left">
+<h2 class="text-clamp-h2 font-black mb-8 leading-tight">Ready to Spark Joy in Your Team?</h2>
+<p class="text-white/70 text-2xl font-medium mb-10 leading-relaxed">Book a playful consultation with Ashwini Patil and let's design your company's unique wellness journey.</p>
+<div class="flex flex-wrap gap-6 justify-center lg:justify-start">
+<button class="bg-accent text-navy px-10 py-5 rounded-full font-black text-xl hover:scale-105 transition-all shadow-xl">Let's Connect</button>
+<button class="bg-white/10 backdrop-blur-md text-white border-2 border-white/20 px-10 py-5 rounded-full font-black text-xl hover:bg-white/20 transition-all">Success Stories</button>
+</div>
+</div>
+<div class="relative z-10 w-full lg:w-96">
+<div class="bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border-2 border-white/10 space-y-8">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center"><span class="material-symbols-outlined text-white">call</span></div>
+<p class="font-black text-lg text-white">+91-98XXX-XXXXX</p>
+</div>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center"><span class="material-symbols-outlined text-navy">location_on</span></div>
+<p class="font-black text-lg text-white">Pune, Maharashtra</p>
+</div>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 bg-lavender rounded-2xl flex items-center justify-center"><span class="material-symbols-outlined text-navy">verified</span></div>
+<p class="font-black text-lg text-white">98% Success Rate</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-navy pt-32 pb-16 px-6 text-white border-t-8 border-accent">
+<div class="max-w-[1200px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+<div class="space-y-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-2 rounded-lg"><span class="material-symbols-outlined text-white text-2xl">diversity_3</span></div>
+<h2 class="text-2xl font-black">Ath Yog</h2>
+</div>
+<p class="text-white/50 font-bold leading-relaxed">
+                        Infusing modern corporate environments with the ancient soul of yoga to create workspaces that breathe and thrive together.
+                    </p>
+</div>
+<div>
+<h5 class="text-accent font-black text-lg uppercase tracking-widest mb-8">Programs</h5>
+<ul class="space-y-4 font-bold text-white/60">
+<li><a class="hover:text-primary transition-colors" href="#">Chair Yoga Collective</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">The Breath Method</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Joy Workshops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Team Retreats</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-accent font-black text-lg uppercase tracking-widest mb-8">The Circle</h5>
+<ul class="space-y-4 font-bold text-white/60">
+<li><a class="hover:text-primary transition-colors" href="#">About Ashwini</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our Methodology</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Pune Locations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Join Our Team</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-accent font-black text-lg uppercase tracking-widest mb-8">Connect</h5>
+<ul class="space-y-4 font-bold text-white/60">
+<li><a class="hover:text-primary transition-colors" href="#">Get in Touch</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">The Wellness Letter</a></li>
+<li class="flex gap-4 pt-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary text-3xl">mood</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary text-3xl">mail</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary text-3xl">share</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-white/40 font-black uppercase tracking-widest">
+<p>© 2024 Ath Yog Corporate Wellness. Pune, Maharashtra.</p>
+<div class="flex gap-10">
+<a class="hover:text-white transition-colors" href="#">Privacy</a>
+<a class="hover:text-white transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer to mimic GSAP scroll triggers for "fade-in"
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('section, .asymmetric-card').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    </script>
+
+</body></html>

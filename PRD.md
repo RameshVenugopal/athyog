@@ -108,8 +108,8 @@
 
 #### Visual Design
 
-- **Color Scheme:** Dark theme (#0f0f10 background, #a7f3d0 accent)
-- **Typography:** Inter font family, responsive text sizing
+- **Color Scheme:** Vibrant & Playful (#ff6b6b primary, #4ecdc4 accent, #2c3e50 navy, #fffaf0 cream)
+- **Typography:** Quicksand (Body), Fredoka (Headings) - Friendly and modern fonts
 - **Animations:** Subtle hover effects, scroll animations, breathing CTA buttons
 - **Branding:** Logo with pulse animation, consistent brand colors
 

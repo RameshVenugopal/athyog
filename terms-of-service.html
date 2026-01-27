@@ -1,118 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Terms of Service - Ath Yog Wellness Foundation</title>
   <link rel="canonical" href="https://athyog.in/terms-of-service.html" />
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet" />
-  <link href="assets/styles.min.css" rel="stylesheet" />
-  <meta name="theme-color" content="#0f0f10" />
+  <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <meta content="#fffaf0" name="theme-color" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    rel="stylesheet" />
+  <style type="text/tailwindcss">
+    :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
+        @layer base {
+            body { font-family: 'Quicksand', sans-serif; background-color: var(--cream); color: var(--navy); }
+            h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
+        }
+        .prose h2 { @apply text-xl font-bold text-navy mt-8 mb-4; }
+        .prose p { @apply text-navy/80 mb-4 leading-relaxed; }
+        .prose a { @apply text-primary hover:underline; }
+    </style>
+  <script>tailwind.config = { theme: { extend: { colors: { "primary": "#ff6b6b", "accent": "#4ecdc4", "navy": "#2c3e50", "cream": "#fffaf0", "lavender": "#e0d7ff", "mint": "#d7fff1" } } } }</script>
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-header" data-scroll="">
-  <div class="container">
-    <a class="brand" href="#top">
-      <span aria-hidden="true" class="logo"></span>
-      <span><h1>Ath Yog</h1></span>
-    </a>
-    <span class="tagline">Atha yoga anushasanam</span>
-    <nav aria-label="Primary" class="nav" id="nav">
-      <button aria-controls="nav-list" aria-expanded="false" aria-label="Open menu" class="nav-toggle">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-list" id="nav-list">
-        <li><a href="index.html#services">Classes</a></li>
-        <li><a href="index.html#events">Events</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#testimonials">Testimonials</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li class="nav-cta"><a href="https://wa.link/a0lxj5" rel="noopener" target="_blank">Book on WhatsApp</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <main class="container" id="main" style="padding-top:84px;padding-bottom:48px;">
-    <header class="section-header" style="margin-bottom:18px;">
-      <h1>Terms of Service</h1>
-      <p class="muted">Effective date: October 2025</p>
-    </header>
 
-    <article class="prose">
-      <p>Welcome to Ath Yog Wellness Foundation. These Terms of Service govern your use of our website and services. By accessing or using our website, you agree to be bound by these terms.</p>
+<body class="selection:bg-accent/30 overflow-x-hidden">
+  <!-- Header -->
+  <header class="fixed top-0 z-50 w-full bg-cream/90 backdrop-blur-lg border-b border-accent/20">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 md:h-12 w-auto">
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#services">Classes</a>
+        <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#about">About</a>
+        <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+      </nav>
+      <a href="https://wa.link/a0lxj5" target="_blank"
+        class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)]">Book
+        Now</a>
+    </div>
+  </header>
 
-      <h2>1. Use of Site</h2>
-      <p>You may use the site for lawful purposes only. You agree not to use the site to transmit any content that is unlawful, harmful, or infringes the rights of others.</p>
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span
+          class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Legal</span>
+        <h1 class="text-navy text-3xl md:text-4xl font-bold mb-2">Terms of Service</h1>
+        <p class="text-navy/50">Effective date: October 2025</p>
+      </div>
 
-      <h2>2. Purchases and Payments</h2>
-      <p>When you register for classes or workshops, you agree to provide accurate payment information. Payments are processed through third-party payment processors; we do not store full payment card details on our servers.</p>
+      <article class="bg-white p-8 md:p-12 rounded-3xl shadow-lg prose">
+        <p>Welcome to Ath Yog Wellness Foundation. These Terms of Service govern your use of our website and services.
+          By accessing or using our website, you agree to be bound by these terms.</p>
 
-      <h2>3. Cancellation and Refunds</h2>
-      <p>Our cancellation and refund policies vary by program. Please check the program page or contact us at <a href="mailto:info@athyog.in">info@athyog.in</a> for details.</p>
+        <h2>1. Use of Site</h2>
+        <p>You may use the site for lawful purposes only. You agree not to use the site to transmit any content that is
+          unlawful, harmful, or infringes the rights of others.</p>
 
-      <h2>4. Intellectual Property</h2>
-      <p>All content on the site (text, images, logos) is owned by Ath Yog Wellness Foundation or used with permission. You may not reproduce or redistribute content without prior written consent.</p>
+        <h2>2. Purchases and Payments</h2>
+        <p>When you register for classes or workshops, you agree to provide accurate payment information. Payments are
+          processed through third-party payment processors; we do not store full payment card details on our servers.
+        </p>
 
-      <h2>5. Limitation of Liability</h2>
-      <p>To the fullest extent permitted by law, Ath Yog Wellness Foundation is not liable for indirect or consequential damages arising from your use of the site.</p>
+        <h2>3. Cancellation and Refunds</h2>
+        <p>Our cancellation and refund policies vary by program. Please check the program page or contact us at <a
+            href="mailto:info@athyog.in">info@athyog.in</a> for details.</p>
 
-      <h2>6. Changes to Terms</h2>
-      <p>We may update these Terms periodically. Continued use of the site after changes constitutes acceptance of the revised terms.</p>
+        <h2>4. Intellectual Property</h2>
+        <p>All content on the site (text, images, logos) is owned by Ath Yog Wellness Foundation or used with
+          permission. You may not reproduce or redistribute content without prior written consent.</p>
 
-      <h2>Contact</h2>
-      <p>If you have questions regarding these terms, contact us at <a href="mailto:info@athyog.in">info@athyog.in</a>.</p>
+        <h2>5. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Ath Yog Wellness Foundation is not liable for indirect or
+          consequential damages arising from your use of the site.</p>
 
-    </article>
+        <h2>6. Changes to Terms</h2>
+        <p>We may update these Terms periodically. Continued use of the site after changes constitutes acceptance of the
+          revised terms.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions regarding these terms, contact us at <a
+            href="mailto:info@athyog.in">info@athyog.in</a>.</p>
+      </article>
+
+      <div class="text-center mt-8">
+        <a href="index.html"
+          class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Home
+        </a>
+      </div>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand-col">
-          <a class="brand footer-brand" href="#top">
-            <span aria-hidden="true" class="logo"></span>
-            <span>ATH YOG</span>
-          </a>
-          <p class="small tagline">Atha yoga anushasanam.</p>
-          <div class="social-icons">
-            <a aria-label="Facebook" href="https://facebook.athyog.in" rel="noopener" target="_blank">Facebook</a>
-            <a aria-label="Instagram" href="https://instagram.athyog.in" rel="noopener" target="_blank">Instagram</a>
-            <a aria-label="WhatsApp" href="https://wa.link/a0lxj5" rel="noopener" target="_blank">WhatsApp</a>
-          </div>
-        </div>
-        <div class="footer-links-col">
-          <h4>Quick Links</h4>
-          <ul class="footer-nav">
-            <li><a href="index.html#services">Classes</a></li>
-            <li><a href="index.html#events">Events</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#testimonials">Testimonials</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-links-col">
-          <h4>Legal</h4>
-          <ul class="footer-nav">
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html">Terms of Service</a></li>
-          </ul>
+  <!-- Footer -->
+  <footer class="bg-navy pt-12 pb-6 px-4 text-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6 border-b border-white/10">
+        <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 brightness-0 invert">
+        <div class="flex gap-6 text-sm">
+          <a href="index.html" class="hover:text-primary">Home</a>
+          <a href="index.html#services" class="hover:text-primary">Classes</a>
+          <a href="index.html#contact" class="hover:text-primary">Contact</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p class="small">© <span id="year"></span> Ath Yog Wellness Foundation. All rights reserved.</p>
-        <a class="back-to-top" href="#top">Back to Top ↑</a>
+      <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+        <p>© 2026 Ath Yog Wellness Foundation</p>
+        <div class="flex gap-6"><a href="privacy-policy.html" class="hover:text-white">Privacy</a><a
+            href="terms-of-service.html" class="hover:text-white text-white">Terms</a></div>
       </div>
     </div>
   </footer>
 
-  <button aria-label="Chat on WhatsApp" class="whatsapp-fab" onclick="window.open('https://wa.link/a0lxj5','_blank','noopener')">WhatsApp</button>
-
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.link/a0lxj5" target="_blank"
+    class="fixed bottom-4 right-4 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.231.148-.428.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.231.296-.346.1-.116.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+    </svg>
+  </a>
 </body>
+
 </html>
