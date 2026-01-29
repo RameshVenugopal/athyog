@@ -15,6 +15,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
         rel="stylesheet" />
+    <link href="assets/css/animations.css" rel="stylesheet" />
     <style type="text/tailwindcss">
         :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
         @layer base {
@@ -35,16 +36,36 @@
             <a href="index.html" class="flex items-center gap-2">
                 <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 md:h-12 w-auto">
             </a>
-            <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#services">Classes</a>
-            <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#events">Events</a>
-            <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#about">About</a>
-            <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+            <button id="mobile-menu-btn"
+                class="md:hidden text-navy p-2 rounded-full hover:bg-navy/10 transition-colors z-50 relative">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#services">Classes</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#events">Events</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#about">About</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#contact">Contact</a>
             </nav>
             <a href="https://wa.link/a0lxj5" target="_blank"
-                class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)]">Join
+                class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)] ripple-btn relative overflow-hidden">Join
                 Now</a>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-cream transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 rounded-full hover:bg-navy/10">
+            <span class="material-symbols-outlined text-3xl text-navy">close</span>
+        </button>
+        <a href="index.html#services" class="text-2xl font-bold text-navy hover:text-primary">Classes</a>
+        <a href="index.html#events" class="text-2xl font-bold text-navy hover:text-primary">Events</a>
+        <a href="index.html#about" class="text-2xl font-bold text-navy hover:text-primary">About</a>
+        <a href="index.html#contact" class="text-2xl font-bold text-navy hover:text-primary">Contact</a>
+        <a href="https://wa.link/a0lxj5"
+            class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold ripple-btn relative overflow-hidden">Join
+            Now</a>
+    </div>
 
     <main class="pt-16">
         <!-- Hero -->
@@ -75,17 +96,19 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#details"
-                            class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">View
+                            class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center ripple-btn relative overflow-hidden">View
                             Details</a>
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="bg-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">Join
+                            class="bg-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center ripple-btn relative overflow-hidden">Join
                             Next Batch</a>
                     </div>
                 </div>
-                <div class="hidden lg:block relative">
+                <div class="hidden lg:block relative reveal">
                     <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
-                        <img alt="Slim Smart Sadhana" class="rounded-2xl w-full object-cover aspect-[4/3]"
-                            src="assets/images/sss/89d93988-9799-4b54-a855-d9e3834394b9.jpeg" />
+                        <div class="rounded-2xl overflow-hidden aspect-[4/3]">
+                            <img alt="Slim Smart Sadhana" class="w-full h-full object-cover ken-burns"
+                                src="assets/images/sss/89d93988-9799-4b54-a855-d9e3834394b9.jpeg" />
+                        </div>
                     </div>
                     <div class="absolute -bottom-6 -left-6 bg-primary text-white p-4 rounded-2xl shadow-xl -rotate-6">
                         <p class="font-bold text-2xl">₹2,999</p>
@@ -96,7 +119,7 @@
         </section>
 
         <!-- Introduction -->
-        <section class="bg-white py-16 px-4">
+        <section class="bg-white py-16 px-4 reveal">
             <div class="max-w-3xl mx-auto text-center">
                 <span
                     class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">About
@@ -117,7 +140,7 @@
         </section>
 
         <!-- Benefits -->
-        <section class="py-16 px-4" id="details">
+        <section class="py-16 px-4 reveal" id="details">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <span
@@ -179,7 +202,7 @@
         </section>
 
         <!-- Results -->
-        <section class="bg-navy py-16 px-4">
+        <section class="bg-navy py-16 px-4 reveal">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-10">
                     <span
@@ -213,7 +236,7 @@
         </section>
 
         <!-- Schedule -->
-        <section class="py-16 px-4">
+        <section class="py-16 px-4 reveal">
             <div class="max-w-4xl mx-auto">
                 <div
                     class="bg-gradient-to-br from-lavender/30 to-mint/30 p-8 md:p-12 rounded-3xl border-4 border-navy flex flex-col md:flex-row items-center justify-between gap-8">
@@ -240,7 +263,7 @@
         </section>
 
         <!-- Coach -->
-        <section class="bg-white py-16 px-4">
+        <section class="bg-white py-16 px-4 reveal">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
                 <div class="relative">
                     <div class="bg-cream p-4 rounded-3xl shadow-xl -rotate-2">
@@ -278,7 +301,7 @@
         </section>
 
         <!-- Testimonial -->
-        <section class="py-16 px-4">
+        <section class="py-16 px-4 reveal">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-10">
                     <span
@@ -307,7 +330,7 @@
         </section>
 
         <!-- FAQ -->
-        <section class="bg-white py-16 px-4">
+        <section class="bg-white py-16 px-4 reveal">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-10">
                     <span
@@ -342,7 +365,7 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="py-16 md:py-24 px-4 bg-white" id="gallery">
+        <section class="py-16 md:py-24 px-4 bg-white reveal" id="gallery">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <span
@@ -428,7 +451,7 @@
                         start your journey to a healthier, happier you!</p>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="bg-accent text-navy px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all">Join
+                            class="bg-accent text-navy px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all ripple-btn relative overflow-hidden">Join
                             via WhatsApp</a>
                         <a href="index.html"
                             class="bg-white/10 border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">Back
@@ -469,7 +492,7 @@
         </svg>
     </a>
 
-    <script>document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }); }); });</script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

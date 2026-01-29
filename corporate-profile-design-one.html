@@ -11,6 +11,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+    <link href="assets/css/animations.css" rel="stylesheet" />
     <style type="text/tailwindcss">
         :root {
             --primary: #ff6b6b;
@@ -49,15 +50,6 @@
         }
         .text-clamp-h1 { font-size: clamp(2.5rem, 5vw + 1rem, 5rem); }
         .text-clamp-h2 { font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem); }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
     <script id="tailwind-config">
         tailwind.config = {
@@ -84,6 +76,10 @@
             <a href="index.html" class="flex items-center gap-3">
                 <img src="assets/images/logo.png" alt="Ath Yog Logo" class="h-12 w-auto object-contain">
             </a>
+            <button id="mobile-menu-btn"
+                class="md:hidden text-navy p-2 rounded-full hover:bg-navy/10 transition-colors z-50 relative">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
             <nav class="hidden md:flex items-center gap-10">
                 <a class="text-sm font-bold hover:text-primary transition-colors flex items-center gap-1"
                     href="#programs">
@@ -103,11 +99,26 @@
                 </a>
             </nav>
             <a href="https://wa.link/a0lxj5" target="_blank"
-                class="bg-accent text-navy px-8 py-3 rounded-full text-sm font-black hover:scale-105 transition-transform shadow-[4px_4px_0px_0px_rgba(44,62,80,1)]">
+                class="bg-accent text-navy px-8 py-3 rounded-full text-sm font-black hover:scale-105 transition-transform shadow-[4px_4px_0px_0px_rgba(44,62,80,1)] ripple-btn relative overflow-hidden">
                 Join the Circle
             </a>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-cream transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 rounded-full hover:bg-navy/10">
+            <span class="material-symbols-outlined text-3xl text-navy">close</span>
+        </button>
+        <a href="#programs" class="text-2xl font-bold text-navy hover:text-primary">Programs</a>
+        <a href="#why-us" class="text-2xl font-bold text-navy hover:text-primary">Why Us</a>
+        <a href="#instructor" class="text-2xl font-bold text-navy hover:text-primary">The Guru</a>
+        <a href="#pricing" class="text-2xl font-bold text-navy hover:text-primary">Pricing</a>
+        <a href="https://wa.link/a0lxj5"
+            class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold ripple-btn relative overflow-hidden">Join
+            the Circle</a>
+    </div>
     <main class="pt-20">
         <!-- Hero Section -->
         <section class="hero-gradient w-full min-h-[90vh] flex items-center px-6 py-20 relative overflow-hidden">
@@ -142,17 +153,20 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="bg-primary text-white px-10 py-5 rounded-[2rem] font-black text-xl hover:shadow-[8px_8px_0px_0px_rgba(44,62,80,1)] transition-all transform hover:-translate-y-1 text-center">Get
+                            class="bg-primary text-white px-10 py-5 rounded-[2rem] font-black text-xl hover:shadow-[8px_8px_0px_0px_rgba(44,62,80,1)] transition-all transform hover:-translate-y-1 text-center ripple-btn relative overflow-hidden">Get
                             Started Today</a>
                         <button
                             class="bg-white/40 backdrop-blur-sm text-navy border-2 border-navy px-10 py-5 rounded-[2rem] font-black text-xl hover:bg-white transition-all">See
                             the Magic</button>
                     </div>
                 </div>
-                <div class="hidden lg:block relative">
+                <div class="hidden lg:block relative reveal">
                     <div class="bg-white p-6 rounded-[3rem] shadow-2xl rotate-3">
-                        <img alt="Corporate yoga session" class="rounded-[2.5rem] w-full object-cover aspect-[4/3]"
-                            loading="lazy" src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.08.jpeg" />
+                        <div class="rounded-[2.5rem] overflow-hidden aspect-[4/3]">
+                            <img alt="Corporate yoga session" class="w-full h-full object-cover ken-burns"
+                                loading="lazy"
+                                src="assets/images/corporate/WhatsApp Image 2026-01-22 at 16.15.08.jpeg" />
+                        </div>
                     </div>
                     <div class="absolute -bottom-8 -left-8 bg-accent p-6 rounded-3xl shadow-xl -rotate-6 text-navy">
                         <p class="font-black text-2xl">Pune's finest</p>
@@ -163,33 +177,33 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="w-full bg-navy py-16 px-6 relative z-20">
+        <section class="w-full bg-navy py-16 px-6 relative z-20 stats-section reveal">
             <div class="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
                 <div class="text-center group">
-                    <p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">20+
-                        Years</p>
+                    <p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform counter-value"
+                        data-target="20">0+</p>
                     <p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Deep Expertise</p>
                 </div>
                 <div class="text-center group">
-                    <p class="text-primary text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">
-                        5,000+</p>
+                    <p class="text-primary text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform counter-value"
+                        data-target="5000">0+</p>
                     <p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Lives Transformed</p>
                 </div>
                 <div class="text-center group">
-                    <p class="text-lavender text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">
-                        12+</p>
+                    <p class="text-lavender text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform counter-value"
+                        data-target="12">0+</p>
                     <p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Expert Guides</p>
                 </div>
                 <div class="text-center group">
-                    <p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform">95%
-                    </p>
+                    <p class="text-accent text-clamp-h2 font-black mb-1 group-hover:scale-110 transition-transform counter-value"
+                        data-target="95">0%</p>
                     <p class="text-mint/60 text-sm font-black uppercase tracking-[0.2em]">Happy Renewals</p>
                 </div>
             </div>
         </section>
 
         <!-- Programs Section -->
-        <section class="w-full max-w-[1280px] mx-auto px-6 py-32" id="programs">
+        <section class="w-full max-w-[1280px] mx-auto px-6 py-32 reveal" id="programs">
             <div class="text-center mb-20">
                 <h2 class="text-primary font-black uppercase tracking-[0.3em] mb-4">Our Programs</h2>
                 <h3 class="text-navy text-clamp-h2 font-bold max-w-2xl mx-auto leading-tight">Holistic Playbooks for
@@ -247,7 +261,7 @@
         </section>
 
         <!-- Why Us Section -->
-        <section class="bg-white py-32 px-6" id="why-us">
+        <section class="bg-white py-32 px-6 reveal" id="why-us">
             <div class="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-20 items-center">
                 <div class="space-y-12">
                     <h2 class="text-navy text-clamp-h2 font-black leading-tight">Why the Ath Yog Circle?</h2>
@@ -301,7 +315,7 @@
         </section>
 
         <!-- Instructor Section -->
-        <section class="bg-cream py-32 px-6" id="instructor">
+        <section class="bg-cream py-32 px-6 reveal" id="instructor">
             <div
                 class="max-w-[1100px] mx-auto bg-white p-10 md:p-20 rounded-[4rem] shadow-2xl border-2 border-navy relative overflow-hidden">
                 <div
@@ -346,7 +360,7 @@
         </section>
 
         <!-- Pricing Section -->
-        <section class="py-32 px-6 bg-white" id="pricing">
+        <section class="py-32 px-6 bg-white reveal" id="pricing">
             <div class="max-w-[1200px] mx-auto">
                 <div class="text-center mb-20">
                     <h2 class="text-accent font-black uppercase tracking-[0.3em] mb-4">Investment</h2>
@@ -370,7 +384,7 @@
                                     class="material-symbols-outlined">cancel</span> In-person Workshops</li>
                         </ul>
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all text-center block">Plant
+                            class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all text-center block ripple-btn relative overflow-hidden">Plant
                             the Seed</a>
                     </div>
                     <div
@@ -393,7 +407,7 @@
                             </li>
                         </ul>
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="w-full bg-primary text-white font-black py-5 rounded-3xl hover:shadow-[0px_10px_20px_-5px_rgba(255,107,107,0.5)] transition-all transform hover:scale-105 text-center block">Get
+                            class="w-full bg-primary text-white font-black py-5 rounded-3xl hover:shadow-[0px_10px_20px_-5px_rgba(255,107,107,0.5)] transition-all transform hover:scale-105 text-center block ripple-btn relative overflow-hidden">Get
                             the Proposal</a>
                     </div>
                     <div class="bg-mint/30 p-10 rounded-[3rem] border-2 border-navy flex flex-col group">
@@ -414,7 +428,7 @@
                                 Retreat</li>
                         </ul>
                         <a href="https://wa.link/a0lxj5" target="_blank"
-                            class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all text-center block">Go
+                            class="w-full bg-white text-navy border-2 border-navy font-black py-4 rounded-2xl hover:bg-navy hover:text-white transition-all text-center block ripple-btn relative overflow-hidden">Go
                             Evergreen</a>
                     </div>
                 </div>
@@ -422,7 +436,7 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="py-32 px-6 bg-white" id="gallery">
+        <section class="py-32 px-6 bg-white reveal" id="gallery">
             <div class="max-w-[1200px] mx-auto">
                 <div class="text-center mb-20">
                     <h2 class="text-primary font-black uppercase tracking-[0.3em] mb-4">In Action</h2>
@@ -502,7 +516,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="hero-gradient w-full px-6 py-32">
+        <section class="hero-gradient w-full px-6 py-32 reveal">
             <div
                 class="max-w-[1200px] mx-auto bg-navy rounded-[4rem] p-10 md:p-20 flex flex-col lg:flex-row items-center justify-between gap-16 relative overflow-hidden shadow-2xl border-4 border-accent">
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
@@ -601,23 +615,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Simple Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1
-        };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-        document.querySelectorAll('section, .asymmetric-card').forEach(el => {
-            el.classList.add('reveal');
-            observer.observe(el);
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

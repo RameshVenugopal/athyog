@@ -21,6 +21,7 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
     rel="stylesheet" />
+  <link href="assets/css/animations.css" rel="stylesheet" />
   <style type="text/tailwindcss">
     :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
         @layer base {
@@ -46,18 +47,41 @@
       <a href="#top" class="flex items-center gap-2">
         <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 md:h-12 w-auto">
       </a>
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+      <button id="mobile-menu-btn"
+        class="md:hidden text-navy p-2 rounded-full hover:bg-navy/10 transition-colors z-50 relative">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
         <a class="text-sm font-bold hover:text-primary transition-colors" href="#services">Classes</a>
         <a class="text-sm font-bold hover:text-primary transition-colors" href="#events">Events</a>
         <a class="text-sm font-bold hover:text-primary transition-colors" href="#about">About</a>
         <a class="text-sm font-bold hover:text-primary transition-colors" href="#testimonials">Reviews</a>
         <a class="text-sm font-bold hover:text-primary transition-colors" href="#contact">Contact</a>
-      </nav>
-      <a href="https://wa.link/a0lxj5" target="_blank"
-        class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)]">
-        Book Now
-      </a>
+        <a href="https://wa.link/a0lxj5" target="_blank"
+          class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)] ripple-btn relative overflow-hidden">
+          Book Now
+        </a>
+      </div>
     </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 z-[60] bg-cream transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+    <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 rounded-full hover:bg-navy/10">
+      <span class="material-symbols-outlined text-3xl text-navy">close</span>
+    </button>
+    <a href="#services" class="text-2xl font-bold text-navy hover:text-primary" onclick="toggleMobileMenu()">Classes</a>
+    <a href="#events" class="text-2xl font-bold text-navy hover:text-primary" onclick="toggleMobileMenu()">Events</a>
+    <a href="#about" class="text-2xl font-bold text-navy hover:text-primary" onclick="toggleMobileMenu()">About</a>
+    <a href="#testimonials" class="text-2xl font-bold text-navy hover:text-primary"
+      onclick="toggleMobileMenu()">Reviews</a>
+    <a href="#contact" class="text-2xl font-bold text-navy hover:text-primary" onclick="toggleMobileMenu()">Contact</a>
+    <a href="https://wa.link/a0lxj5"
+      class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold ripple-btn relative overflow-hidden">Book
+      Now</a>
+  </div>
   </header>
 
   <main class="pt-16" id="top">
@@ -103,8 +127,7 @@
         <div class="hidden lg:block relative">
           <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
             <div class="rounded-2xl overflow-hidden w-full aspect-[4/3]">
-              <img alt="Yoga class at Ath Yog"
-                class="w-full h-full object-cover object-top scale-110 transform origin-top"
+              <img alt="Yoga class at Ath Yog" class="w-full h-full object-cover object-top origin-top ken-burns"
                 src="assets/images/hero.jpg" />
             </div>
           </div>
@@ -117,29 +140,29 @@
     </section>
 
     <!-- Stats -->
-    <section class="bg-navy py-10 md:py-14 px-4">
+    <section class="bg-navy py-10 md:py-14 px-4 stats-section">
       <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        <div class="text-center">
-          <p class="text-accent text-2xl md:text-4xl font-bold">20+ Years</p>
+        <div class="text-center reveal">
+          <p class="text-accent text-2xl md:text-4xl font-bold counter-value" data-target="20">0</p>
           <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Experience</p>
         </div>
-        <div class="text-center">
-          <p class="text-primary text-2xl md:text-4xl font-bold">5,000+</p>
+        <div class="text-center reveal" style="transition-delay: 100ms">
+          <p class="text-primary text-2xl md:text-4xl font-bold counter-value" data-target="5000">0</p>
           <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Students</p>
         </div>
-        <div class="text-center">
-          <p class="text-lavender text-2xl md:text-4xl font-bold">12+</p>
+        <div class="text-center reveal" style="transition-delay: 200ms">
+          <p class="text-lavender text-2xl md:text-4xl font-bold counter-value" data-target="12">0</p>
           <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Instructors</p>
         </div>
-        <div class="text-center">
-          <p class="text-accent text-2xl md:text-4xl font-bold">95%</p>
+        <div class="text-center reveal" style="transition-delay: 300ms">
+          <p class="text-accent text-2xl md:text-4xl font-bold counter-value" data-target="95">0</p>
           <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Renewals</p>
         </div>
       </div>
     </section>
 
     <!-- Classes Section -->
-    <section class="py-16 md:py-24 px-4" id="services">
+    <section class="py-16 md:py-24 px-4 reveal" id="services">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <span
@@ -187,7 +210,7 @@
     </section>
 
     <!-- Events Section (Dynamic from Google Sheets) -->
-    <section class="bg-white py-16 md:py-24 px-4" id="events">
+    <section class="bg-white py-16 md:py-24 px-4 reveal" id="events">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <span
@@ -207,7 +230,7 @@
     </section>
 
     <!-- About -->
-    <section class="bg-white py-16 md:py-24 px-4" id="about">
+    <section class="bg-white py-16 md:py-24 px-4 reveal" id="about">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <span
@@ -279,69 +302,82 @@
             <p class="text-navy/70 text-sm font-bold">4.9 on Google Reviews</p>
           </div>
         </div>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div
-            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col">
-            <div class="flex gap-1 mb-4">
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-            </div>
-            <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been training with Ashwini for over
-              two years now. Her exercises boost our self image and body alignment. The sessions are well-structured...
-              Definitely recommend!"</p>
-            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
-                S</div>
-              <div>
-                <p class="font-bold text-navy text-sm">Shiwanee Parimal</p>
-                <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+        <div class="carousel-container reveal">
+          <div class="carousel-track">
+            <!-- Slide 1 -->
+            <div class="carousel-slide">
+              <div
+                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full">
+                <div class="flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                </div>
+                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been training with Ashwini for
+                  over two years now. Her exercises boost our self image and body alignment. The sessions are
+                  well-structured... Definitely recommend!"</p>
+                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                  <div
+                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                    S</div>
+                  <div>
+                    <p class="font-bold text-navy text-sm">Shiwanee Parimal</p>
+                    <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div
-            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col transform md:-translate-y-4">
-            <div class="flex gap-1 mb-4">
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-            </div>
-            <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"Excellent experience with scientific guidance
-              and proper workout... neat attention to each student by Ashwini mam... even guide us abt our diet... feel
-              fresh and be young..."</p>
-            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
-              <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">P
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+              <div
+                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full transform md:-translate-y-4">
+                <div class="flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                </div>
+                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"Excellent experience with scientific
+                  guidance and proper workout... neat attention to each student by Ashwini mam... even guide us abt our
+                  diet... feel fresh and be young..."</p>
+                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                  <div
+                    class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">P
+                  </div>
+                  <div>
+                    <p class="font-bold text-navy text-sm">Parag Patil</p>
+                    <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p class="font-bold text-navy text-sm">Parag Patil</p>
-                <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
-              </div>
             </div>
-          </div>
 
-          <div
-            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col">
-            <div class="flex gap-1 mb-4">
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-              <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
-            </div>
-            <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been attending ASHWINI'S CORE FIT
-              class from one month... Everyday is a different type of workout which makes it very interesting. I have
-              increased flexibility quite a lot."</p>
-            <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
-              <div class="w-10 h-10 rounded-full bg-lavender flex items-center justify-center text-navy font-bold">P
-              </div>
-              <div>
-                <p class="font-bold text-navy text-sm">Pratibha Dhyade</p>
-                <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+              <div
+                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full">
+                <div class="flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                  <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                </div>
+                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been attending ASHWINI'S CORE FIT
+                  class from one month... Everyday is a different type of workout which makes it very interesting. I
+                  have increased flexibility quite a lot."</p>
+                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                  <div class="w-10 h-10 rounded-full bg-lavender flex items-center justify-center text-navy font-bold">P
+                  </div>
+                  <div>
+                    <p class="font-bold text-navy text-sm">Pratibha Dhyade</p>
+                    <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -350,7 +386,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-16 md:py-24 px-4 bg-white" id="gallery">
+    <section class="py-16 md:py-24 px-4 bg-white reveal" id="gallery">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <span
@@ -378,7 +414,7 @@
 
           <!-- Photo Item -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/newspaper1.jpeg" alt="Media Coverage"
+            <img src="assets/images/newspaper1.jpeg" alt="Media Coverage" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -388,25 +424,25 @@
 
           <!-- Photo Item -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/WhatsApp Image 2026-01-14 at 23.07.44.jpeg" alt="Yoga Pose"
+            <img src="assets/images/WhatsApp Image 2026-01-14 at 23.07.44.jpeg" alt="Yoga Pose" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           </div>
 
           <!-- Photo Item -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/about.jpg" alt="Community"
+            <img src="assets/images/about.jpg" alt="Community" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           </div>
 
           <!-- Photo Item -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/pranayam-workshop.jpg" alt="Workshop"
+            <img src="assets/images/pranayam-workshop.jpg" alt="Workshop" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           </div>
 
           <!-- Wide Photo Item -->
           <div class="col-span-2 md:col-span-2 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/yog-nidra.jpg" alt="Meditation"
+            <img src="assets/images/yog-nidra.jpg" alt="Meditation" loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -449,7 +485,7 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="hero-gradient px-4 py-16 md:py-24" id="contact">
+    <section class="hero-gradient px-4 py-16 md:py-24 reveal" id="contact">
       <div
         class="max-w-6xl mx-auto bg-navy rounded-[3rem] p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl border-4 border-accent relative overflow-hidden">
         <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
@@ -573,257 +609,14 @@
 
   <!-- WhatsApp FAB -->
   <a href="https://wa.link/a0lxj5" target="_blank"
-    class="fixed bottom-4 right-4 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50">
+    class="fixed bottom-4 right-4 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50 hover:animate-pulse">
     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
       <path
         d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.231.148-.428.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.231.296-.346.1-.116.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
     </svg>
   </a>
 
-  <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Google Sheets Integration
-    const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
-    const EVENT_GID = '805507452';
-    const COURSE_GID = '0';
-
-    document.addEventListener('DOMContentLoaded', function () {
-      // 1. Fetch Events
-      const urlEvents = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${EVENT_GID}`;
-      const eventList = document.querySelector('.event-list');
-
-      if (eventList) {
-        fetch(urlEvents)
-          .then(res => res.text())
-          .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-          .then(data => {
-            const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-            const [header, ...events] = rows;
-            const validEvents = events.filter(ev => ev[0] && ev[0].trim() !== '');
-
-            if (validEvents.length === 0) {
-              eventList.innerHTML = `
-                <div class="bg-gradient-to-br from-lavender/30 to-mint/30 p-8 rounded-3xl border-2 border-navy text-center">
-                  <span class="material-symbols-outlined text-navy/30 text-6xl mb-4">event_upcoming</span>
-                  <h3 class="text-navy text-xl font-bold mb-2">Stay Tuned!</h3>
-                  <p class="text-navy/70 mb-6">We're planning exciting new events. Follow us to be the first to know!</p>
-                  <a href="https://wa.link/a0lxj5" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
-                    <span class="material-symbols-outlined text-sm">notifications_active</span> Get Notified
-                  </a>
-                </div>`;
-              return;
-            }
-
-            eventList.className = 'grid md:grid-cols-2 lg:grid-cols-3 gap-6';
-            eventList.innerHTML = '';
-            validEvents.forEach((ev) => {
-              const [title, dateStr, time, location, price, desc, waLink, status] = ev;
-              const eventCard = document.createElement('div');
-              eventCard.className = 'group bg-white rounded-[2rem] p-8 border-2 border-navy/5 hover:border-accent hover:shadow-[8px_8px_0px_0px_rgba(78,205,196,0.3)] transition-all duration-300 flex flex-col h-full relative overflow-hidden';
-
-              eventCard.innerHTML = `
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                
-                <div class="relative z-10 flex flex-col h-full">
-                  <div class="flex justify-between items-start mb-6">
-                    <div class="flex flex-wrap gap-2">
-                       ${status ? `<span class="bg-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${status}</span>` : ''}
-                       <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Workshop</span>
-                    </div>
-                  </div>
-                  
-                  <h3 class="text-2xl font-black text-navy mb-4 leading-tight group-hover:text-primary transition-colors">${title || 'Upcoming Event'}</h3>
-                  
-                  <div class="space-y-3 mb-6">
-                    ${dateStr ? `
-                    <div class="flex items-center gap-3 text-navy/70">
-                      <div class="w-10 h-10 rounded-full bg-lavender/30 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-navy">calendar_month</span>
-                      </div>
-                      <div>
-                        <p class="text-xs font-bold uppercase tracking-wider opacity-60">Date</p>
-                        <p class="font-bold text-sm">${dateStr}</p>
-                      </div>
-                    </div>` : ''}
-                    
-                    ${time ? `
-                    <div class="flex items-center gap-3 text-navy/70">
-                      <div class="w-10 h-10 rounded-full bg-mint/30 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-navy">schedule</span>
-                      </div>
-                      <div>
-                        <p class="text-xs font-bold uppercase tracking-wider opacity-60">Time</p>
-                        <p class="font-bold text-sm">${time}</p>
-                      </div>
-                    </div>` : ''}
-
-                    ${location ? `
-                    <div class="flex items-center gap-3 text-navy/70">
-                      <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                        <span class="material-symbols-outlined text-navy">location_on</span>
-                      </div>
-                      <div>
-                        <p class="text-xs font-bold uppercase tracking-wider opacity-60">Location</p>
-                        <p class="font-bold text-sm">${location}</p>
-                      </div>
-                    </div>` : ''}
-                  </div>
-                  
-                  <div class="mb-8 p-4 bg-cream rounded-2xl border border-navy/5">
-                    <p class="text-navy/70 text-sm leading-relaxed line-clamp-3">${desc || 'Join us for this transformative session.'}</p>
-                  </div>
-                  
-                  <div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-navy/5">
-                    <div>
-                      <p class="text-xs font-bold uppercase tracking-wider text-navy/50">Investment</p>
-                      <p class="text-xl font-black text-primary">${price ? `₹${price}` : 'Free'}</p>
-                    </div>
-                    <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-accent hover:text-navy transition-colors flex items-center gap-2">
-                       Register <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </a>
-                  </div>
-                </div>
-              `;
-              eventList.appendChild(eventCard);
-            });
-          })
-          .catch(err => {
-            console.error('Error loading events:', err);
-            eventList.innerHTML = `
-              <div class="bg-gradient-to-br from-lavender/30 to-mint/30 p-8 rounded-3xl border-2 border-navy text-center">
-                <span class="material-symbols-outlined text-navy/30 text-6xl mb-4">event_upcoming</span>
-                <p class="text-navy/70 mb-6">Failed to load events. Please reload or contact us.</p>
-                <a href="https://wa.link/a0lxj5" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold">Contact Us</a>
-              </div>`;
-          });
-      }
-
-      // 2. Fetch Classes (Using GID=0)
-      const urlCourses = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${COURSE_GID}`;
-      const classesGrid = document.getElementById('classes-grid');
-
-      if (classesGrid) {
-        fetch(urlCourses)
-          .then(res => res.text())
-          .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-          .then(data => {
-            const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-            const [header, ...courses] = rows;
-            const validCourses = courses.filter(c => c[1] && c[1].trim() !== ''); // Check title logic
-
-            if (validCourses.length === 0) {
-              classesGrid.innerHTML = `<div class="col-span-full text-center py-12"><p class="text-navy/50">No classes found.</p></div>`;
-              return;
-            }
-
-            classesGrid.innerHTML = '';
-            validCourses.forEach(course => {
-              // Map columns: 0:id, 1:title, 2:desc, 3:img, 4:price, 5:duration, 6:category, 7:tags, 8:features, 9:link
-              const [id, title, desc, imgUrl, price, duration, categoryRaw, tagsRaw, features, waLink] = course;
-
-              const category = String(categoryRaw || '').toLowerCase().trim().replace(/\s+/g, '-');
-              const tags = String(tagsRaw || '').toLowerCase().split(',').map(t => t.trim().replace(/\s+/g, '-')).join(' ');
-              const combinedCategories = `${category} ${tags}`;
-
-              // Determine gradients based on category keywords (mimicking previous design)
-              let bgClass = 'bg-gradient-to-br from-primary/10 to-lavender/30'; // Default
-              if (combinedCategories.includes('meditation')) bgClass = 'bg-gradient-to-br from-mint/30 to-accent/10';
-              if (combinedCategories.includes('fitness')) bgClass = 'bg-gradient-to-br from-lavender/30 to-primary/10';
-              if (combinedCategories.includes('kids') || combinedCategories.includes('youth')) bgClass = 'bg-gradient-to-br from-primary/15 to-lavender/20';
-              if (combinedCategories.includes('therapy')) bgClass = 'bg-gradient-to-br from-mint/30 to-accent/20';
-              if (combinedCategories.includes('advanced') || combinedCategories.includes('advance')) bgClass = 'bg-gradient-to-br from-navy/10 to-lavender/20';
-
-              // Image handling
-              let imageHtml = '';
-              if (imgUrl && imgUrl.startsWith('assets/')) {
-                imageHtml = `<img alt="${title}" class="w-full h-40 object-cover rounded-2xl mb-4" src="${imgUrl}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-                              <div style="display:none" class="w-full h-40 bg-white/50 rounded-2xl mb-4 items-center justify-center"><span class="material-symbols-outlined text-navy/30 text-6xl">spa</span></div>`;
-              } else {
-                // Fallback icon
-                let icon = 'spa';
-                if (combinedCategories.includes('kids')) icon = 'child_care';
-                if (combinedCategories.includes('senior')) icon = 'elderly';
-                if (combinedCategories.includes('therapy')) icon = 'healing';
-                if (combinedCategories.includes('fitness')) icon = 'fitness_center';
-                imageHtml = `<div class="w-full h-40 bg-white/50 rounded-2xl mb-4 flex items-center justify-center"><span class="material-symbols-outlined text-navy/30 text-6xl">${icon}</span></div>`;
-              }
-
-              // Details Link
-              const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : 'https://wa.link/a0lxj5';
-              const detailsText = id === 'slim-smart-sadhana' ? 'Details' : 'Contact';
-              const isDetailsPage = id === 'slim-smart-sadhana';
-
-              const card = document.createElement('div');
-              card.className = `service-card ${bgClass} p-6 rounded-3xl border-b-4 border-r-4 border-navy hover:-translate-y-2 transition-all`;
-              card.setAttribute('data-category', combinedCategories);
-
-              card.innerHTML = `
-                 ${imageHtml}
-                 <div class="flex gap-2 mb-3">
-                   <span class="bg-white/80 text-navy px-2 py-0.5 rounded-full text-xs font-bold shadow-sm capitalize">${category || 'General'}</span>
-                 </div>
-                 <h3 class="text-navy text-xl font-bold mb-1">${title}</h3>
-                 <p class="text-primary font-bold mb-2">₹${price}<span class="text-navy/50 text-sm">/${duration || 'course'}</span></p>
-                 <p class="text-navy/70 text-sm mb-4 line-clamp-2">${desc || ''}</p>
-                 <div class="flex gap-2">
-                   <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="flex-1 bg-primary text-white py-2 rounded-xl text-sm font-bold text-center hover:shadow-lg transition-all">Join</a>
-                   ${isDetailsPage ? `<a href="${detailsUrl}" class="flex-1 border-2 border-navy py-2 rounded-xl text-sm font-bold text-center hover:bg-navy hover:text-white transition-all">${detailsText}</a>` : ''}
-                 </div>
-              `;
-              classesGrid.appendChild(card);
-            });
-          })
-          .catch(err => {
-            console.error('Error loading courses:', err);
-            classesGrid.innerHTML = `<div class="col-span-full text-center py-12"><p class="text-navy/50">Unable to load classes. Please refresh.</p></div>`;
-          });
-      }
-    });
-
-    // Class Filtering Logic
-    document.addEventListener('DOMContentLoaded', function () {
-      const filters = document.querySelectorAll('.filter-btn');
-
-      filters.forEach(filter => {
-        filter.addEventListener('click', function () {
-          // Lazy query of cards to handle dynamic loading
-          const cards = document.querySelectorAll('.service-card');
-
-          // Remove active state from all
-          filters.forEach(f => {
-            f.classList.remove('bg-navy', 'text-white', 'shadow-md');
-            f.classList.add('bg-white', 'text-navy', 'border', 'border-navy/10');
-          });
-
-          // Add active state to clicked
-          this.classList.remove('bg-white', 'text-navy', 'border', 'border-navy/10');
-          this.classList.add('bg-navy', 'text-white', 'shadow-md');
-
-          const category = this.getAttribute('data-filter');
-
-          // Filter logic with animation
-          cards.forEach(card => {
-            const cardCategories = card.getAttribute('data-category').split(' ');
-            if (category === 'all' || cardCategories.includes(category)) {
-              card.classList.remove('hidden');
-              card.classList.add('animate-in', 'fade-in', 'zoom-in-95', 'duration-300');
-            } else {
-              card.classList.add('hidden');
-              card.classList.remove('animate-in', 'fade-in', 'zoom-in-95');
-            }
-          });
-        });
-      });
-    });
-
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
