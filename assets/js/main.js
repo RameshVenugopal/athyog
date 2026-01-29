@@ -160,6 +160,13 @@ function initTestimonialCarousel() {
 
     const moveToSlide = (index) => {
         const itemsPerView = getItemsPerView();
+
+        // Don't scroll if we have fewer or equal items than the view allows
+        if (slides.length <= itemsPerView) {
+            track.style.transform = 'translateX(0)';
+            return;
+        }
+
         const maxIndex = slides.length - itemsPerView;
 
         // Loop
@@ -167,9 +174,8 @@ function initTestimonialCarousel() {
         if (index > maxIndex) index = 0;
 
         currentIndex = index;
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        // Fix: calc correct translate amount. 
-        // Note: The slides have padding, so width calculation should be safe if sizing is responsive.
+        const containerWidth = track.parentElement.offsetWidth;
+        const slideWidth = containerWidth / itemsPerView;
         track.style.transform = `translateX(-${index * slideWidth}px)`;
     };
 

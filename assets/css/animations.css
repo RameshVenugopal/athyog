@@ -17,9 +17,11 @@
   0% {
     transform: scale(1.0) translate(0, 0);
   }
+
   50% {
     transform: scale(1.1) translate(-2%, -2%);
   }
+
   100% {
     transform: scale(1.0) translate(0, 0);
   }
@@ -66,19 +68,20 @@
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-out;
-  width: 100%;
+  /* Allow track to expand based on children */
 }
 
 .carousel-slide {
-  min-width: 100%;
-  flex-shrink: 0;
+  width: 100%;
+  flex: 0 0 100%;
   padding: 0 1rem;
   box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
   .carousel-slide {
-    min-width: 33.333%; /* Show 3 on desktop */
+    width: 33.333%;
+    flex: 0 0 33.333%;
   }
 }
 
@@ -94,6 +97,7 @@
   0% {
     background-position: -468px 0;
   }
+
   100% {
     background-position: 468px 0;
   }
