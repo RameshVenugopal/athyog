@@ -125,10 +125,12 @@
           </div>
         </div>
         <div class="hidden lg:block relative">
-          <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
-            <div class="rounded-2xl overflow-hidden w-full aspect-[4/3]">
-              <img alt="Yoga class at Ath Yog" class="w-full h-full object-cover object-top origin-top ken-burns"
-                src="assets/images/hero.jpg" />
+          <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2 overflow-hidden">
+            <div class="rounded-2xl overflow-hidden w-full aspect-[4/3] relative">
+              <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                <source src="assets/video/yoga-background.mp4" type="video/mp4">
+              </video>
+              <div class="absolute inset-0 bg-navy/10"></div>
             </div>
           </div>
           <div class="absolute -bottom-6 -left-6 bg-accent p-4 rounded-2xl shadow-xl -rotate-6 text-navy">
@@ -428,10 +430,16 @@
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
           </div>
 
-          <!-- Photo Item -->
+          <!-- Video Item: Group Session -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/about.jpg" alt="Community" loading="lazy"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+              <source src="assets/video/guru.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="text-white font-bold text-xs bg-navy/40 px-2 py-1 rounded">Studio Session</p>
+            </div>
           </div>
 
           <!-- Photo Item -->
@@ -468,10 +476,16 @@
             </div>
           </div>
 
-          <!-- New Photo Item -->
+          <!-- Video Item: Core Yog -->
           <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-            <img src="assets/images/group-yoga-session.jpeg" alt="Group Session"
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+              <source src="assets/video/Video2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="text-white font-bold text-xs bg-navy/40 px-2 py-1 rounded">Core Yoga</p>
+            </div>
           </div>
 
           <!-- New Photo Item -->
@@ -577,6 +591,7 @@
           <ul class="space-y-2 text-sm text-white/60">
             <li><a href="#services" class="hover:text-primary">Classes</a></li>
             <li><a href="slim-smart-sadhana.html" class="hover:text-primary">SSS</a></li>
+            <li><a href="chair-yoga.html" class="hover:text-primary">Chair Yoga</a></li>
             <li><a href="#services" class="hover:text-primary">Therapy</a></li>
           </ul>
         </div>

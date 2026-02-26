@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chair Yoga | Ath Yog Wellness Foundation</title>
+    <meta name="description"
+        content="Chair Yoga for Professionals, IT Employees, Sedentary Workers & Senior Citizens. An evidence-informed, safe, and effective approach to physical and mental well-being." />
+    <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <meta content="#fffaf0" name="theme-color" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+        rel="stylesheet" />
+    <link href="assets/css/animations.css" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
+        @layer base {
+            body { font-family: 'Quicksand', sans-serif; background-color: var(--cream); color: var(--navy); }
+            h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; }
+        }
+        .hero-gradient { background: linear-gradient(135deg, #ff6b6b 0%, #ffecd2 50%, #d7fff1 100%); }
+        .text-clamp-h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); }
+        .text-clamp-h2 { font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem); }
+    </style>
+    <script>tailwind.config = { theme: { extend: { colors: { "primary": "#ff6b6b", "accent": "#4ecdc4", "navy": "#2c3e50", "cream": "#fffaf0", "lavender": "#e0d7ff", "mint": "#d7fff1" } } } }</script>
+</head>
+
+<body class="selection:bg-accent/30 overflow-x-hidden">
+    <!-- Header -->
+    <header class="fixed top-0 z-50 w-full bg-cream/90 backdrop-blur-lg border-b border-accent/20">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 md:h-12 w-auto">
+            </a>
+            <button id="mobile-menu-btn"
+                class="md:hidden text-navy p-2 rounded-full hover:bg-navy/10 transition-colors z-50 relative">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#services">Classes</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#events">Events</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#about">About</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+            </nav>
+            <a href="https://wa.link/a0lxj5" target="_blank"
+                class="bg-accent text-navy px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold hover:scale-105 transition-transform shadow-[3px_3px_0px_0px_rgba(44,62,80,1)] ripple-btn relative overflow-hidden">Join
+                Now</a>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-cream transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 rounded-full hover:bg-navy/10">
+            <span class="material-symbols-outlined text-3xl text-navy">close</span>
+        </button>
+        <a href="index.html#services" class="text-2xl font-bold text-navy hover:text-primary">Classes</a>
+        <a href="index.html#events" class="text-2xl font-bold text-navy hover:text-primary">Events</a>
+        <a href="index.html#about" class="text-2xl font-bold text-navy hover:text-primary">About</a>
+        <a href="index.html#contact" class="text-2xl font-bold text-navy hover:text-primary">Contact</a>
+        <a href="https://wa.link/a0lxj5"
+            class="bg-primary text-white px-8 py-3 rounded-full text-xl font-bold ripple-btn relative overflow-hidden">Join
+            Now</a>
+    </div>
+
+    <main class="pt-16">
+        <!-- Hero -->
+        <section class="hero-gradient min-h-[80vh] flex items-center px-4 py-12 md:py-20 relative overflow-hidden">
+            <div class="absolute -top-20 -left-20 w-72 h-72 bg-lavender/40 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-48 h-48 bg-accent/30 rounded-full blur-3xl"></div>
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+                <div class="space-y-6 text-center lg:text-left">
+                    <p class="font-bold italic text-navy/70 text-lg mb-2">|| Atha Yoga Anushasanam ||</p>
+                    <span
+                        class="inline-block bg-accent text-navy px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">Scientifically
+                        Proven Wellness</span>
+                    <h1 class="text-navy text-clamp-h1 font-bold leading-tight">Chair <span
+                            class="text-primary">Yoga</span></h1>
+                    <p class="text-navy/80 text-lg md:text-xl font-medium max-w-lg mx-auto lg:mx-0">An
+                        evidence-informed, safe, and effective approach to physical and mental well-being for
+                        professionals, IT employees, sedentary workers & senior citizens.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                        <span
+                            class="bg-white text-navy px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1"><span
+                                class="material-symbols-outlined text-sm">schedule</span> 10-15 Min Daily</span>
+                        <span
+                            class="bg-white text-navy px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1"><span
+                                class="material-symbols-outlined text-sm">chair_alt</span> No Equipment</span>
+                        <span
+                            class="bg-white text-navy px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1"><span
+                                class="material-symbols-outlined text-sm">diversity_3</span> All Ages</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#details"
+                            class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center ripple-btn relative overflow-hidden">View
+                            Details</a>
+                        <a href="https://wa.link/a0lxj5" target="_blank"
+                            class="bg-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center ripple-btn relative overflow-hidden">Contact
+                            Us</a>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative reveal">
+                    <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
+                        <div
+                            class="rounded-2xl overflow-hidden aspect-[4/3] bg-navy/10 flex items-center justify-center">
+                            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                <source src="assets/video/chairyoga.mp4" type="video/mp4">
+                                <img alt="Chair Yoga" class="w-full h-full object-cover ken-burns"
+                                    src="assets/images/sss/sss-hero.jpeg" />
+                            </video>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-3xl mx-auto text-center">
+                <span
+                    class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">What
+                    Is Chair Yoga?</span>
+                <h2 class="text-navy text-clamp-h2 font-bold mb-6">Medically Relevant Wellness</h2>
+                <div class="bg-gradient-to-br from-mint/30 to-lavender/30 p-8 rounded-3xl border-2 border-navy">
+                    <p class="text-navy/80 text-lg leading-relaxed mb-4">
+                        <strong class="text-primary">Chair Yoga</strong> is a modified form of traditional yoga in which
+                        postures (asanas), breathing techniques (pranayama), and mindful movements are performed while
+                        sitting on a chair or using a chair for support. It is especially beneficial for individuals who
+                        sit for prolonged hours, have limited mobility, experience work-related stress, or cannot
+                        comfortably perform floor-based yoga. Chair Yoga combines gentle movement, controlled breathing,
+                        and neurological relaxation.
+                    </p>
+                    <p class="text-navy/80 text-lg leading-relaxed">
+                        <strong class="text-primary">Why Medically Relevant?</strong> Prolonged sitting is associated
+                        with musculoskeletal disorders, poor circulation, metabolic slowdown, increased risk of
+                        diabetes, hypertension, obesity, stress, and burnout. Chair Yoga activates muscles, improves
+                        circulation, and calms the nervous system even while seated.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose SSS -->
+        <section class="py-16 px-4 reveal" id="details">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Why
+                        Choose Chair Yoga?</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Scientific & Medical Benefits</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-primary hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-primary">accessibility_new</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Musculoskeletal Health</h3>
+                        <p class="text-navy/70">Improves spinal mobility, reduces stiffness, activates core muscles, and
+                            supports posture correction.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-accent">water_drop</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Circulatory & Metabolic Benefits</h3>
+                        <p class="text-navy/70">Enhances blood flow, oxygen delivery, glucose regulation, and supports
+                            weight management.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-mint hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-mint/50 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-navy">psychology</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Nervous System Regulation</h3>
+                        <p class="text-navy/70">Stimulates parasympathetic response, reduces stress hormones, improves
+                            emotional stability and cardiovascular balance.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-lavender hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-lavender/50 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-navy">checkroom</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">No Special Equipment</h3>
+                        <p class="text-navy/70">No special clothing or equipment required. Practice straight from your
+                            workspace.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-primary hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-primary">aspect_ratio</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Minimal Space Required</h3>
+                        <p class="text-navy/70">Can be seamlessly integrated into small offices, desks, and remote work
+                            setups.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-accent">shield</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Low Risk & Adaptable</h3>
+                        <p class="text-navy/70">Low injury risk and adaptable intensity suitable for executives,
+                            managers, staff, and seniors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Includes -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">What's
+                        Inside</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Program Structure & Components</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-mint/20 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">calendar_month</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Weekly Wellness Sessions</h4>
+                            <p class="text-navy/60 text-sm">30–45 minutes</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-gradient-to-r from-lavender/20 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-primary text-2xl mt-0.5">timer</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Daily Micro-Break Desk Sessions</h4>
+                            <p class="text-navy/60 text-sm">10–15 minutes</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-primary/10 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-navy text-2xl mt-0.5">school</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Monthly Awareness & Posture Workshop</h4>
+                            <p class="text-navy/60 text-sm">60–90 minutes</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-accent/10 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">accessibility_new</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Seated Spinal Mobility</h4>
+                            <p class="text-navy/60 text-sm">Core exercises for posture</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-mint/20 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-navy text-2xl mt-0.5">self_improvement</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Neck & Shoulder Release</h4>
+                            <p class="text-navy/60 text-sm">Targeted tension relief</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-gradient-to-r from-lavender/20 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-primary text-2xl mt-0.5">front_hand</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Wrist & Hand Mobility</h4>
+                            <p class="text-navy/60 text-sm">Vital for computer users</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-primary/10 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">air</span>
+                        <div>
+                            <h4 class="text-navy font-bold">Guided Breathing Techniques</h4>
+                            <p class="text-navy/60 text-sm">For effective stress management</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 bg-gradient-to-r from-accent/10 to-transparent p-5 rounded-2xl">
+                        <span class="material-symbols-outlined text-navy text-2xl mt-0.5">spa</span>
+                        <div>
+                            <h4 class="text-navy font-bold">5-Minute Relaxation</h4>
+                            <p class="text-navy/60 text-sm">Quick mental reset practice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Benefits -->
+        <section class="bg-navy py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block bg-accent text-navy px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Tailored
+                        For You</span>
+                    <h2 class="text-white text-clamp-h2 font-bold">Who Is It For</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white/10 backdrop-blur p-6 rounded-2xl border border-white/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-accent text-2xl">business_center</span>
+                            <h4 class="text-white font-bold text-xl">Corporate Professionals</h4>
+                        </div>
+                        <p class="text-white/80">Reduces neck and shoulder stiffness, improves posture, enhances
+                            productivity, and decreases mental fatigue.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur p-6 rounded-2xl border border-white/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-accent text-2xl">computer</span>
+                            <h4 class="text-white font-bold text-xl">IT Employees</h4>
+                        </div>
+                        <p class="text-white/80">Prevents repetitive strain injuries, strengthens lower back, reduces
+                            screen-related stress, and improves focus.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur p-6 rounded-2xl border border-white/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-accent text-2xl">event_seat</span>
+                            <h4 class="text-white font-bold text-xl">Sedentary Workers</h4>
+                        </div>
+                        <p class="text-white/80">Boosts metabolism, supports digestion, improves circulation, and
+                            reduces overall fatigue.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur p-6 rounded-2xl border border-white/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined text-accent text-2xl">elderly</span>
+                            <h4 class="text-white font-bold text-xl">Senior Citizens</h4>
+                        </div>
+                        <p class="text-white/80">Improves joint mobility, enhances balance, reduces fall risk, supports
+                            respiratory function, and promotes mental calmness.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule -->
+        <section class="py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-gradient-to-br from-lavender/30 to-mint/30 p-8 md:p-12 rounded-3xl border-4 border-navy flex flex-col gap-8">
+                    <div class="flex flex-col md:flex-row gap-8 justify-between">
+                        <div class="md:w-1/2">
+                            <h2 class="text-navy text-2xl md:text-3xl font-bold mb-4">Organizational Benefits</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="text-primary font-bold text-lg mb-1">Health Impact</h4>
+                                    <ul class="text-navy/70 list-disc list-inside space-y-1">
+                                        <li>Reduced musculoskeletal discomfort</li>
+                                        <li>Improved posture and circulation</li>
+                                        <li>Increased energy levels</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-primary font-bold text-lg mb-1">Performance Impact</h4>
+                                    <ul class="text-navy/70 list-disc list-inside space-y-1">
+                                        <li>Enhanced concentration and productivity</li>
+                                        <li>Reduced absenteeism</li>
+                                        <li>Improved morale and engagement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 bg-white/50 backdrop-blur p-6 rounded-2xl border border-navy/10">
+                            <h2 class="text-navy text-2xl font-bold mb-4">Implementation Plan</h2>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-accent text-navy flex items-center justify-center font-bold text-sm shrink-0">
+                                        1</div>
+                                    <p class="text-navy/80 font-medium">Corporate consultation and needs assessment</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-accent text-navy flex items-center justify-center font-bold text-sm shrink-0">
+                                        2</div>
+                                    <p class="text-navy/80 font-medium">Complimentary demo session</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-accent text-navy flex items-center justify-center font-bold text-sm shrink-0">
+                                        3</div>
+                                    <p class="text-navy/80 font-medium">Structured rollout with scheduled sessions</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-accent text-navy flex items-center justify-center font-bold text-sm shrink-0">
+                                        4</div>
+                                    <p class="text-navy/80 font-medium">Periodic review and feedback analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coach -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+                <div class="relative">
+                    <div class="bg-cream p-4 rounded-3xl shadow-xl -rotate-2">
+                        <img alt="Yog Guru Ashwini Patil" class="rounded-2xl w-full object-cover aspect-[3/4]"
+                            src="assets/images/sss/coach-ashwini.jpeg" />
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-accent text-navy p-4 rounded-2xl shadow-lg rotate-3">
+                        <p class="font-bold text-2xl">20+</p>
+                        <p class="text-sm">Years Spreading Yoga</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <span
+                        class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">About
+                        the Coach</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Yog Guru Ashwini Patil</h2>
+                    <p class="text-navy/70 text-lg">Athyog Wellness Foundation is guided by <strong
+                            class="text-navy">Yog
+                            Guru Ashwini Patil</strong>, a dedicated yoga practitioner and wellness mentor with over two
+                        decades of teaching experience. Her journey in yoga began not just as a discipline, but as a
+                        path to healing and transformation. Through her own experience of <span
+                            class="text-primary font-medium">overcoming physical pain and health challenges</span>, she
+                        discovered the profound potential of yoga as a complete mind–body solution. This lived
+                        experience deeply shapes her compassionate, practical, and results-oriented teaching style.</p>
+                    <p class="text-navy/70 text-lg">Over the years, she has helped thousands of students—including those
+                        struggling with <span class="text-primary font-medium">severe back pain, knee issues,
+                            stress-related disorders, and lifestyle diseases</span>—regain strength, confidence, and
+                        vitality. Her approach blends traditional yogic wisdom with modern lifestyle understanding,
+                        making yoga accessible, effective, and sustainable for today's fast-paced lives.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Learn with Yog Guru -->
+        <section class="py-16 px-4 reveal">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Learn
+                        from the Best</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Why Learn with Yog Guru Ashwini Patil?</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-accent">workspace_premium</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">20+ Years of Experience</h3>
+                        <p class="text-navy/70">Two decades of consistent teaching and mentoring in yoga therapy,
+                            wellness, and lifestyle transformation.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-primary hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-primary">favorite</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Teaching Rooted in Personal Healing</h3>
+                        <p class="text-navy/70">An approach born from personal experience, ensuring deep empathy and a
+                            logical, results-driven method.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-lavender hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-lavender/50 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-navy">spa</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Holistic Wellness Focus</h3>
+                        <p class="text-navy/70">Beyond physical postures, she emphasizes internal cleansing, mental
+                            focus, and everyday habits that create lasting change.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-mint hover:-translate-y-2 transition-all">
+                        <div class="w-12 h-12 bg-mint/50 rounded-2xl flex items-center justify-center mb-4"><span
+                                class="material-symbols-outlined text-navy">shield</span></div>
+                        <h3 class="text-navy text-xl font-bold mb-2">Guided for Everyone</h3>
+                        <p class="text-navy/70">Experience a safe, supportive, and gradual progress towards mastery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Achievements -->
+        <section class="bg-navy py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block bg-accent text-navy px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Track
+                        Record</span>
+                    <h2 class="text-white text-clamp-h2 font-bold">Experience & Achievements</h2>
+                </div>
+                <div class="space-y-4 mb-8">
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">verified</span>
+                        <p class="text-white/90">20+ Years of Dedicated Teaching Experience.</p>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">groups</span>
+                        <p class="text-white/90">Successfully guided thousands of students across different age groups
+                            and fitness levels.</p>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">healing</span>
+                        <p class="text-white/90">Helped participants overcome chronic back pain, knee issues, stiffness,
+                            stress, and lifestyle-related challenges.</p>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">trending_up</span>
+                        <p class="text-white/90">Known for designing safe, progressive, and result-oriented programs.
+                        </p>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">volunteer_activism</span>
+                        <p class="text-white/90">Founder-led initiatives building a strong and committed wellness
+                            community.</p>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
+                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">star</span>
+                        <p class="text-white/90">Recognized for her disciplined, compassionate, and practical teaching
+                            approach.</p>
+                    </div>
+                </div>
+                <div class="bg-white/5 border border-accent/30 p-6 rounded-2xl text-center">
+                    <p class="text-accent italic text-lg font-medium">"With Yog Guru Ashwini Patil, yoga is not just
+                        about flexibility or fitness—it is about healing, awareness, and sustainable well-being."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-16 md:py-24 bg-cream overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12 reveal">
+                    <span
+                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Real
+                        Results</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold mb-4">What Students Say</h2>
+                    <div class="flex items-center justify-center gap-2 mt-2">
+                        <div class="flex">
+                            <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                            <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                            <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                            <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                            <span class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                        </div>
+                        <p class="text-navy/70 text-sm font-bold">4.9 on Google Reviews</p>
+                    </div>
+                </div>
+
+                <div class="carousel-container reveal">
+                    <div class="carousel-track">
+                        <!-- Slide 1: Nitin -->
+                        <div class="carousel-slide">
+                            <div
+                                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full">
+                                <div class="flex gap-1 mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                </div>
+                                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"After one and a half
+                                    years, I felt a big transformation by following your wellness program. Now, even if
+                                    I
+                                    won't exercise, I feel healthy, my age is 52 and there are no medical problems."</p>
+                                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                                        N</div>
+                                    <div>
+                                        <p class="font-bold text-navy text-sm">Nitin from Nagpur</p>
+                                        <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Participant,
+                                            Age 52</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Shiwanee -->
+                        <div class="carousel-slide">
+                            <div
+                                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full transform md:translate-y-4">
+                                <div class="flex gap-1 mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                </div>
+                                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been training with
+                                    Ashwini for over two years now. Her exercises boost our self image and body
+                                    alignment. The sessions are well-structured... Definitely recommend!"</p>
+                                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+                                        S</div>
+                                    <div>
+                                        <p class="font-bold text-navy text-sm">Shiwanee Parimal</p>
+                                        <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Parag -->
+                        <div class="carousel-slide">
+                            <div
+                                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full">
+                                <div class="flex gap-1 mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                </div>
+                                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"Excellent experience with
+                                    scientific guidance and proper workout... neat attention to each student by Ashwini
+                                    mam... even guide us abt our diet... feel fresh and be young..."</p>
+                                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                                        P</div>
+                                    <div>
+                                        <p class="font-bold text-navy text-sm">Parag Patil</p>
+                                        <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: Pratibha -->
+                        <div class="carousel-slide">
+                            <div
+                                class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-navy/5 flex flex-col h-full transform md:translate-y-4">
+                                <div class="flex gap-1 mb-4">
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                    <span
+                                        class="material-symbols-outlined text-yellow-500 text-lg fill-current">star</span>
+                                </div>
+                                <p class="text-navy/70 italic mb-6 leading-relaxed flex-grow">"I have been attending
+                                    ASHWINI'S CORE FIT class from one month... Everyday is a different type of workout
+                                    which makes it very interesting. I have increased flexibility quite a lot."</p>
+                                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+                                        P</div>
+                                    <div>
+                                        <p class="font-bold text-navy text-sm">Pratibha Dhyade</p>
+                                        <p class="text-xs text-navy/40 uppercase tracking-wider font-bold">Student</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block bg-lavender/50 text-navy px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Questions?</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-primary">
+                        <h4 class="text-navy font-bold text-lg mb-2">Is Chair Yoga safe?</h4>
+                        <p class="text-navy/70">Yes, it is low-impact and adaptable, but consult a doctor if you have
+                            severe conditions.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-accent">
+                        <h4 class="text-navy font-bold text-lg mb-2">Can it help back pain?</h4>
+                        <p class="text-navy/70">Yes, gentle movements improve flexibility and muscle strength.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-lavender">
+                        <h4 class="text-navy font-bold text-lg mb-2">How often should it be practiced?</h4>
+                        <p class="text-navy/70">10–15 minutes daily or 3–5 times per week.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-mint">
+                        <h4 class="text-navy font-bold text-lg mb-2">Is it good for weight loss?</h4>
+                        <p class="text-navy/70">It supports metabolism but should be combined with healthy lifestyle.
+                        </p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-primary">
+                        <h4 class="text-navy font-bold text-lg mb-2">Is it suitable for seniors?</h4>
+                        <p class="text-navy/70">Yes, especially beneficial due to low injury risk.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-accent">
+                        <h4 class="text-navy font-bold text-lg mb-2">Does it reduce stress?</h4>
+                        <p class="text-navy/70">Yes, breathing exercises help calm the nervous system.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-lavender">
+                        <h4 class="text-navy font-bold text-lg mb-2">Do I need equipment?</h4>
+                        <p class="text-navy/70">Only a stable chair.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-mint">
+                        <h4 class="text-navy font-bold text-lg mb-2">Can it be done in office?</h4>
+                        <p class="text-navy/70">Yes, no special clothing or space required.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-primary">
+                        <h4 class="text-navy font-bold text-lg mb-2">Is it suitable for arthritis?</h4>
+                        <p class="text-navy/70">Yes, when performed gently.</p>
+                    </div>
+                    <div class="bg-cream p-6 rounded-2xl border-l-4 border-accent">
+                        <h4 class="text-navy font-bold text-lg mb-2">When will I see results?</h4>
+                        <p class="text-navy/70">Reduced stiffness may be noticed within 1–2 weeks with regular practice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety Disclaimer -->
+        <section class="py-12 px-4 reveal">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gradient-to-br from-primary/5 to-lavender/20 p-8 rounded-3xl border-2 border-navy/10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-primary text-2xl">health_and_safety</span>
+                        <h3 class="text-navy text-xl font-bold">Safety Disclaimer</h3>
+                    </div>
+                    <ul class="space-y-3 text-navy/70">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span>This program is designed for general wellness, mobility improvement, and stress
+                                reduction.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span>Chair yoga practices are low-impact and adaptable, but always listen to your body and
+                                avoid movements that cause sharp pain.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg mt-0.5">warning</span>
+                            <span>Participants with severe medical conditions, recent surgery, advanced arthritis, or
+                                restricted mobility should consult their physician before joining.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span>Always practice within your comfort level and follow instructor guidance.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span>Results may vary based on individual body type, consistency, and lifestyle
+                                factors.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16 md:py-24 px-4 bg-white reveal" id="gallery">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Transformation</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Our Impact</h2>
+                    <p class="text-navy/70 mt-3 max-w-md mx-auto">Witness the journey of health, vitality, and
+                        community.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                    <!-- Large Item -->
+                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/sss-hero.jpeg" alt="SSS Session"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p
+                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                Morning Energy</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Item -->
+                    <div class="col-span-2 md:col-span-1 row-span-2 relative group overflow-hidden rounded-3xl">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="assets/video/smart.mp4" type="video/mp4">
+                        </video>
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300">
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md p-2 rounded-full">
+                            <span class="material-symbols-outlined text-white">play_arrow</span>
+                        </div>
+                    </div>
+
+                    <!-- Regular Item -->
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/sss-healthy-living.jpeg" alt="Healthy Lifestyle"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Regular Item -->
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/sss-community.jpeg" alt="Community Support"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Wide Item -->
+                    <div class="col-span-2 md:col-span-2 row-span-1 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/coach-ashwini.jpeg" alt="Expert Guidance"
+                            class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <p
+                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                Expert Guidance</p>
+                        </div>
+                    </div>
+
+                    <!-- New Photo Item -->
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/sss-variation-01.jpeg" alt="SSS Variation"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- New Photo Item -->
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
+                        <img src="assets/images/sss/sss-variation-02.jpeg" alt="SSS Variation"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Register & Contact -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Get
+                        in Touch</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Register & Information</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-mint/20 to-lavender/20 p-6 rounded-3xl border border-navy/10">
+                        <h4 class="text-navy font-bold text-lg mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary">call</span> Contact Us</h4>
+                        <div class="space-y-3">
+                            <p class="text-navy/70 flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-accent text-lg">phone</span> +91 98230 46001
+                            </p>
+                            <p class="text-navy/70 flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-accent text-lg">phone</span> +91 94220 86001
+                            </p>
+                            <p class="text-navy/70 flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-accent text-lg">mail</span>
+                                info@athyog.in</p>
+                            <p class="text-navy/70 flex items-center gap-2"><span
+                                    class="material-symbols-outlined text-accent text-lg">language</span>
+                                www.athyog.in</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-lavender/20 to-mint/20 p-6 rounded-3xl border border-navy/10">
+                        <h4 class="text-navy font-bold text-lg mb-4 flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary">share</span> Follow Us</h4>
+                        <div class="space-y-3">
+                            <a href="https://www.instagram.com/athyog_wellness_foundation" target="_blank"
+                                class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent text-lg">photo_camera</span>
+                                @athyog_wellness_foundation</a>
+                            <a href="https://www.facebook.com/AthyogWellnessFoundation" target="_blank"
+                                class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent text-lg">thumb_up</span> Athyog
+                                Wellness Foundation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Model -->
+        <section class="bg-white py-16 px-4 reveal">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <span
+                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Flexible
+                        Pricing</span>
+                    <h2 class="text-navy text-clamp-h2 font-bold">Investment Model</h2>
+                    <p class="text-navy/70 mt-3 max-w-xl mx-auto">Flexible pricing options tailored to your
+                        organization's size and requirements.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        class="bg-gradient-to-br from-lavender/30 to-mint/20 p-6 rounded-3xl border-2 border-navy/10 text-center hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-primary text-3xl mb-3">event_repeat</span>
+                        <h4 class="text-navy font-bold text-lg mb-2">Per Session</h4>
+                        <p class="text-navy/60 text-sm">Pay-as-you-go model for flexible scheduling.</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-mint/30 to-lavender/20 p-6 rounded-3xl border-2 border-navy/10 text-center hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-accent text-3xl mb-3">calendar_month</span>
+                        <h4 class="text-navy font-bold text-lg mb-2">Monthly</h4>
+                        <p class="text-navy/60 text-sm">Consistent monthly wellness subscription.</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-primary/10 to-lavender/20 p-6 rounded-3xl border-2 border-navy/10 text-center hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-navy text-3xl mb-3">date_range</span>
+                        <h4 class="text-navy font-bold text-lg mb-2">Quarterly</h4>
+                        <p class="text-navy/60 text-sm">3-month structured engagement plan.</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-accent/10 to-mint/20 p-6 rounded-3xl border-2 border-navy/10 text-center hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-accent text-3xl mb-3">handshake</span>
+                        <h4 class="text-navy font-bold text-lg mb-2">Annual</h4>
+                        <p class="text-navy/60 text-sm">Long-term wellness partnership for maximum impact.</p>
+                    </div>
+                </div>
+                <p class="text-center text-navy/50 mt-6 text-sm">All packages are based on employee strength and
+                    session frequency. Contact us for a customized quote.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="hero-gradient px-4 py-16 md:py-24">
+            <div
+                class="max-w-4xl mx-auto bg-navy rounded-3xl p-8 md:p-12 text-center shadow-2xl border-4 border-accent relative overflow-hidden">
+                <div class="absolute -bottom-20 -right-20 w-60 h-60 bg-primary/20 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Partner for Corporate Wellness</h2>
+                    <p class="text-white/70 text-lg mb-8 max-w-2xl mx-auto">Investing in employee wellness is a
+                        strategic decision that improves productivity, reduces long-term health costs, and builds a
+                        stronger organizational culture. Let us partner to create a healthier and more resilient
+                        workforce.</p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="https://wa.link/a0lxj5" target="_blank"
+                            class="bg-accent text-navy px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all ripple-btn relative overflow-hidden">Contact
+                            Us</a>
+                        <a href="corporate-profile-design-one.html"
+                            class="bg-white/10 border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">Corporate
+                            Profile</a>
+                        <a href="index.html"
+                            class="bg-white/10 border border-white/20 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">Back
+                            to Home</a>
+                    </div>
+                    <p class="text-white/50 mt-6 text-sm">Customized programs for your organization.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy pt-12 pb-6 px-4 text-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6 border-b border-white/10">
+                <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 brightness-0 invert">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="index.html#services" class="hover:text-primary">Classes</a>
+                <a href="index.html#events" class="hover:text-primary">Events</a>
+                <a href="corporate-profile-design-one.html" class="hover:text-primary">Corporate</a>
+                <a href="index.html#contact" class="hover:text-primary">Contact</a>
+            </div>
+        </div>
+        <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+            <p>© 2026 Ath Yog Wellness Foundation</p>
+            <div class="flex gap-6"><a href="privacy-policy.html" class="hover:text-white">Privacy</a><a
+                    href="terms-of-service.html" class="hover:text-white">Terms</a></div>
+        </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.link/a0lxj5" target="_blank"
+        class="fixed bottom-4 right-4 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.116.133-.231.148-.428.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.231.296-.346.1-.116.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

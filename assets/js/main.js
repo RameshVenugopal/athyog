@@ -421,9 +421,9 @@ function renderClasses(container, courses) {
             imageHtml = `<div class="w-full h-40 bg-white/50 rounded-2xl mb-4 flex items-center justify-center"><span class="material-symbols-outlined text-navy/30 text-6xl">${icon}</span></div>`;
         }
 
-        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : 'https://wa.link/a0lxj5';
-        const detailsText = id === 'slim-smart-sadhana' ? 'Details' : 'Contact';
-        const isDetailsPage = id === 'slim-smart-sadhana';
+        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : (id === 'chair-yoga' ? 'chair-yoga.html' : 'https://wa.link/a0lxj5');
+        const detailsText = (id === 'slim-smart-sadhana' || id === 'chair-yoga') ? 'Details' : 'Contact';
+        const isDetailsPage = (id === 'slim-smart-sadhana' || id === 'chair-yoga');
 
         const card = document.createElement('div');
         card.className = `reveal service-card ${bgClass} p-6 rounded-3xl border-b-4 border-r-4 border-navy hover:-translate-y-2 transition-all`;
