@@ -122,11 +122,32 @@ function initMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const closeBtn = document.getElementById('close-mobile-menu');
 
-    // Create menu if not exists (handled in HTML updates mostly, but helper here for toggle)
+    const isMenuOpen = () => menu && !menu.classList.contains('translate-x-full');
+
+    const lockScroll = () => {
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+        document.body.dataset.scrollY = scrollY;
+    };
+
+    const unlockScroll = () => {
+        const savedY = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, savedY);
+    };
+
     window.toggleMobileMenu = () => {
         if (menu) {
-            menu.classList.toggle('translate-x-full'); // Tailwind class for transform
-            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling body
+            menu.classList.toggle('translate-x-full');
+            if (isMenuOpen()) {
+                lockScroll();
+            } else {
+                unlockScroll();
+            }
         }
     };
 
