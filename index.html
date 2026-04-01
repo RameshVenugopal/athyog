@@ -214,12 +214,18 @@
               data-filter="health-related">Health Related</button>
           </div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="classes-grid">
-          <!-- Classes will be loaded dynamically from Google Sheets -->
-          <div class="col-span-full text-center py-12">
-            <span class="material-symbols-outlined text-navy/20 text-5xl mb-4 animate-pulse">spa</span>
-            <p class="text-navy/50">Loading classes...</p>
+        <div class="h-scroll-wrapper">
+          <div class="h-scroll-track" id="classes-grid">
+            <!-- Classes will be loaded dynamically from Google Sheets -->
+            <div class="text-center py-12" style="flex: 0 0 100%; grid-column: 1/-1">
+              <span class="material-symbols-outlined text-navy/20 text-5xl mb-4 animate-pulse">spa</span>
+              <p class="text-navy/50">Loading classes...</p>
+            </div>
           </div>
+          <!-- Mobile scroll hint -->
+          <p class="md:hidden text-center text-navy/40 text-xs mt-3 flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-base">swipe</span> Swipe to explore
+          </p>
         </div>
       </div>
     </section>
@@ -234,12 +240,18 @@
           <h2 class="text-navy text-clamp-h2 font-bold">Upcoming Events</h2>
           <p class="text-navy/70 mt-3 max-w-md mx-auto">Special workshops, retreats, and transformative sessions.</p>
         </div>
-        <div class="event-list space-y-6">
-          <!-- Events will be loaded dynamically from Google Sheets -->
-          <div class="text-center py-8">
-            <span class="material-symbols-outlined text-navy/20 text-5xl mb-4 animate-pulse">event</span>
-            <p class="text-navy/50">Loading events...</p>
+        <div class="h-scroll-wrapper h-scroll-wrapper bg-white-section">
+          <div class="event-list h-scroll-track">
+            <!-- Events will be loaded dynamically from Google Sheets -->
+            <div class="text-center py-8" style="flex: 0 0 100%; grid-column: 1/-1">
+              <span class="material-symbols-outlined text-navy/20 text-5xl mb-4 animate-pulse">event</span>
+              <p class="text-navy/50">Loading events...</p>
+            </div>
           </div>
+          <!-- Mobile scroll hint -->
+          <p class="md:hidden text-center text-navy/40 text-xs mt-3 flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-base">swipe</span> Swipe to explore
+          </p>
         </div>
       </div>
     </section>
