@@ -90,13 +90,15 @@
   </div>
 
   <main class="pt-16" id="top">
-    <!-- Hero -->
-    <section class="hero-gradient min-h-[85vh] flex items-center px-4 py-12 md:py-20 relative overflow-hidden">
+    <!-- Hero + Stats combined -->
+    <section class="hero-gradient min-h-[70vh] md:min-h-[85vh] flex flex-col justify-between px-4 pt-10 md:pt-16 relative overflow-hidden">
       <div class="absolute -top-20 -left-20 w-72 h-72 bg-lavender/40 rounded-full blur-3xl"></div>
       <div class="absolute bottom-10 right-10 w-48 h-48 bg-accent/30 rounded-full blur-3xl"></div>
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
-        <div class="space-y-6 text-center lg:text-left">
-          <p class="font-bold italic text-navy/70 text-lg mb-2">|| Atha Yoga Anushasanam ||</p>
+
+      <!-- Hero content -->
+      <div class="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10 flex-1 py-6 md:py-10">
+        <div class="space-y-5 text-center lg:text-left">
+          <p class="font-bold italic text-navy/70 text-base mb-1">|| Atha Yoga Anushasanam ||</p>
           <span
             class="inline-block bg-navy/10 text-navy border border-navy/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
             By Yog Guru Ashwini Patil
@@ -104,7 +106,7 @@
           <h1 class="text-navy text-clamp-h1 font-bold leading-tight">
             Holistic Yoga Classes in Pune <span class="text-primary">with 20+ Years Experience</span>
           </h1>
-          <p class="text-navy/80 text-lg md:text-xl font-medium max-w-lg mx-auto lg:mx-0">
+          <p class="text-navy/80 text-base md:text-xl font-medium max-w-lg mx-auto lg:mx-0">
             Inclusive classes—online and at our studio. Transform your mind and body with authentic yoga.
           </p>
           <div class="flex flex-wrap justify-center lg:justify-start gap-3">
@@ -118,18 +120,18 @@
               <span class="material-symbols-outlined text-sm">self_improvement</span> Balance Mind & Body
             </span>
           </div>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
             <a href="#services"
-              class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center">
+              class="bg-primary text-white px-7 py-3 rounded-full font-bold text-base hover:shadow-lg transition-all text-center">
               Start Your Journey
             </a>
             <a href="https://wa.link/a0lxj5" target="_blank"
-              class="bg-white/50 backdrop-blur text-navy border-2 border-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all text-center">
+              class="bg-white/50 backdrop-blur text-navy border-2 border-navy px-7 py-3 rounded-full font-bold text-base hover:bg-white transition-all text-center">
               Book a Class
             </a>
           </div>
         </div>
-        <div class="block mt-8 lg:mt-0 relative">
+        <div class="block mt-4 lg:mt-0 relative">
           <div class="bg-white lg:p-4 rounded-3xl lg:shadow-2xl lg:rotate-2 overflow-hidden">
             <div class="rounded-2xl overflow-hidden w-full aspect-[4/3] relative">
               <video autoplay loop muted playsinline class="w-full h-full object-cover">
@@ -146,40 +148,41 @@
           </div>
         </div>
       </div>
+
+      <!-- Stats strip — embedded at bottom of hero -->
+      <div class="stats-section relative z-10 w-full max-w-6xl mx-auto mt-4">
+        <div class="bg-navy/90 backdrop-blur-sm rounded-2xl md:rounded-3xl px-6 py-4 md:py-5 grid grid-cols-4 gap-2 md:gap-6">
+          <div class="text-center reveal">
+            <p class="text-accent text-xl md:text-3xl font-bold counter-value" data-target="20">0</p>
+            <p class="text-mint/60 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">Yrs Exp</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 100ms">
+            <p class="text-primary text-xl md:text-3xl font-bold counter-value" data-target="5000">0</p>
+            <p class="text-mint/60 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">Students</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 200ms">
+            <p class="text-lavender text-xl md:text-3xl font-bold counter-value" data-target="12">0</p>
+            <p class="text-mint/60 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">Instructors</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay: 300ms">
+            <p class="text-accent text-xl md:text-3xl font-bold counter-value" data-target="95">0</p>
+            <p class="text-mint/60 text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">% Renewals</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Scroll indicator -->
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden sm:block">
+      <div class="relative z-10 text-center py-3 animate-bounce">
         <a href="#services" class="text-navy/50 hover:text-navy transition-colors">
-          <span class="material-symbols-outlined text-3xl">keyboard_arrow_down</span>
+          <span class="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
         </a>
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="bg-navy py-10 md:py-14 px-4 stats-section">
-      <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        <div class="text-center reveal">
-          <p class="text-accent text-2xl md:text-4xl font-bold counter-value" data-target="20">0</p>
-          <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Experience</p>
-        </div>
-        <div class="text-center reveal" style="transition-delay: 100ms">
-          <p class="text-primary text-2xl md:text-4xl font-bold counter-value" data-target="5000">0</p>
-          <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Students</p>
-        </div>
-        <div class="text-center reveal" style="transition-delay: 200ms">
-          <p class="text-lavender text-2xl md:text-4xl font-bold counter-value" data-target="12">0</p>
-          <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Instructors</p>
-        </div>
-        <div class="text-center reveal" style="transition-delay: 300ms">
-          <p class="text-accent text-2xl md:text-4xl font-bold counter-value" data-target="95">0</p>
-          <p class="text-mint/60 text-xs font-bold uppercase tracking-wider mt-1">Renewals</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Classes Section -->
-    <section class="py-16 md:py-24 px-4 reveal" id="services">
+    <section class="py-10 md:py-16 px-4 reveal" id="services">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <span
             class="pill-reveal inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Find
             Your Path</span>
@@ -231,9 +234,9 @@
     </section>
 
     <!-- Events Section (Dynamic from Google Sheets) -->
-    <section class="bg-white py-16 md:py-24 px-4 reveal" id="events">
+    <section class="bg-white py-10 md:py-16 px-4 reveal" id="events">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <span
             class="pill-reveal inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Join
             Us</span>
@@ -257,9 +260,9 @@
     </section>
 
     <!-- About -->
-    <section class="bg-white py-16 md:py-24 px-4 reveal" id="about">
+    <section class="bg-white py-10 md:py-16 px-4 reveal" id="about">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <span
             class="pill-reveal inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Our
             Story</span>
@@ -311,9 +314,9 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-16 md:py-24 px-4 bg-cream/30" id="testimonials">
+    <section class="py-10 md:py-16 px-4 bg-cream/30" id="testimonials">
       <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <span
             class="pill-reveal inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Real
             Stories</span>
@@ -413,9 +416,9 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-16 md:py-24 px-4 bg-white reveal" id="gallery">
+    <section class="py-10 md:py-16 px-4 bg-white reveal" id="gallery">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <span
             class="pill-reveal inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Moments</span>
           <h2 class="text-navy text-clamp-h2 font-bold">Life at Ath Yog</h2>
@@ -525,7 +528,7 @@
     </section>
 
     <!-- Contact CTA -->
-    <section class="hero-gradient px-4 py-16 md:py-24 reveal" id="contact">
+    <section class="hero-gradient px-4 py-10 md:py-16 reveal" id="contact">
       <div
         class="max-w-6xl mx-auto bg-navy rounded-3xl lg:rounded-[3rem] p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-12 shadow-2xl border-4 border-accent relative overflow-hidden">
         <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-primary/20 rounded-full blur-3xl"></div>
