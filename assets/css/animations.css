@@ -158,6 +158,55 @@
   opacity: 0;
 }
 
+/* Horizontal Scroll Track — Classes & Events on Mobile */
+.h-scroll-track {
+  /* Desktop: 3-col grid */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .h-scroll-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .h-scroll-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+  .h-scroll-track::-webkit-scrollbar { display: none; }
+  .h-scroll-track > * {
+    flex: 0 0 82vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+  /* Fade-out right edge to hint scrollability */
+  .h-scroll-wrapper {
+    position: relative;
+  }
+  .h-scroll-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--cream));
+    pointer-events: none;
+  }
+  .h-scroll-wrapper.bg-white-section::after {
+    background: linear-gradient(to right, transparent, #ffffff);
+  }
+}
+
 /* Gallery: Horizontal Scroll Strip on Mobile */
 @media (max-width: 767px) {
   .gallery-grid {

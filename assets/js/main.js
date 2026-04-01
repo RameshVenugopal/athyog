@@ -320,7 +320,7 @@ function renderEmptyEvents(container, isError = false) {
 }
 
 function renderEvents(container, events) {
-    container.className = 'grid md:grid-cols-2 lg:grid-cols-3 gap-6';
+    container.className = 'h-scroll-track';
     container.innerHTML = '';
 
     events.forEach((ev, index) => {
@@ -496,7 +496,7 @@ function initFilters() {
             cards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 if (filterValue === 'all' || category.includes(filterValue)) {
-                    card.style.display = 'block';
+                    card.style.display = ''; // Reset to CSS-defined display (works for both grid and flex)
                     setTimeout(() => card.classList.add('active'), 50); // Re-trigger reveal
                 } else {
                     card.style.display = 'none';
