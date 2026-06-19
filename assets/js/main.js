@@ -3,6 +3,14 @@
  * Handles animations, data fetching, interactions, and performance optimizations.
  */
 
+/* --- Site configuration (single source of truth) --- */
+const CONFIG = {
+    SHEET_ID: '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE',
+    EVENT_GID: '805507452',
+    COURSE_GID: '0',
+    WHATSAPP: 'https://wa.link/a0lxj5',
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
@@ -12,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialCarousel();
     initRippleEffect();
     initParallax();
+    initLazyVideos();
 });
 
 /* --- 1. Navigation & Smooth Scroll --- */
@@ -47,19 +56,25 @@ function initSmoothScroll() {
     // Active Link Highlighting
     const sections = document.querySelectorAll('section[id]');
 
+    let activeTicking = false;
     window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
+        if (activeTicking) return;
+        activeTicking = true;
+        requestAnimationFrame(() => {
+            const scrollY = window.pageYOffset;
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - headerHeight - 100;
-            const sectionId = current.getAttribute('id');
-            const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - headerHeight - 100;
+                const sectionId = current.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
 
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelectorAll('nav a').forEach(a => a.classList.remove('text-primary'));
-                if (navLink) navLink.classList.add('text-primary');
-            }
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('text-primary'));
+                    if (navLink) navLink.classList.add('text-primary');
+                }
+            });
+            activeTicking = false;
         });
     });
 }
@@ -230,21 +245,23 @@ function initTestimonialCarousel() {
 }
 
 /* --- 6. Data Fetching (Google Sheets) --- */
+
+// Fetch one sheet via the gviz endpoint and return its rows as arrays of cell
+// values (empty string for blank cells). Strips the gviz JSONP wrapper.
+function fetchSheet(gid) {
+    const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&gid=${gid}`;
+    return fetch(url)
+        .then(res => res.text())
+        .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
+        .then(data => data.table.rows.map(r => r.c.map(c => c ? c.v : '')));
+}
+
 function initDataFetching() {
-    const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
-    const EVENT_GID = '805507452';
-    const COURSE_GID = '0';
-
-    // Fetch Events
-    const urlEvents = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${EVENT_GID}`;
+    // Events
     const eventList = document.querySelector('.event-list');
-
     if (eventList) {
-        fetch(urlEvents)
-            .then(res => res.text())
-            .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-            .then(data => {
-                const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+        fetchSheet(CONFIG.EVENT_GID)
+            .then(rows => {
                 const [header, ...events] = rows;
                 const validEvents = events.filter(ev => ev[0] && ev[0].trim() !== '');
 
@@ -256,20 +273,15 @@ function initDataFetching() {
             })
             .catch(err => {
                 console.error('Error loading events:', err);
-                renderEmptyEvents(eventList, isError = true);
+                renderEmptyEvents(eventList, true);
             });
     }
 
-    // Fetch Classes
-    const urlCourses = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${COURSE_GID}`;
+    // Classes
     const classesGrid = document.getElementById('classes-grid');
-
     if (classesGrid) {
-        fetch(urlCourses)
-            .then(res => res.text())
-            .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-            .then(data => {
-                const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+        fetchSheet(CONFIG.COURSE_GID)
+            .then(rows => {
                 const [header, ...courses] = rows;
                 const validCourses = courses.filter(c => c[1] && c[1].trim() !== '');
 
@@ -292,7 +304,7 @@ function renderEmptyEvents(container, isError = false) {
             <span class="material-symbols-outlined text-navy/30 text-6xl mb-4">event_upcoming</span>
             <h3 class="text-navy text-xl font-bold mb-2">${isError ? 'Oops!' : 'Stay Tuned!'}</h3>
             <p class="text-navy/70 mb-6">${isError ? 'Failed to load events.' : 'We\'re planning exciting new events.'}</p>
-            <a href="https://wa.link/a0lxj5" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+            <a href="${CONFIG.WHATSAPP}" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-sm">notifications_active</span> Get Notified
             </a>
         </div>`;
@@ -367,7 +379,7 @@ function renderEvents(container, events) {
                     <p class="text-xs font-bold uppercase tracking-wider text-navy/50">Investment</p>
                     <p class="text-xl font-black text-primary">${price ? `₹${price}` : 'Free'}</p>
                 </div>
-                <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-accent hover:text-navy transition-colors flex items-center gap-2 overflow-hidden relative ripple-btn">
+                <a href="${waLink || CONFIG.WHATSAPP}" target="_blank" class="bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-accent hover:text-navy transition-colors flex items-center gap-2 overflow-hidden relative ripple-btn">
                     Register <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
                 </div>
@@ -421,7 +433,7 @@ function renderClasses(container, courses) {
             imageHtml = `<div class="w-full h-40 bg-white/50 rounded-2xl mb-4 flex items-center justify-center"><span class="material-symbols-outlined text-navy/30 text-6xl">${icon}</span></div>`;
         }
 
-        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : (id === 'chair-yoga' ? 'chair-yoga.html' : 'https://wa.link/a0lxj5');
+        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : (id === 'chair-yoga' ? 'chair-yoga.html' : CONFIG.WHATSAPP);
         const detailsText = (id === 'slim-smart-sadhana' || id === 'chair-yoga') ? 'Details' : 'Contact';
         const isDetailsPage = (id === 'slim-smart-sadhana' || id === 'chair-yoga');
 
@@ -439,7 +451,7 @@ function renderClasses(container, courses) {
             <p class="text-primary font-bold mb-2">₹${price}<span class="text-navy/50 text-sm">/${duration || 'course'}</span></p>
             <p class="text-navy/70 text-sm mb-4 line-clamp-2">${desc || ''}</p>
             <div class="flex gap-2">
-            <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="ripple-btn flex-1 bg-primary text-white py-2 rounded-xl text-sm font-bold text-center hover:shadow-lg transition-all relative overflow-hidden">Join</a>
+            <a href="${waLink || CONFIG.WHATSAPP}" target="_blank" class="ripple-btn flex-1 bg-primary text-white py-2 rounded-xl text-sm font-bold text-center hover:shadow-lg transition-all relative overflow-hidden">Join</a>
             ${isDetailsPage ? `<a href="${detailsUrl}" class="flex-1 border-2 border-navy py-2 rounded-xl text-sm font-bold text-center hover:bg-navy hover:text-white transition-all">${detailsText}</a>` : ''}
             </div>
         `;
@@ -455,8 +467,8 @@ function initFilters() {
     const filters = document.querySelectorAll('.filter-btn');
     filters.forEach(filter => {
         // Clone to remove old listeners if any (simple way to avoid dupes)
-        const newFooter = filter.cloneNode(true);
-        filter.parentNode.replaceChild(newFooter, filter);
+        const fresh = filter.cloneNode(true);
+        filter.parentNode.replaceChild(fresh, filter);
     });
 
     const newFilters = document.querySelectorAll('.filter-btn');
@@ -515,16 +527,42 @@ function initRippleEffect() {
 }
 
 function initParallax() {
+    let parallaxTicking = false;
     window.addEventListener('scroll', function () {
-        const parallaxEls = document.querySelectorAll('.parallax-scroll');
-        parallaxEls.forEach(el => {
-            const speed = el.getAttribute('data-speed') || 0.5;
-            const rect = el.getBoundingClientRect();
-            // Only animate if in view
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                const offset = window.pageYOffset * speed;
-                el.style.transform = `translateY(${offset * 0.1}px)`;
-            }
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+        requestAnimationFrame(() => {
+            const parallaxEls = document.querySelectorAll('.parallax-scroll');
+            parallaxEls.forEach(el => {
+                const speed = el.getAttribute('data-speed') || 0.5;
+                const rect = el.getBoundingClientRect();
+                // Only animate if in view
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const offset = window.pageYOffset * speed;
+                    el.style.transform = `translateY(${offset * 0.1}px)`;
+                }
+            });
+            parallaxTicking = false;
         });
     });
+}
+
+/* --- 9. Lazy Video Playback --- */
+function initLazyVideos() {
+    const lazyVideos = document.querySelectorAll('video[data-lazy]');
+    if (!lazyVideos.length) return;
+
+    // On mobile, skip autoplay to save data — poster images will show instead
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '150px' });
+
+    lazyVideos.forEach(v => observer.observe(v));
 }
