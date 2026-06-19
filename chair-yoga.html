@@ -9,12 +9,15 @@
         content="Chair Yoga for Professionals, IT Employees, Sedentary Workers & Senior Citizens. An evidence-informed, safe, and effective approach to physical and mental well-being." />
     <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
     <meta content="#fffaf0" name="theme-color" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
-        rel="stylesheet" />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"></noscript>
     <link href="assets/css/animations.css" rel="stylesheet" />
     <style type="text/tailwindcss">
         :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
@@ -26,7 +29,7 @@
         .text-clamp-h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); }
         .text-clamp-h2 { font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem); }
     </style>
-    <script>tailwind.config = { theme: { extend: { colors: { "primary": "#ff6b6b", "accent": "#4ecdc4", "navy": "#2c3e50", "cream": "#fffaf0", "lavender": "#e0d7ff", "mint": "#d7fff1" } } } }</script>
+    <script src="assets/js/theme.js"></script>
 </head>
 
 <body class="selection:bg-accent/30 overflow-x-hidden">
@@ -108,7 +111,7 @@
                     <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
                         <div
                             class="rounded-2xl overflow-hidden aspect-[4/3] bg-navy/10 flex items-center justify-center">
-                            <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <video autoplay loop muted playsinline poster="assets/images/sss/sss-hero.jpeg" class="w-full h-full object-cover">
                                 <source src="assets/video/chairyoga1.mp4" type="video/mp4">
                                 <img alt="Chair Yoga" class="w-full h-full object-cover ken-burns"
                                     src="assets/images/sss/sss-hero.jpeg" />
@@ -792,7 +795,7 @@
 
                     <!-- Video Item -->
                     <div class="col-span-2 md:col-span-1 row-span-2 relative group overflow-hidden rounded-3xl">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <video loop muted playsinline preload="none" data-lazy poster="assets/images/sss/sss-hero.jpeg" class="w-full h-full object-cover">
                             <source src="assets/video/chairyoga1.mp4" type="video/mp4">
                         </video>
                         <div
