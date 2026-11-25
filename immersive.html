@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ath Yog — Breathe In, Belong (Immersive Concept)</title>
+  <meta name="description" content="An immersive concept for Ath Yog Pune: full-bleed practice photography, live class schedule, and WhatsApp booking." />
+  <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="assets/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+  <meta name="robots" content="noindex" />
+  <meta content="#121735" name="theme-color" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="assets/css/immersive.css" rel="stylesheet" />
+  <!-- Precompiled Tailwind for all immersive pages. After changing any Tailwind class, rebuild: npm run build:css -->
+  <link href="assets/css/immersive.tailwind.css" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&family=Mukta:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&family=Mukta:wght@400;500;700&display=swap" rel="stylesheet"><style>.hero-video { opacity: 1; }</style></noscript>
+</head>
+
+<body class="overflow-x-hidden">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Horizon line: scroll progress (assets/js/immersive.js) -->
+  <div class="fixed top-0 left-0 right-0 z-[70] h-[3px] pointer-events-none" aria-hidden="true">
+    <div id="progress" class="h-full w-full"></div>
+  </div>
+
+  <header id="site-header" class="fixed top-0 z-50 w-full">
+    <div class="wrap h-[72px] flex items-center justify-between gap-4">
+      <a href="immersive.html" class="brand" aria-label="Ath Yog — home">
+        <span class="brand-mark"><img src="assets/images/logo-64.png" alt="" width="32" height="32" class="h-7 w-auto" /></span>
+        <span class="brand-name">Ath&nbsp;Yog</span>
+      </a>
+      <p id="sky-clock" class="sky-clock ml-auto md:ml-0 lg:ml-auto lg:mr-4" aria-hidden="true"><span id="sky-time" class="sky-clock__time">04:45</span><span id="sky-phase" class="hidden sm:inline">Brahma Muhurta</span></p>
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-6">
+        <a class="nav-link" href="immersive.html" aria-current="page">Home</a>
+        <a class="nav-link" href="immersive-practice.html">Practice</a>
+        <a class="nav-link" href="immersive-stories.html">Stories</a>
+        <a class="nav-link" href="immersive-visit.html">Visit</a>
+        <a href="immersive-seva.html" class="nav-link">Donate</a>
+        <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="btn-sun !min-h-[44px] !px-5 !text-base"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Book a trial</a>
+      </nav>
+      <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex items-center justify-center w-11 h-11 -mr-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 8h16M4 16h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden flex-col justify-center gap-3 px-8 md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+    <button id="close-mobile-menu" aria-label="Close menu" class="absolute top-4 right-4 inline-flex items-center justify-center w-11 h-11">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+    </button>
+    <a href="immersive.html" class="menu-link" aria-current="page">Home</a>
+    <a href="immersive-practice.html" class="menu-link">Practice</a>
+    <a href="immersive-stories.html" class="menu-link">Stories</a>
+    <a href="immersive-visit.html" class="menu-link">Visit</a>
+    <a href="immersive-seva.html" class="menu-link">Donate</a>
+    <div class="mt-6 flex flex-col items-start gap-3">
+      <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="btn-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Book a trial</a>
+      <a href="index.html" class="link">← Back to main site</a>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <section id="main" tabindex="-1" class="band-night pt-[132px] pb-20 md:pb-28" aria-label="Morning practice at Ath Yog">
+      <div class="wrap grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-end">
+        <div>
+          <h1 class="rise display">Come home to your body.</h1>
+          <p class="rise rise-2 mt-6 lede">Small-batch yoga in Erandwane, Pune — for beginners, seniors, children and everyday bodies. Transform your mind and body with authentic yoga.</p>
+          <p class="rise rise-3 mt-4 meta">By Yog Guru Ashwini Patil · Est. 2004 · 20+ Years Experience · Small batches · Certified teacher · Online &amp; in-studio · Trial class</p>
+          <div class="rise rise-4 mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="btn-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Book a trial in Pune</a>
+            <a href="#breathe" class="link">Begin the descent</a>
+          </div>
+          <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="rise rise-4 link mt-2 !font-medium" lang="mr">मराठीमध्ये माहिती WhatsApp वर →</a>
+          <p class="rise rise-4 mt-6 mantra">|| Atha Yoga Anushasanam ||</p>
+        </div>
+        <figure class="plate rise rise-3">
+          <div class="plate__frame aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+            <video id="hero-video" loop muted playsinline preload="none" poster="assets/images/immersive/hero.jpg" tabindex="-1" class="hero-video" aria-hidden="true">
+              <source src="assets/video/immersive/hero.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption class="plate__cap"><strong>Morning practice</strong><span>Erandwane, Pune</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="practice-story" class="story-wrap band-night" aria-label="The Ath Yog practice">
+      <div class="story-pin">
+        <div class="story-stage">
+          <img class="story-media active" data-story-media="0" src="assets/images/pranayam-workshop.jpg" alt="Pranayama workshop at Ath Yog" loading="lazy" decoding="async" />
+          <img class="story-media" data-story-media="1" src="assets/images/yoga-asana-1.jpeg" alt="Asana practice" loading="lazy" decoding="async" />
+          <img class="story-media" data-story-media="2" src="assets/images/yog-nidra.jpg" alt="Yoga nidra rest" loading="lazy" decoding="async" />
+        </div>
+        <div class="story-copy">
+          <ol class="story-index">
+            <li class="story-panel active" data-story-panel="0">
+              <a href="#breathe" class="story-head"><span class="story-dot active" data-story-dot="0" aria-hidden="true"></span><h2 class="story-title">Breathe.</h2></a>
+              <div class="story-detail"><div>
+                <p class="lede">Pranayama first, always. Longer exhales, steadier mind — nothing athletic asked of you yet.</p>
+                <p class="mt-3 meta">Daily · 15 min · All levels</p>
+              </div></div>
+            </li>
+            <li class="story-panel" data-story-panel="1">
+              <a href="#move" class="story-head"><span class="story-dot" data-story-dot="1" aria-hidden="true"></span><h2 class="story-title">Move.</h2></a>
+              <div class="story-detail"><div>
+                <p class="lede">Asana scaled to your body — beginners, seniors, kids, therapy batches. Never forced.</p>
+                <p class="mt-3 meta">Batches · Mon–Sat · Online &amp; studio</p>
+              </div></div>
+            </li>
+            <li class="story-panel" data-story-panel="2">
+              <a href="#rest" class="story-head"><span class="story-dot" data-story-dot="2" aria-hidden="true"></span><h2 class="story-title">Rest.</h2></a>
+              <div class="story-detail"><div>
+                <p class="lede">Yoga nidra to close. Sleep deepens here; stress loosens its grip.</p>
+                <p class="mt-3 meta">Every session · Non-negotiable</p>
+              </div></div>
+            </li>
+          </ol>
+          <div class="story-cta"><a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="btn-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Book a trial</a></div>
+        </div>
+      </div>
+      <div class="story-track" aria-hidden="true">
+        <div id="breathe" class="story-step" data-story-step="0"></div>
+        <div id="move" class="story-step" data-story-step="1"></div>
+        <div id="rest" class="story-step" data-story-step="2"></div>
+      </div>
+    </section>
+
+    <section class="band-blush section" aria-label="Meet your yoga guide">
+      <div class="wrap grid md:grid-cols-[minmax(0,340px)_1fr] gap-10 md:gap-16 items-center">
+        <figure class="plate rv">
+          <div class="plate__frame aspect-[4/5]"><img src="assets/images/sss/coach-ashwini.jpeg" alt="Yog Guru Ashwini Patil seated in meditation" loading="lazy" decoding="async" /></div>
+          <figcaption class="plate__cap"><strong>Yog Guru Ashwini Patil</strong><span>Pune · Teaching since 2004</span></figcaption>
+        </figure>
+        <div class="rv">
+          <h2 class="h2">Meet Yog Guru Ashwini Patil.</h2>
+          <p class="mt-6 body">Twenty years of teaching, shaped by her own recovery from pain into strength. Traditional yogic wisdom meets modern life here — precise, inclusive and never intimidating.</p>
+          <blockquote class="quote quote--lg mt-8">“Yoga is not exercise. It is a return — to breath, to body, to yourself.”</blockquote>
+          <div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener" class="btn-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Train with her</a>
+            <a href="immersive-stories.html#guide" class="link">Her story &amp; method →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="classes" class="band-day section" aria-label="Live class schedule">
+      <div class="wrap">
+        <div class="rv max-w-3xl">
+          <h2 class="h2">Choose your starting point.</h2>
+          <p class="mt-5 lede">Small batches in Erandwane and online — beginners, seniors, kids and therapy batches. Live from our class calendar.</p>
+        </div>
+        <div id="concept-filters" class="rv mt-10 flex gap-2.5 overflow-x-auto pb-2 -mx-5 px-5 md:mx-0 md:px-0 md:flex-wrap" role="group" aria-label="Filter classes">
+          <button type="button" class="chip on" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="beginners" aria-pressed="false">Beginners</button>
+          <button type="button" class="chip" data-filter="kids" aria-pressed="false">Kids</button>
+          <button type="button" class="chip" data-filter="senior-citizen" aria-pressed="false">Seniors</button>
+          <button type="button" class="chip" data-filter="therapy" aria-pressed="false">Therapy</button>
+          <button type="button" class="chip" data-filter="advance" aria-pressed="false">Advanced</button>
+        </div>
+        <div id="concept-classes" data-preview="5" class="mt-6 border-t border-[color:var(--rule)]" aria-live="polite">
+          <p class="py-10 muted" role="status">Loading Pune batches… Prefer a quick answer? WhatsApp us for today’s timings.</p>
+          <noscript><p class="py-10">Enable JavaScript for the live schedule, or <a class="link" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">ask on WhatsApp</a>.</p></noscript>
+        </div>
+        <button id="cls-toggle" type="button" class="hidden mt-4 link">Show all ↓</button>
+      </div>
+    </section>
+
+    <section id="events" class="band-day section" aria-label="Upcoming events">
+      <div class="wrap">
+        <div class="rv max-w-3xl mb-10">
+          <h2 class="h2">Upcoming dates.</h2>
+          <p class="mt-5 lede">Special workshops, retreats and community sessions — updated from our live calendar.<span data-ev-hint> Save any date to yours in one tap.</span></p>
+          <a href="immersive-practice.html#events" class="link mt-2">All events →</a>
+        </div>
+        <div id="concept-events" data-limit="3" aria-live="polite" class="border-t border-[color:var(--rule)]">
+          <p class="py-10 muted" role="status">Loading upcoming dates…</p>
+          <noscript><p class="py-10">Enable JavaScript for live dates, or <a class="link" href="https://wa.link/a0lxj5" target="_blank" rel="noopener">ask on WhatsApp</a>.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section id="first-class" class="band-day section--tight">
+      <div class="wrap grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-start">
+        <div class="rv">
+          <h2 class="h2">Your first class, made simple.</h2>
+          <p class="mt-5 lede">No flexibility test. No pressure to keep up. We begin where your body is today.</p>
+        </div>
+        <ul class="ledger">
+          <li class="ledger-row"><h3 class="h3">Arrive and settle</h3><p class="body">A short breathing check-in helps your teacher understand what you need.</p></li>
+          <li class="ledger-row"><h3 class="h3">Move at your pace</h3><p class="body">Every posture is adapted for your age, experience and comfort.</p></li>
+          <li class="ledger-row"><h3 class="h3">Ask anything</h3><p class="body">Small batches mean personal guidance throughout the session.</p></li>
+          <li class="ledger-row"><h3 class="h3">Leave with a next step</h3><p class="body">We help you choose a class that fits your routine in Pune or online.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band-day section--tight" aria-label="Ath Yog in numbers">
+      <div class="wrap grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+        <figure class="plate ">
+          <div class="plate__frame aspect-[4/3]"><img src="assets/images/about.jpg" alt="Practice by the water with the Ath Yog community" loading="lazy" decoding="async" /></div>
+          <figcaption class="plate__cap"><strong>Ath Yog community</strong><span>Pune</span></figcaption>
+        </figure>
+        <dl class="facts rv">
+          <div><dt>Years teaching</dt><dd>20+</dd></div>
+          <div><dt>Students guided</dt><dd>5,000+</dd></div>
+          <div><dt>Expert instructors</dt><dd>12+</dd></div>
+          <div><dt>Renewal rate</dt><dd>95%</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="voices" class="band-day section" aria-label="Student stories">
+      <div class="wrap">
+        <div class="rv max-w-3xl mb-12">
+          <h2 class="h2">Bodies that came home.</h2>
+          <p class="mt-4 meta">Rated 4.9 on Google</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10 md:gap-8">
+          <figure class="m-0 rv">
+            <blockquote class="quote">“Two years with Ashwini — her exercises boosted our self image and body alignment. Well-structured sessions. Definitely recommend!”</blockquote>
+            <figcaption class="mt-5 pt-4 border-t border-[color:var(--rule)] small"><strong>Shiwanee Parimal</strong> <span class="muted">· Student · 5-star review</span></figcaption>
+          </figure>
+          <figure class="m-0 rv">
+            <blockquote class="quote">“Scientific guidance, proper workout, neat attention to each student — even diet guidance. Feel fresh and young.”</blockquote>
+            <figcaption class="mt-5 pt-4 border-t border-[color:var(--rule)] small"><strong>Parag Patil</strong> <span class="muted">· Student · 5-star review</span></figcaption>
+          </figure>
+          <figure class="m-0 rv">
+            <blockquote class="quote">“Every day is a different workout — never boring. My flexibility has grown a lot in just one month of Core Fit.”</blockquote>
+            <figcaption class="mt-5 pt-4 border-t border-[color:var(--rule)] small"><strong>Pratibha Dhyade</strong> <span class="muted">· Student · 5-star review</span></figcaption>
+          </figure>
+        </div>
+        <p class="mt-8"><a href="immersive-stories.html" class="link">More stories, gallery &amp; guide →</a></p>
+      </div>
+    </section>
+
+    <section class="band-day section" aria-label="Explore">
+      <div class="wrap grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 items-start">
+        <div class="rv">
+          <h2 class="h2">Where to next?</h2>
+          <p class="mt-5 lede">Choose the path that feels right today — a class, a story, a way to give, or a first visit.</p>
+        </div>
+        <ul class="ledger !border-t">
+          <li class="!p-0"><a href="immersive-practice.html" class="ledger-link"><span><span class="h3 block">Practice</span><span class="body block mt-1">Classes, events &amp; the 21-day journey. Find your rhythm.</span></span><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+          <li class="!p-0"><a href="immersive-stories.html" class="ledger-link"><span><span class="h3 block">Stories</span><span class="body block mt-1">About, guide, reviews &amp; gallery. Meet the community.</span></span><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+          <li class="!p-0"><a href="immersive-seva.html" class="ledger-link"><span><span class="h3 block">Seva</span><span class="body block mt-1">Support yoga for all. Give with purpose.</span></span><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+          <li class="!p-0"><a href="immersive-visit.html" class="ledger-link"><span><span class="h3 block">Visit</span><span class="body block mt-1">Studio, map &amp; contact. Take the first step.</span></span><span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer py-12">
+    <div class="wrap grid gap-8 md:grid-cols-[1.4fr_1fr_1fr_1fr] text-[0.9375rem]">
+      <div>
+        <p class="flex items-center gap-3">
+          <span class="brand-mark"><img src="assets/images/logo-64.png" alt="" width="32" height="32" loading="lazy" class="h-7 w-auto" /></span>
+          <span class="brand-name">Ath&nbsp;Yog</span>
+        </p>
+        <p class="mt-4 muted">Ath Yog Wellness Foundation · since 2004<br />Kamaldeep Bunglow, Erandwane, Pune 411004</p>
+        <p class="mt-3 mantra">|| Atha Yoga Anushasanam ||</p>
+      </div>
+      <nav aria-label="Footer navigation" class="flex flex-col items-start">
+        <a href="immersive.html" aria-current="page">Home</a>
+        <a href="immersive-practice.html">Practice</a>
+        <a href="immersive-stories.html">Stories</a>
+        <a href="immersive-visit.html">Visit</a>
+        <a href="immersive-seva.html">Seva</a>
+      </nav>
+      <nav aria-label="Programmes" class="flex flex-col items-start">
+        <a href="immersive-slim-smart-sadhana.html">Slim Smart Sadhana</a>
+        <a href="immersive-chair-yoga.html">Chair Yoga</a>
+        <a href="immersive-corporate.html">Corporate</a>
+      </nav>
+      <div class="flex flex-col items-start">
+        <a href="index.html">Main site</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-of-service.html">Terms</a>
+        <span class="mt-2 muted">© 2026 · Ath Yog Wellness Foundation</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="to-top" aria-label="Back to top" class="to-top hidden md:flex fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full items-center justify-center opacity-0 pointer-events-none transition-opacity">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5m-6 6l6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <a href="https://wa.link/a0lxj5" target="_blank" rel="noopener noreferrer" class="sun-bar md:hidden fixed bottom-0 inset-x-0 z-40 flex items-center justify-between px-5 py-3 min-h-[56px] font-bold"><span class="inline-flex items-center gap-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z"/></svg>Start with a trial class</span><span aria-hidden="true">→</span></a>
+
+  <script src="assets/js/immersive.js" defer></script>
+</body>
+
+</html>

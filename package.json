@@ -1,0 +1,22 @@
+{
+  "name": "athyog",
+  "version": "1.0.0",
+  "description": "A modern, responsive website for Ath Yog Wellness Foundation - a premier yoga and wellness center in Pune, India, offering holistic yoga classes, workshops, and therapy sessions for practitioners of all ages and skill levels.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/check-immersive.mjs",
+    "build:css": "npx tailwindcss@3.4.17 --content \"./immersive*.html,./assets/js/immersive.js\" -o assets/css/immersive.tailwind.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RameshVenugopal/athyog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RameshVenugopal/athyog/issues"
+  },
+  "homepage": "https://github.com/RameshVenugopal/athyog#readme"
+}

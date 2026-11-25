@@ -49,7 +49,7 @@ athyog/
 | Booking | WhatsApp Business link (`https://wa.link/a0lxj5`) |
 | Maps | Google Maps embed iframe |
 
-**No build system, no package.json, no npm.** All dependencies are loaded via CDN.
+**The main site has no build system:** all its dependencies are loaded via CDN. The immersive concept pages are the one exception (precompiled Tailwind and a check script; see "Immersive Concept Site" below).
 
 ---
 
@@ -163,6 +163,40 @@ Specialized yoga for office/corporate environments. Links back from corporate pa
 - **Meta tags**: Open Graph, Twitter Card, canonical URLs on each page
 - **Structured data**: JSON-LD for LocalBusiness schema (in `<script type="application/ld+json">`)
 - **Performance targets**: LCP <2.5s, FID <100ms, CLS <0.1, Lighthouse 95+
+
+---
+
+## Immersive Concept Site (`immersive*.html`)
+
+A separate, `noindex` concept version of the site with its own design system. It does not share styling with the main site; do not port tokens either way.
+
+| File | Purpose |
+|------|---------|
+| `immersive.html`, `immersive-*.html` | The 8 concept pages (home, practice, stories, visit, seva, chair yoga, corporate, Slim Smart Sadhana) |
+| `assets/css/immersive.css` | Tokens, bands, type and components |
+| `assets/css/immersive.tailwind.css` | Precompiled Tailwind utilities for these pages (generated; do not edit) |
+| `assets/js/immersive.js` | All behaviour and the Google Sheets rendering |
+| `assets/video/immersive/`, `assets/images/immersive/` | Light copies of shared media, used only by these pages |
+| `DESIGN.md`, `PRODUCT.md`, `.impeccable/` | Design system, product brief and direction contract |
+| `scripts/check-immersive.mjs` | Static regression checks |
+
+Commands:
+
+```bash
+npm test            # run scripts/check-immersive.mjs; must report 0 failures
+npm run build:css   # rebuild immersive.tailwind.css after changing any Tailwind class on an immersive page
+```
+
+Rules that differ from the main site:
+- No Tailwind CDN and no inline `<script>` on immersive pages.
+- Saffron (`btn-sun`, `sun-bar`) is only for WhatsApp actions.
+- Slim Smart Sadhana pricing is not shown on immersive pages.
+- Serve locally with `npx serve .` when testing video: `python3 -m http.server` does not support range requests, which Safari needs to play video.
+
+### Shared behaviour worth knowing
+
+- **Sheet header row:** the gviz endpoint removes the header row itself when it detects one (`parsedNumHeaders > 0`, true for the classes sheet, not for events). Both `main.js` and `immersive.js` skip row 0 only when it did not; a fixed skip drops the first class.
+- **Talk reels:** `index.html` and `immersive-stories.html` carry nine click-to-play talks (`[data-talk-video]`, files in `assets/video/talks/`). They must never get `autoplay`, `muted`, `loop`, `data-lazy` or `data-gallery-video`.
 
 ---
 

@@ -3,6 +3,14 @@
  * Handles animations, data fetching, interactions, and performance optimizations.
  */
 
+/* --- Site configuration (single source of truth) --- */
+const CONFIG = {
+    SHEET_ID: '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE',
+    EVENT_GID: '805507452',
+    COURSE_GID: '0',
+    WHATSAPP: 'https://wa.link/a0lxj5',
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
@@ -12,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialCarousel();
     initRippleEffect();
     initParallax();
+    initLazyVideos();
+    initTalkVideos();
+    initGalleryLightbox();
 });
 
 /* --- 1. Navigation & Smooth Scroll --- */
@@ -47,19 +58,25 @@ function initSmoothScroll() {
     // Active Link Highlighting
     const sections = document.querySelectorAll('section[id]');
 
+    let activeTicking = false;
     window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
+        if (activeTicking) return;
+        activeTicking = true;
+        requestAnimationFrame(() => {
+            const scrollY = window.pageYOffset;
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - headerHeight - 100;
-            const sectionId = current.getAttribute('id');
-            const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - headerHeight - 100;
+                const sectionId = current.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
 
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                document.querySelectorAll('nav a').forEach(a => a.classList.remove('text-primary'));
-                if (navLink) navLink.classList.add('text-primary');
-            }
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('text-primary'));
+                    if (navLink) navLink.classList.add('text-primary');
+                }
+            });
+            activeTicking = false;
         });
     });
 }
@@ -95,6 +112,7 @@ function initCounters() {
             started = true;
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '+';
                 const duration = 2000; // 2 seconds
                 const increment = target / (duration / 16); // 60fps
 
@@ -102,10 +120,10 @@ function initCounters() {
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
-                        counter.textContent = Math.ceil(current).toLocaleString() + "+";
+                        counter.textContent = Math.ceil(current).toLocaleString() + suffix;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = target.toLocaleString() + "+";
+                        counter.textContent = target.toLocaleString() + suffix;
                     }
                 };
                 updateCounter();
@@ -174,47 +192,77 @@ function initTestimonialCarousel() {
     const slides = Array.from(track.children);
     if (slides.length === 0) return;
 
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dotsWrap = document.getElementById('carousel-dots');
+
     let currentIndex = 0;
 
     // Determine items per view based on screen width
     const getItemsPerView = () => window.innerWidth >= 768 ? 3 : 1;
+    const getMaxIndex = () => Math.max(0, slides.length - getItemsPerView());
+
+    const renderDots = () => {
+        if (!dotsWrap) return;
+        const maxIndex = getMaxIndex();
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i <= maxIndex; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+            dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+            dot.className = 'w-2.5 h-2.5 rounded-full transition-all ' + (i === currentIndex ? 'bg-primary scale-125' : 'bg-navy/20 hover:bg-navy/40');
+            dot.addEventListener('click', () => { moveToSlide(i); restartAutoPlay(); });
+            dotsWrap.appendChild(dot);
+        }
+        // Hide controls entirely when everything fits in view (desktop)
+        const showNav = maxIndex > 0;
+        dotsWrap.style.display = showNav ? '' : 'none';
+        if (prevBtn) prevBtn.style.display = showNav ? '' : 'none';
+        if (nextBtn) nextBtn.style.display = showNav ? '' : 'none';
+    };
 
     const moveToSlide = (index) => {
-        const itemsPerView = getItemsPerView();
-
-        // Don't scroll if we have fewer or equal items than the view allows
-        if (slides.length <= itemsPerView) {
-            track.style.transform = 'translateX(0)';
-            return;
-        }
-
-        const maxIndex = slides.length - itemsPerView;
+        const maxIndex = getMaxIndex();
 
         // Loop
         if (index < 0) index = maxIndex;
         if (index > maxIndex) index = 0;
 
         currentIndex = index;
-        const containerWidth = track.parentElement.offsetWidth;
-        const slideWidth = containerWidth / itemsPerView;
-        track.style.transform = `translateX(-${index * slideWidth}px)`;
+        if (maxIndex === 0) {
+            track.style.transform = 'translateX(0)';
+        } else {
+            const containerWidth = track.parentElement.offsetWidth;
+            const slideWidth = containerWidth / getItemsPerView();
+            track.style.transform = `translateX(-${index * slideWidth}px)`;
+        }
+        renderDots();
     };
 
-    // Auto Play
+    // Auto Play (skipped for reduced-motion users or when nothing to scroll)
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let autoPlayInterval;
     const startAutoPlay = () => {
         clearInterval(autoPlayInterval);
+        if (prefersReducedMotion || getMaxIndex() === 0) return;
         autoPlayInterval = setInterval(() => moveToSlide(currentIndex + 1), 4000);
     };
 
     const stopAutoPlay = () => clearInterval(autoPlayInterval);
+    const restartAutoPlay = () => { stopAutoPlay(); startAutoPlay(); };
 
-    // Filter out if user prefers reduced motion? Maybe later.
+    if (prevBtn) prevBtn.addEventListener('click', () => { moveToSlide(currentIndex - 1); restartAutoPlay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { moveToSlide(currentIndex + 1); restartAutoPlay(); });
+
     startAutoPlay();
 
-    // Pause on hover (Desktop)
+    // Pause on hover (Desktop) and on keyboard focus
     track.addEventListener('mouseenter', stopAutoPlay);
     track.addEventListener('mouseleave', startAutoPlay);
+    track.addEventListener('focusin', stopAutoPlay);
+    track.addEventListener('focusout', startAutoPlay);
 
     // Touch Support
     let startX = 0;
@@ -246,27 +294,38 @@ function initTestimonialCarousel() {
 
     // Resize handler
     window.addEventListener('resize', () => {
-        moveToSlide(currentIndex); // Recalculate positions
+        moveToSlide(currentIndex); // Recalculate positions + dots
     });
+
+    // Initial render (dots + correct position)
+    moveToSlide(0);
 }
 
 /* --- 6. Data Fetching (Google Sheets) --- */
+
+// Fetch one sheet via the gviz endpoint and return its rows as arrays of cell
+// values (empty string for blank cells), header row excluded. Strips the gviz JSONP wrapper.
+function fetchSheet(gid) {
+    const url = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&gid=${gid}`;
+    return fetch(url)
+        .then(res => res.text())
+        .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
+        .then(data => {
+            const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+            // gviz removes the header row itself when it detects one
+            // (parsedNumHeaders > 0); skip row 0 only when it did not,
+            // otherwise the first class (Slim Smart Sadhana) is dropped.
+            return rows.slice(data.table.parsedNumHeaders > 0 ? 0 : 1);
+        });
+}
+
 function initDataFetching() {
-    const SHEET_ID = '1rBPf1PSmuoq8QM7iTAAV0ydb3SQhOxw8N3557hqbuLE';
-    const EVENT_GID = '805507452';
-    const COURSE_GID = '0';
-
-    // Fetch Events
-    const urlEvents = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${EVENT_GID}`;
+    // Events
     const eventList = document.querySelector('.event-list');
-
     if (eventList) {
-        fetch(urlEvents)
-            .then(res => res.text())
-            .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-            .then(data => {
-                const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-                const [header, ...events] = rows;
+        fetchSheet(CONFIG.EVENT_GID)
+            .then(rows => {
+                const events = rows;
                 const validEvents = events.filter(ev => ev[0] && ev[0].trim() !== '');
 
                 if (validEvents.length === 0) {
@@ -277,21 +336,16 @@ function initDataFetching() {
             })
             .catch(err => {
                 console.error('Error loading events:', err);
-                renderEmptyEvents(eventList, isError = true);
+                renderEmptyEvents(eventList, true);
             });
     }
 
-    // Fetch Classes
-    const urlCourses = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${COURSE_GID}`;
+    // Classes
     const classesGrid = document.getElementById('classes-grid');
-
     if (classesGrid) {
-        fetch(urlCourses)
-            .then(res => res.text())
-            .then(text => JSON.parse(text.replace(/^[^\{]+|\);?$/g, '')))
-            .then(data => {
-                const rows = data.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-                const [header, ...courses] = rows;
+        fetchSheet(CONFIG.COURSE_GID)
+            .then(rows => {
+                const courses = rows;
                 const validCourses = courses.filter(c => c[1] && c[1].trim() !== '');
 
                 if (validCourses.length === 0) {
@@ -302,7 +356,15 @@ function initDataFetching() {
             })
             .catch(err => {
                 console.error('Error loading courses:', err);
-                classesGrid.innerHTML = `<div class="col-span-full text-center py-12"><p class="text-navy/50">Unable to load classes. Please refresh.</p></div>`;
+                classesGrid.innerHTML = `<div class="col-span-full text-center py-12">
+                    <span class="material-symbols-outlined text-navy/20 text-5xl mb-4">cloud_off</span>
+                    <p class="text-navy/70 font-bold mb-2">Unable to load classes right now</p>
+                    <p class="text-navy/50 text-sm mb-6">Check your connection or ask us directly on WhatsApp.</p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button onclick="window.location.reload()" class="bg-navy text-white px-6 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform">Retry</button>
+                        <a href="${CONFIG.WHATSAPP}" target="_blank" class="bg-accent text-navy px-6 py-3 rounded-full text-sm font-bold hover:scale-105 transition-transform">Ask on WhatsApp</a>
+                    </div>
+                </div>`;
             });
     }
 }
@@ -313,9 +375,12 @@ function renderEmptyEvents(container, isError = false) {
             <span class="material-symbols-outlined text-navy/30 text-6xl mb-4">event_upcoming</span>
             <h3 class="text-navy text-xl font-bold mb-2">${isError ? 'Oops!' : 'Stay Tuned!'}</h3>
             <p class="text-navy/70 mb-6">${isError ? 'Failed to load events.' : 'We\'re planning exciting new events.'}</p>
-            <a href="https://wa.link/a0lxj5" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
-                <span class="material-symbols-outlined text-sm">notifications_active</span> Get Notified
-            </a>
+            <div class="flex flex-wrap justify-center gap-3">
+                ${isError ? '<button onclick="window.location.reload()" class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">Retry</button>' : ''}
+                <a href="${CONFIG.WHATSAPP}" target="_blank" class="inline-flex items-center gap-2 bg-accent text-navy px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-sm">notifications_active</span> Get Notified
+                </a>
+            </div>
         </div>`;
 }
 
@@ -377,7 +442,7 @@ function renderEvents(container, events) {
                     <p class="text-xs font-bold uppercase tracking-wider text-navy/50">Investment</p>
                     <p class="text-xl font-black text-primary">${price ? `₹${price}` : 'Free'}</p>
                 </div>
-                <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-accent hover:text-navy transition-colors flex items-center gap-2 overflow-hidden relative ripple-btn">
+                <a href="${waLink || CONFIG.WHATSAPP}" target="_blank" class="bg-navy text-white px-6 py-3 rounded-xl font-bold hover:bg-accent hover:text-navy transition-colors flex items-center gap-2 overflow-hidden relative ripple-btn">
                     Register <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
                 </div>
@@ -431,7 +496,7 @@ function renderClasses(container, courses) {
             imageHtml = `<div class="w-full h-40 bg-white/50 rounded-2xl mb-4 flex items-center justify-center"><span class="material-symbols-outlined text-navy/30 text-6xl">${icon}</span></div>`;
         }
 
-        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : (id === 'chair-yoga' ? 'chair-yoga.html' : 'https://wa.link/a0lxj5');
+        const detailsUrl = id === 'slim-smart-sadhana' ? 'slim-smart-sadhana.html' : (id === 'chair-yoga' ? 'chair-yoga.html' : CONFIG.WHATSAPP);
         const detailsText = (id === 'slim-smart-sadhana' || id === 'chair-yoga') ? 'Details' : 'Contact';
         const isDetailsPage = (id === 'slim-smart-sadhana' || id === 'chair-yoga');
 
@@ -449,7 +514,7 @@ function renderClasses(container, courses) {
             <p class="text-primary font-bold mb-2">₹${price}<span class="text-navy/50 text-sm">/${duration || 'course'}</span></p>
             <p class="text-navy/70 text-sm mb-4 line-clamp-2">${desc || ''}</p>
             <div class="flex gap-2">
-            <a href="${waLink || 'https://wa.link/a0lxj5'}" target="_blank" class="ripple-btn flex-1 bg-primary text-white py-2 rounded-xl text-sm font-bold text-center hover:shadow-lg transition-all relative overflow-hidden">Join</a>
+            <a href="${waLink || CONFIG.WHATSAPP}" target="_blank" class="ripple-btn flex-1 bg-primary text-white py-2 rounded-xl text-sm font-bold text-center hover:shadow-lg transition-all relative overflow-hidden">Join</a>
             ${isDetailsPage ? `<a href="${detailsUrl}" class="flex-1 border-2 border-navy py-2 rounded-xl text-sm font-bold text-center hover:bg-navy hover:text-white transition-all">${detailsText}</a>` : ''}
             </div>
         `;
@@ -465,8 +530,8 @@ function initFilters() {
     const filters = document.querySelectorAll('.filter-btn');
     filters.forEach(filter => {
         // Clone to remove old listeners if any (simple way to avoid dupes)
-        const newFooter = filter.cloneNode(true);
-        filter.parentNode.replaceChild(newFooter, filter);
+        const fresh = filter.cloneNode(true);
+        filter.parentNode.replaceChild(fresh, filter);
     });
 
     const newFilters = document.querySelectorAll('.filter-btn');
@@ -525,16 +590,85 @@ function initRippleEffect() {
 }
 
 function initParallax() {
+    let parallaxTicking = false;
     window.addEventListener('scroll', function () {
-        const parallaxEls = document.querySelectorAll('.parallax-scroll');
-        parallaxEls.forEach(el => {
-            const speed = el.getAttribute('data-speed') || 0.5;
-            const rect = el.getBoundingClientRect();
-            // Only animate if in view
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                const offset = window.pageYOffset * speed;
-                el.style.transform = `translateY(${offset * 0.1}px)`;
+        if (parallaxTicking) return;
+        parallaxTicking = true;
+        requestAnimationFrame(() => {
+            const parallaxEls = document.querySelectorAll('.parallax-scroll');
+            parallaxEls.forEach(el => {
+                const speed = el.getAttribute('data-speed') || 0.5;
+                const rect = el.getBoundingClientRect();
+                // Only animate if in view
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const offset = window.pageYOffset * speed;
+                    el.style.transform = `translateY(${offset * 0.1}px)`;
+                }
+            });
+            parallaxTicking = false;
+        });
+    });
+}
+
+/* --- 10. Gallery Lightbox --- */
+/* --- 10. Gallery Lightbox --- */
+function initGalleryLightbox() {
+    const dialog = document.getElementById('gallery-lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+    if (!dialog || !img || typeof dialog.showModal !== 'function') return;
+
+    const open = (tile) => {
+        img.src = tile.getAttribute('data-lightbox');
+        img.alt = tile.getAttribute('data-caption') || '';
+        if (caption) caption.textContent = tile.getAttribute('data-caption') || '';
+        dialog.showModal();
+    };
+
+    document.querySelectorAll('#gallery [data-lightbox]').forEach(tile => {
+        tile.addEventListener('click', () => open(tile));
+        tile.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                open(tile);
             }
         });
     });
+
+    if (closeBtn) closeBtn.addEventListener('click', () => dialog.close());
+    // Close when clicking the backdrop (native Esc already closes <dialog>)
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) dialog.close();
+    });
+}
+
+/* --- 9b. Talk reels: user-started, with sound; one plays at a time --- */
+function initTalkVideos() {
+    const talkVideos = document.querySelectorAll('video[data-talk-video]');
+    talkVideos.forEach(video => {
+        video.addEventListener('play', () => {
+            talkVideos.forEach(other => { if (other !== video) other.pause(); });
+        });
+    });
+}
+
+/* --- 9. Lazy Video Playback --- */
+function initLazyVideos() {
+    const lazyVideos = document.querySelectorAll('video[data-lazy]');
+    if (!lazyVideos.length) return;
+
+    // On mobile, skip autoplay to save data — poster images will show instead
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '150px' });
+
+    lazyVideos.forEach(v => observer.observe(v));
 }

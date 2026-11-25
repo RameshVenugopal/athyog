@@ -8,13 +8,22 @@
     <meta name="description"
         content="Sculpting a toned, healthy body in 21 days through a powerful blend of nourishment, detox, and mindful practices." />
     <link href="assets/images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="assets/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link rel="canonical" href="https://athyog.in/slim-smart-sadhana.html" />
     <meta content="#fffaf0" name="theme-color" />
+    <meta content="website" property="og:type" />
+    <meta content="https://athyog.in/slim-smart-sadhana.html" property="og:url" />
+    <meta content="Slim Smart Sadhana | Ath Yog Wellness Foundation" property="og:title" />
+    <meta content="Sculpting a toned, healthy body in 21 days through nourishment, detox, and mindful practices." property="og:description" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
-        rel="stylesheet" />
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet"></noscript>
     <link href="assets/css/animations.css" rel="stylesheet" />
     <style type="text/tailwindcss">
         :root { --primary: #ff6b6b; --accent: #4ecdc4; --navy: #2c3e50; --cream: #fffaf0; --lavender: #e0d7ff; --mint: #d7fff1; }
@@ -25,8 +34,12 @@
         .hero-gradient { background: linear-gradient(135deg, #ff6b6b 0%, #ffecd2 50%, #d7fff1 100%); }
         .text-clamp-h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); }
         .text-clamp-h2 { font-size: clamp(1.5rem, 4vw + 0.5rem, 3rem); }
+        /* Deep teal for text on light backgrounds (accent #4ecdc4 fails WCAG contrast on white) */
+        .text-accent-deep { color: #0b6e66; }
     </style>
-    <script>tailwind.config = { theme: { extend: { colors: { "primary": "#ff6b6b", "accent": "#4ecdc4", "navy": "#2c3e50", "cream": "#fffaf0", "lavender": "#e0d7ff", "mint": "#d7fff1" } } } }</script>
+    <script src="assets/js/theme.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSB7DZ227W"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-RSB7DZ227W');</script>
 </head>
 
 <body class="selection:bg-accent/30 overflow-x-hidden">
@@ -34,7 +47,7 @@
     <header class="fixed top-0 z-50 w-full bg-cream/90 backdrop-blur-lg border-b border-accent/20">
         <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2">
-                <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 md:h-12 w-auto">
+                <img src="assets/images/logo.png" alt="Ath Yog" width="48" height="48" class="h-10 md:h-12 w-auto">
             </a>
             <button id="mobile-menu-btn"
                 class="md:hidden text-navy p-2 rounded-full hover:bg-navy/10 transition-colors z-50 relative">
@@ -102,6 +115,12 @@
                             class="bg-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all text-center ripple-btn relative overflow-hidden">Join
                             Next Batch</a>
                     </div>
+                    <div class="lg:hidden relative mt-2">
+                        <div class="bg-white p-3 rounded-3xl shadow-xl overflow-hidden">
+                            <img src="assets/images/sss/sss-hero.jpeg" alt="Slim Smart Sadhana group session"
+                                class="rounded-2xl w-full object-cover aspect-[16/10]" fetchpriority="high" />
+                        </div>
+                    </div>
                 </div>
                 <div class="hidden lg:block relative reveal">
                     <div class="bg-white p-4 rounded-3xl shadow-2xl rotate-2">
@@ -125,13 +144,13 @@
                 <div class="bg-gradient-to-br from-mint/30 to-lavender/30 p-8 rounded-3xl border-2 border-navy">
                     <p class="text-navy/80 text-lg leading-relaxed">
                         <strong class="text-primary">Slim Smart Sadhana (SSS)</strong> is a structured <span
-                            class="text-accent font-bold">21-day yoga-based holistic wellness program</span> designed to
+                            class="text-accent-deep font-bold">21-day yoga-based holistic wellness program</span> designed to
                         help you detoxify, tone, and naturally transform your body. The program integrates <strong>yoga
                             therapy</strong>, <strong>guided pranayama</strong>, <strong class="text-primary">internal
                             detox practices</strong>, <strong>mindful movement</strong>, and <strong>doctor-approved
                             nutrition guidance</strong> to improve gut health, enhance lung capacity, boost metabolism,
                         and build lifelong healthy habits—without crash dieting or extreme workouts. By focusing on
-                        <span class="text-accent font-bold">internal cleansing, conscious eating, and sustainable daily
+                        <span class="text-accent-deep font-bold">internal cleansing, conscious eating, and sustainable daily
                             routines</span>, SSS helps you feel lighter, healthier, stronger, and mentally balanced.
                     </p>
                 </div>
@@ -143,7 +162,7 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <span
-                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Why
+                        class="inline-block bg-accent/10 text-accent-deep px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Why
                         Choose SSS?</span>
                     <h2 class="text-navy text-clamp-h2 font-bold">The 21-Day Transformation</h2>
                 </div>
@@ -160,7 +179,7 @@
                     <div
                         class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
                         <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
-                                class="material-symbols-outlined text-accent">nutrition</span></div>
+                                class="material-symbols-outlined text-accent-deep">nutrition</span></div>
                         <h3 class="text-navy text-xl font-bold mb-2">Nourishing, Doctor-Approved Nutrition</h3>
                         <p class="text-navy/70">Practical dietary guidance focused on healthy, mindful eating habits
                             rather than calorie deprivation—supporting long-term wellness and weight management.</p>
@@ -192,7 +211,7 @@
                     <div
                         class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
                         <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
-                                class="material-symbols-outlined text-accent">all_inclusive</span></div>
+                                class="material-symbols-outlined text-accent-deep">all_inclusive</span></div>
                         <h3 class="text-navy text-xl font-bold mb-2">Sustainable Lifestyle</h3>
                         <p class="text-navy/70">Simple yet powerful habits you can continue beyond the program—ensuring
                             lasting results, not temporary fixes.</p>
@@ -212,7 +231,7 @@
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div class="flex items-start gap-4 bg-gradient-to-r from-mint/20 to-transparent p-5 rounded-2xl">
-                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">self_improvement</span>
+                        <span class="material-symbols-outlined text-accent-deep text-2xl mt-0.5">self_improvement</span>
                         <div>
                             <h4 class="text-navy font-bold">Yoga Therapy</h4>
                             <p class="text-navy/60 text-sm">As per individual capacity</p>
@@ -234,7 +253,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4 bg-gradient-to-r from-accent/10 to-transparent p-5 rounded-2xl">
-                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">fitness_center</span>
+                        <span class="material-symbols-outlined text-accent-deep text-2xl mt-0.5">fitness_center</span>
                         <div>
                             <h4 class="text-navy font-bold">Strength & Mobility Yoga</h4>
                             <p class="text-navy/60 text-sm">With equipment for maximum results</p>
@@ -256,7 +275,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4 bg-gradient-to-r from-primary/10 to-transparent p-5 rounded-2xl">
-                        <span class="material-symbols-outlined text-accent text-2xl mt-0.5">groups</span>
+                        <span class="material-symbols-outlined text-accent-deep text-2xl mt-0.5">groups</span>
                         <div>
                             <h4 class="text-navy font-bold">Motivating Community Support</h4>
                             <p class="text-navy/60 text-sm">Stay inspired and accountable</p>
@@ -353,7 +372,7 @@
                         <img alt="Yog Guru Ashwini Patil" class="rounded-2xl w-full object-cover aspect-[3/4]"
                             src="assets/images/sss/coach-ashwini.jpeg" />
                     </div>
-                    <div class="absolute -bottom-4 -right-4 bg-accent text-navy p-4 rounded-2xl shadow-lg rotate-3">
+                    <div class="absolute bottom-3 right-3 md:-bottom-4 md:-right-4 bg-accent text-navy p-4 rounded-2xl shadow-lg rotate-3">
                         <p class="font-bold text-2xl">20+</p>
                         <p class="text-sm">Years Spreading Yoga</p>
                     </div>
@@ -385,7 +404,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12">
                     <span
-                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Learn
+                        class="inline-block bg-accent/10 text-accent-deep px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Learn
                         from the Best</span>
                     <h2 class="text-navy text-clamp-h2 font-bold">Why Learn with Yog Guru Ashwini Patil?</h2>
                 </div>
@@ -393,7 +412,7 @@
                     <div
                         class="bg-white p-6 rounded-3xl shadow-lg border-l-4 border-accent hover:-translate-y-2 transition-all">
                         <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center mb-4"><span
-                                class="material-symbols-outlined text-accent">workspace_premium</span></div>
+                                class="material-symbols-outlined text-accent-deep">workspace_premium</span></div>
                         <h3 class="text-navy text-xl font-bold mb-2">20+ Years of Experience</h3>
                         <p class="text-navy/70">Two decades of consistent teaching and mentoring in yoga therapy,
                             wellness, and lifestyle transformation.</p>
@@ -483,7 +502,7 @@
             <div class="max-w-6xl mx-auto px-4">
                 <div class="text-center mb-12 reveal">
                     <span
-                        class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Real
+                        class="inline-block bg-accent/10 text-accent-deep px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Real
                         Results</span>
                     <h2 class="text-navy text-clamp-h2 font-bold mb-4">What Students Say</h2>
                     <div class="flex items-center justify-center gap-2 mt-2">
@@ -553,7 +572,7 @@
                                     alignment. The sessions are well-structured... Definitely recommend!"</p>
                                 <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
                                     <div
-                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent-deep font-bold">
                                         S</div>
                                     <div>
                                         <p class="font-bold text-navy text-sm">Shiwanee Parimal</p>
@@ -615,7 +634,7 @@
                                     which makes it very interesting. I have increased flexibility quite a lot."</p>
                                 <div class="flex items-center gap-3 mt-auto pt-4 border-t border-navy/5">
                                     <div
-                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">
+                                        class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent-deep font-bold">
                                         P</div>
                                     <div>
                                         <p class="font-bold text-navy text-sm">Pratibha Dhyade</p>
@@ -625,6 +644,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="flex items-center justify-center gap-4 mt-8" id="carousel-nav">
+                    <button id="carousel-prev" type="button" aria-label="Previous testimonials"
+                        class="w-11 h-11 rounded-full bg-white border border-navy/10 text-navy flex items-center justify-center hover:bg-navy hover:text-white transition-colors shadow-sm">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <div id="carousel-dots" class="flex items-center gap-2" role="tablist" aria-label="Choose testimonial"></div>
+                    <button id="carousel-next" type="button" aria-label="Next testimonials"
+                        class="w-11 h-11 rounded-full bg-white border border-navy/10 text-navy flex items-center justify-center hover:bg-navy hover:text-white transition-colors shadow-sm">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -685,11 +715,11 @@
                     </div>
                     <ul class="space-y-3 text-navy/70">
                         <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span class="material-symbols-outlined text-accent-deep text-lg mt-0.5">info</span>
                             <span>This program is designed for general wellness and lifestyle improvement.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span class="material-symbols-outlined text-accent-deep text-lg mt-0.5">info</span>
                             <span>Detox and purification practices are suggested only after assessing individual
                                 suitability.</span>
                         </li>
@@ -700,11 +730,11 @@
                                 consult their physician before joining.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span class="material-symbols-outlined text-accent-deep text-lg mt-0.5">info</span>
                             <span>Always practice within your comfort level and follow instructor guidance.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <span class="material-symbols-outlined text-accent text-lg mt-0.5">info</span>
+                            <span class="material-symbols-outlined text-accent-deep text-lg mt-0.5">info</span>
                             <span>Results may vary based on individual body type, consistency, and lifestyle.</span>
                         </li>
                     </ul>
@@ -725,8 +755,8 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
                     <!-- Large Item -->
-                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/sss-hero.jpeg" alt="SSS Session"
+                    <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/sss-hero.jpeg" data-caption="Morning Energy" tabindex="0" role="button" aria-label="View larger image: Morning Energy">
+                        <img src="assets/images/sss/sss-hero.jpeg" alt="SSS Session" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -738,7 +768,7 @@
 
                     <!-- Video Item -->
                     <div class="col-span-2 md:col-span-1 row-span-2 relative group overflow-hidden rounded-3xl">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                        <video loop muted playsinline preload="none" data-lazy poster="assets/images/slim-smart-sadhana.jpg" class="w-full h-full object-cover">
                             <source src="assets/video/smart.mp4" type="video/mp4">
                         </video>
                         <div
@@ -750,20 +780,20 @@
                     </div>
 
                     <!-- Regular Item -->
-                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/sss-healthy-living.jpeg" alt="Healthy Lifestyle"
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/sss-healthy-living.jpeg" data-caption="Healthy Living" tabindex="0" role="button" aria-label="View larger image: Healthy Living">
+                        <img src="assets/images/sss/sss-healthy-living.jpeg" alt="Healthy Lifestyle" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
 
                     <!-- Regular Item -->
-                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/sss-community.jpeg" alt="Community Support"
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/sss-community.jpeg" data-caption="Community Support" tabindex="0" role="button" aria-label="View larger image: Community Support">
+                        <img src="assets/images/sss/sss-community.jpeg" alt="Community Support" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
 
                     <!-- Wide Item -->
-                    <div class="col-span-2 md:col-span-2 row-span-1 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/coach-ashwini.jpeg" alt="Expert Guidance"
+                    <div class="col-span-2 md:col-span-2 row-span-1 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/coach-ashwini.jpeg" data-caption="Expert Guidance" tabindex="0" role="button" aria-label="View larger image: Expert Guidance">
+                        <img src="assets/images/sss/coach-ashwini.jpeg" alt="Expert Guidance" loading="lazy"
                             class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -774,14 +804,14 @@
                     </div>
 
                     <!-- New Photo Item -->
-                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/sss-variation-01.jpeg" alt="SSS Variation"
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/sss-variation-01.jpeg" data-caption="SSS Group Session" tabindex="0" role="button" aria-label="View larger image: SSS Group Session">
+                        <img src="assets/images/sss/sss-variation-01.jpeg" alt="SSS group session" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
 
                     <!-- New Photo Item -->
-                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl">
-                        <img src="assets/images/sss/sss-variation-02.jpeg" alt="SSS Variation"
+                    <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl cursor-zoom-in" data-lightbox="assets/images/sss/sss-variation-02.jpeg" data-caption="SSS Yoga Practice" tabindex="0" role="button" aria-label="View larger image: SSS Yoga Practice">
+                        <img src="assets/images/sss/sss-variation-02.jpeg" alt="SSS yoga practice" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     </div>
                 </div>
@@ -802,18 +832,18 @@
                         <h4 class="text-navy font-bold text-lg mb-4 flex items-center gap-2"><span
                                 class="material-symbols-outlined text-primary">call</span> Contact Us</h4>
                         <div class="space-y-3">
-                            <p class="text-navy/70 flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-accent text-lg">phone</span> +91 98230 46001
-                            </p>
-                            <p class="text-navy/70 flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-accent text-lg">phone</span> +91 94220 86001
-                            </p>
-                            <p class="text-navy/70 flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-accent text-lg">mail</span>
-                                info@athyog.in</p>
-                            <p class="text-navy/70 flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-accent text-lg">language</span>
-                                www.athyog.in</p>
+                            <a href="tel:+919823046001" class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent-deep text-lg">phone</span> +91 98230 46001
+                            </a>
+                            <a href="tel:+919422086001" class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent-deep text-lg">phone</span> +91 94220 86001
+                            </a>
+                            <a href="mailto:info@athyog.in" class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent-deep text-lg">mail</span>
+                                info@athyog.in</a>
+                            <a href="https://www.athyog.in" class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
+                                    class="material-symbols-outlined text-accent-deep text-lg">language</span>
+                                www.athyog.in</a>
                         </div>
                     </div>
                     <div class="bg-gradient-to-br from-lavender/20 to-mint/20 p-6 rounded-3xl border border-navy/10">
@@ -822,11 +852,11 @@
                         <div class="space-y-3">
                             <a href="https://www.instagram.com/athyog_wellness_foundation" target="_blank"
                                 class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
-                                    class="material-symbols-outlined text-accent text-lg">photo_camera</span>
+                                    class="material-symbols-outlined text-accent-deep text-lg">photo_camera</span>
                                 @athyog_wellness_foundation</a>
                             <a href="https://www.facebook.com/AthyogWellnessFoundation" target="_blank"
                                 class="text-navy/70 flex items-center gap-2 hover:text-primary transition-colors"><span
-                                    class="material-symbols-outlined text-accent text-lg">thumb_up</span> Athyog
+                                    class="material-symbols-outlined text-accent-deep text-lg">thumb_up</span> Athyog
                                 Wellness Foundation</a>
                         </div>
                     </div>
@@ -857,22 +887,34 @@
         </section>
     </main>
 
+    <!-- Gallery Lightbox -->
+    <dialog id="gallery-lightbox" aria-label="Image viewer"
+        class="bg-transparent p-0 max-w-4xl w-[92vw] backdrop:bg-navy/80 backdrop:backdrop-blur-sm">
+        <div class="relative bg-navy rounded-3xl overflow-hidden shadow-2xl">
+            <img id="lightbox-img" src="" alt="" class="w-full max-h-[80vh] object-contain bg-navy" />
+            <p id="lightbox-caption" class="text-white/80 text-center text-sm font-bold py-3 px-6"></p>
+            <button id="lightbox-close" type="button" aria-label="Close image viewer"
+                class="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center hover:bg-white/40 transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+    </dialog>
+
     <!-- Footer -->
     <footer class="bg-navy pt-12 pb-6 px-4 text-white">
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 pb-6 border-b border-white/10">
-                <img src="assets/images/logo.png" alt="Ath Yog" class="h-10 brightness-0 invert">
+                <img src="assets/images/logo.png" alt="Ath Yog" width="48" height="48" class="h-10 w-auto brightness-0 invert">
                 <a href="index.html" class="hover:text-primary">Home</a>
                 <a href="index.html#services" class="hover:text-primary">Classes</a>
                 <a href="index.html#events" class="hover:text-primary">Events</a>
                 <a href="index.html#contact" class="hover:text-primary">Contact</a>
             </div>
-        </div>
-        <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
-            <p>© 2026 Ath Yog Wellness Foundation</p>
-            <div class="flex gap-6"><a href="privacy-policy.html" class="hover:text-white">Privacy</a><a
-                    href="terms-of-service.html" class="hover:text-white">Terms</a></div>
-        </div>
+            <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+                <p>© 2026 Ath Yog Wellness Foundation</p>
+                <div class="flex gap-6"><a href="privacy-policy.html" class="hover:text-white">Privacy</a><a
+                        href="terms-of-service.html" class="hover:text-white">Terms</a></div>
+            </div>
         </div>
     </footer>
 

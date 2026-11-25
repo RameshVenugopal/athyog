@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T06:31:45+00:00",
+  "title": "Design System: Ath Yog Immersive",
+  "scope": "immersive*.html only; index.html and the main site keep their own look.",
+  "sources": {
+    "css": "assets/css/immersive.css",
+    "js": "assets/js/immersive.js",
+    "check": "scripts/check-immersive.mjs (npm test)",
+    "contract": ".impeccable/surfaces/immersive-html.md"
+  },
+  "extensions": {
+    "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Night Indigo",
+        "canonical": "#121735",
+        "oklch": "oklch(21.9% 0.059 273.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.059 273.5)",
+          "oklch(26.0% 0.059 273.5)",
+          "oklch(37.0% 0.059 273.5)",
+          "oklch(48.0% 0.059 273.5)",
+          "oklch(59.0% 0.059 273.5)",
+          "oklch(70.0% 0.059 273.5)",
+          "oklch(82.0% 0.059 273.5)",
+          "oklch(95.0% 0.059 273.5)"
+        ]
+      },
+      "predawn": {
+        "role": "neutral",
+        "displayName": "Pre-dawn",
+        "canonical": "#262355",
+        "oklch": "oklch(29.0% 0.088 282.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.076 282.1)",
+          "oklch(26.0% 0.087 282.1)",
+          "oklch(37.0% 0.088 282.1)",
+          "oklch(48.0% 0.088 282.1)",
+          "oklch(59.0% 0.088 282.1)",
+          "oklch(70.0% 0.088 282.1)",
+          "oklch(82.0% 0.088 282.1)",
+          "oklch(95.0% 0.076 282.1)"
+        ]
+      },
+      "dawn": {
+        "role": "secondary",
+        "displayName": "Dawn Violet",
+        "canonical": "#5B3A6E",
+        "oklch": "oklch(41.0% 0.092 312.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.078 312.2)",
+          "oklch(26.0% 0.090 312.2)",
+          "oklch(37.0% 0.092 312.2)",
+          "oklch(48.0% 0.092 312.2)",
+          "oklch(59.0% 0.092 312.2)",
+          "oklch(70.0% 0.092 312.2)",
+          "oklch(82.0% 0.092 312.2)",
+          "oklch(95.0% 0.078 312.2)"
+        ]
+      },
+      "blush": {
+        "role": "tertiary",
+        "displayName": "First Blush",
+        "canonical": "#D4687E",
+        "oklch": "oklch(65.1% 0.137 8.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.101 8.8)",
+          "oklch(26.0% 0.119 8.8)",
+          "oklch(37.0% 0.137 8.8)",
+          "oklch(48.0% 0.137 8.8)",
+          "oklch(59.0% 0.137 8.8)",
+          "oklch(70.0% 0.137 8.8)",
+          "oklch(82.0% 0.123 8.8)",
+          "oklch(95.0% 0.101 8.8)"
+        ]
+      },
+      "day": {
+        "role": "neutral",
+        "displayName": "Day",
+        "canonical": "#F4F6FB",
+        "oklch": "oklch(97.3% 0.007 268.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 268.5)",
+          "oklch(26.0% 0.007 268.5)",
+          "oklch(37.0% 0.007 268.5)",
+          "oklch(48.0% 0.007 268.5)",
+          "oklch(59.0% 0.007 268.5)",
+          "oklch(70.0% 0.007 268.5)",
+          "oklch(82.0% 0.007 268.5)",
+          "oklch(95.0% 0.007 268.5)"
+        ]
+      },
+      "sun": {
+        "role": "primary",
+        "displayName": "Sun Saffron",
+        "canonical": "#F29B38",
+        "oklch": "oklch(76.2% 0.150 64.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.108 64.8)",
+          "oklch(26.0% 0.128 64.8)",
+          "oklch(37.0% 0.148 64.8)",
+          "oklch(48.0% 0.150 64.8)",
+          "oklch(59.0% 0.150 64.8)",
+          "oklch(70.0% 0.150 64.8)",
+          "oklch(82.0% 0.131 64.8)",
+          "oklch(95.0% 0.108 64.8)"
+        ],
+        "usage": "WhatsApp actions only"
+      },
+      "star": {
+        "role": "neutral",
+        "displayName": "Star",
+        "canonical": "#F1F2FA",
+        "oklch": "oklch(96.3% 0.011 280.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.011 280.5)",
+          "oklch(26.0% 0.011 280.5)",
+          "oklch(37.0% 0.011 280.5)",
+          "oklch(48.0% 0.011 280.5)",
+          "oklch(59.0% 0.011 280.5)",
+          "oklch(70.0% 0.011 280.5)",
+          "oklch(82.0% 0.011 280.5)",
+          "oklch(95.0% 0.011 280.5)"
+        ]
+      },
+      "star-muted": {
+        "role": "neutral",
+        "displayName": "Star Muted",
+        "canonical": "#B7BBDA",
+        "oklch": "oklch(79.9% 0.044 279.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.044 279.5)",
+          "oklch(26.0% 0.044 279.5)",
+          "oklch(37.0% 0.044 279.5)",
+          "oklch(48.0% 0.044 279.5)",
+          "oklch(59.0% 0.044 279.5)",
+          "oklch(70.0% 0.044 279.5)",
+          "oklch(82.0% 0.044 279.5)",
+          "oklch(95.0% 0.044 279.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#121735",
+        "oklch": "oklch(21.9% 0.059 273.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.059 273.5)",
+          "oklch(26.0% 0.059 273.5)",
+          "oklch(37.0% 0.059 273.5)",
+          "oklch(48.0% 0.059 273.5)",
+          "oklch(59.0% 0.059 273.5)",
+          "oklch(70.0% 0.059 273.5)",
+          "oklch(82.0% 0.059 273.5)",
+          "oklch(95.0% 0.059 273.5)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#4B5070",
+        "oklch": "oklch(44.0% 0.053 277.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.053 277.1)",
+          "oklch(26.0% 0.053 277.1)",
+          "oklch(37.0% 0.053 277.1)",
+          "oklch(48.0% 0.053 277.1)",
+          "oklch(59.0% 0.053 277.1)",
+          "oklch(70.0% 0.053 277.1)",
+          "oklch(82.0% 0.053 277.1)",
+          "oklch(95.0% 0.053 277.1)"
+        ]
+      },
+      "blush-muted-ink": {
+        "role": "neutral",
+        "displayName": "Blush Muted Ink",
+        "canonical": "#2B1A33",
+        "oklch": "oklch(25.2% 0.051 314.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.051 314.4)",
+          "oklch(26.0% 0.051 314.4)",
+          "oklch(37.0% 0.051 314.4)",
+          "oklch(48.0% 0.051 314.4)",
+          "oklch(59.0% 0.051 314.4)",
+          "oklch(70.0% 0.051 314.4)",
+          "oklch(82.0% 0.051 314.4)",
+          "oklch(95.0% 0.051 314.4)"
+        ]
+      },
+      "day-rule": {
+        "role": "neutral",
+        "displayName": "Day Rule",
+        "canonical": "#D9DCEA",
+        "oklch": "oklch(89.6% 0.019 276.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 276.3)",
+          "oklch(26.0% 0.019 276.3)",
+          "oklch(37.0% 0.019 276.3)",
+          "oklch(48.0% 0.019 276.3)",
+          "oklch(59.0% 0.019 276.3)",
+          "oklch(70.0% 0.019 276.3)",
+          "oklch(82.0% 0.019 276.3)",
+          "oklch(95.0% 0.019 276.3)"
+        ]
+      },
+      "day-field": {
+        "role": "neutral",
+        "displayName": "Day Field",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 89.9)",
+          "oklch(26.0% 0.000 89.9)",
+          "oklch(37.0% 0.000 89.9)",
+          "oklch(48.0% 0.000 89.9)",
+          "oklch(59.0% 0.000 89.9)",
+          "oklch(70.0% 0.000 89.9)",
+          "oklch(82.0% 0.000 89.9)",
+          "oklch(95.0% 0.000 89.9)"
+        ]
+      }
+    },
+    "bands": [
+      {
+        "class": "band-night",
+        "background": "night",
+        "fg": "star",
+        "fgMuted": "star-muted",
+        "rule": "rgba(241, 242, 250, 0.2)",
+        "field": "rgba(241, 242, 250, 0.06)",
+        "contrast": {
+          "fg": 15.69,
+          "fgMuted": 9.28
+        }
+      },
+      {
+        "class": "band-predawn",
+        "background": "predawn",
+        "fg": "star",
+        "fgMuted": "star-muted",
+        "rule": "rgba(241, 242, 250, 0.2)",
+        "field": "rgba(241, 242, 250, 0.06)",
+        "contrast": {
+          "fg": 12.94,
+          "fgMuted": 7.66
+        }
+      },
+      {
+        "class": "band-dawn",
+        "background": "dawn",
+        "fg": "star",
+        "fgMuted": "star-muted",
+        "rule": "rgba(241, 242, 250, 0.2)",
+        "field": "rgba(241, 242, 250, 0.06)",
+        "contrast": {
+          "fg": 8.27,
+          "fgMuted": 4.89
+        }
+      },
+      {
+        "class": "band-blush",
+        "background": "blush",
+        "fg": "night",
+        "fgMuted": "blush-muted-ink",
+        "rule": "rgba(18, 23, 53, 0.28)",
+        "field": "rgba(18, 23, 53, 0.06)",
+        "contrast": {
+          "fg": 5.07,
+          "fgMuted": 4.68
+        }
+      },
+      {
+        "class": "band-day",
+        "background": "day",
+        "fg": "ink",
+        "fgMuted": "ink-muted",
+        "rule": "day-rule",
+        "field": "day-field",
+        "contrast": {
+          "fg": 16.19,
+          "fgMuted": 7.25
+        }
+      }
+    ],
+    "contrastNotes": [
+      "Night on Sun 7.94:1",
+      "Blush focus ring on Day 3.19:1 (non-text minimum 3:1)",
+      "Never set Blush text on Day"
+    ],
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (.display)",
+        "purpose": "Hero headline, once per page.",
+        "fontStretch": "125%"
+      },
+      "headline-1": {
+        "displayName": "H1 (.h1)",
+        "purpose": "Inner page headlines.",
+        "fontStretch": "118%"
+      },
+      "headline-2": {
+        "displayName": "H2 (.h2)",
+        "purpose": "Section headlines.",
+        "fontStretch": "112%"
+      },
+      "title": {
+        "displayName": "H3 (.h3)",
+        "purpose": "Row and ledger titles.",
+        "fontStretch": "100%"
+      },
+      "quote": {
+        "displayName": "Quote (.quote, .quote--lg)",
+        "purpose": "Testimonials; --lg is clamp(1.625rem, 3.4vw, 2.5rem) at 600."
+      },
+      "lede": {
+        "displayName": "Lede (.lede)",
+        "purpose": "Paragraph under a headline, max 36rem, muted."
+      },
+      "body": {
+        "displayName": "Body (.body)",
+        "purpose": "Running text, max 65ch, muted."
+      },
+      "label": {
+        "displayName": "Meta / small (.meta, .small)",
+        "purpose": "Captions, facts labels, meta lines."
+      }
+    },
+    "fontLoading": "https://fonts.googleapis.com/css2?family=Anek+Latin:wdth,wght@75..125,300..800&family=Mukta:wght@400;500;700&display=swap",
+    "shadows": [
+      {
+        "name": "to-top",
+        "value": "0 4px 12px rgba(0, 0, 0, 0.3)",
+        "purpose": "Back-to-top button only."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px color-mix(in srgb, var(--blush) 45%, transparent)",
+        "purpose": "Field focus halo."
+      }
+    ],
+    "focus": {
+      "value": "2px solid var(--blush)",
+      "offset": "3px",
+      "radius": "4px"
+    },
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "All settle/reveal and button motion."
+      },
+      {
+        "name": "scroll-clock",
+        "value": "04:45 -> 07:00 mapped to scroll progress; phase Brahma Muhurta (<05:30), Practice (<06:45), Sunrise",
+        "purpose": "The one authored moment; drives #sky-time, #progress and the 21-day rail in one rAF tick."
+      },
+      {
+        "name": "rv",
+        "value": "translateY(12px) -> none, 0.9s ease-out",
+        "purpose": "Scroll reveal; content always visible."
+      },
+      {
+        "name": "rise",
+        "value": "translateY(16px), opacity 0.35 -> 1, 0.9s; delays 0.08s / 0.16s / 0.24s",
+        "purpose": "Hero entrance."
+      },
+      {
+        "name": "story",
+        "value": "background 0.8s ease; media opacity 0.8s; panel storyIn 0.7s",
+        "purpose": "Pinned practice story."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disables rv, rise, story transitions, button lift, gallery video play, counter animation; hero shows poster; instant scroll."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "ledger-stack",
+        "value": "max-width 639px"
+      },
+      {
+        "name": "md (sun bar / mobile menu)",
+        "value": "768px"
+      },
+      {
+        "name": "story-grid, gallery 4-col, event 3-col",
+        "value": "900px"
+      },
+      {
+        "name": "facts 4-col",
+        "value": "1024px"
+      }
+    ],
+    "accessibility": [
+      "44px minimum targets (fields 48px, buttons 52px, sun bar 56px)",
+      "Every input/select/textarea has <label for>; every <img> has alt; exactly one <h1>",
+      "Mobile menu is role=dialog aria-modal=true; other body children get inert; Escape closes and returns focus",
+      "Skip link to #main; filters use aria-pressed, not role=tab"
+    ],
+    "refuse": [
+      "kicker labels",
+      "card grids",
+      "glows, gradients, orbs, tickers, sheen, tilt, breathing motion",
+      "Fraunces, Space Grotesk, Space Mono",
+      "retired tokens --gold, --paper, --cream, f-serif, f-disp",
+      "glyph icons (e.g. 'WA' text bubble)",
+      "saffron on non-WhatsApp actions"
+    ]
+  },
+  "components": [
+    {
+      "name": "Sun Button",
+      "kind": "button",
+      "refersTo": "button-sun",
+      "description": "Saffron pill for WhatsApp actions only (trial, enquiry, donation).",
+      "html": "<div class=\"ds-band-night\"><a class=\"ds-btn-sun\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z\"/></svg>Book a trial</a></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-night{background:var(--night);color:var(--star);--fg:var(--star);--fg-muted:var(--star-muted);--fg-inverse:var(--night);--rule:rgba(241,242,250,0.2);--field:rgba(241,242,250,0.06);padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-btn-sun{display:inline-flex;align-items:center;justify-content:center;gap:0.625rem;min-height:52px;padding:0.75rem 1.75rem;border-radius:999px;font-weight:700;font-size:1.0625rem;text-decoration:none;cursor:pointer;font-family:'Mukta',system-ui,sans-serif;transition:transform 0.2s var(--ease-out),background 0.2s ease,color 0.2s ease;background:var(--sun);color:var(--night);border:0;} .ds-btn-sun:hover{transform:translateY(-2px);} .ds-btn-sun:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Outlined pill for every non-WhatsApp action; inverts on hover.",
+      "html": "<div class=\"ds-band-night\"><a class=\"ds-btn-line\" href=\"#\">See the practice</a></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-night{background:var(--night);color:var(--star);--fg:var(--star);--fg-muted:var(--star-muted);--fg-inverse:var(--night);--rule:rgba(241,242,250,0.2);--field:rgba(241,242,250,0.06);padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-btn-line{display:inline-flex;align-items:center;justify-content:center;gap:0.625rem;min-height:52px;padding:0.75rem 1.75rem;border-radius:999px;font-weight:700;font-size:1.0625rem;text-decoration:none;cursor:pointer;font-family:'Mukta',system-ui,sans-serif;transition:transform 0.2s var(--ease-out),background 0.2s ease,color 0.2s ease;background:transparent;color:var(--fg);border:1.5px solid currentColor;} .ds-btn-line:hover{background:var(--fg);color:var(--fg-inverse);} .ds-btn-line:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "44px toggle button (aria-pressed) used to filter class rows.",
+      "html": "<div class=\"ds-band-day\"><button class=\"ds-chip\" aria-pressed=\"true\">All</button> <button class=\"ds-chip\" aria-pressed=\"false\">Beginners</button> <button class=\"ds-chip\" aria-pressed=\"false\">Therapy</button></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-day{background:var(--day);color:var(--ink);--fg:var(--ink);--fg-muted:var(--ink-muted);--fg-inverse:var(--day);--rule:#D9DCEA;--field:#FFFFFF;padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-chip{min-height:44px;padding:0.5rem 1.125rem;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--fg);font:600 0.9375rem/1 'Mukta',system-ui,sans-serif;cursor:pointer;transition:background 0.2s ease,border-color 0.2s ease,color 0.2s ease;} .ds-chip:hover{border-color:var(--fg);} .ds-chip[aria-pressed=\"true\"]{background:var(--fg);border-color:var(--fg);color:var(--fg-inverse);} .ds-chip:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labelled 48px text field; focus shifts border to foreground with a Blush halo.",
+      "html": "<div class=\"ds-band-day\"><label class=\"ds-field-label\" for=\"ds-name\">Your name</label><input class=\"ds-field\" id=\"ds-name\" placeholder=\"Full name\"></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-day{background:var(--day);color:var(--ink);--fg:var(--ink);--fg-muted:var(--ink-muted);--fg-inverse:var(--day);--rule:#D9DCEA;--field:#FFFFFF;padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-field-label{display:block;font-size:0.9375rem;font-weight:600;color:var(--fg);} .ds-field{margin-top:0.375rem;width:100%;box-sizing:border-box;min-height:48px;padding:0.625rem 0.875rem;font:400 1.0625rem/1.4 'Mukta',system-ui,sans-serif;color:var(--fg);background:var(--field);border:1.5px solid var(--rule);border-radius:0.75rem;} .ds-field::placeholder{color:var(--fg-muted);opacity:0.8;} .ds-field:focus{outline:none;border-color:var(--fg);box-shadow:0 0 0 3px color-mix(in srgb,var(--blush) 45%,transparent);}"
+    },
+    {
+      "name": "Header with Sky Clock",
+      "kind": "nav",
+      "refersTo": "site-header",
+      "description": "72px Night header: brand, scroll-driven clock (04:45 to 07:00), nav with Blush current underline, sun action.",
+      "html": "<header class=\"ds-header\"><span class=\"ds-brand\">Ath&nbsp;Yog</span><span class=\"ds-clock\"><span class=\"ds-clock-time\">04:45</span>Brahma Muhurta</span><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Home</a><a href=\"#\">Practice</a><a href=\"#\">Visit</a><a class=\"ds-btn-sun\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z\"/></svg>Book a trial</a></nav></header>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-header{display:flex;align-items:center;gap:24px;height:72px;padding:0 24px;background:var(--night);color:var(--star);border-bottom:1px solid rgba(241,242,250,0.16);font-family:'Mukta',system-ui,sans-serif;} .ds-brand{font-family:'Anek Latin','Mukta',sans-serif;font-stretch:118%;font-weight:700;font-size:1.375rem;} .ds-clock{display:inline-flex;align-items:baseline;gap:0.5rem;font-size:0.9375rem;color:var(--star-muted);margin-left:auto;} .ds-clock-time{font-family:'Anek Latin','Mukta',sans-serif;font-stretch:112%;font-weight:700;font-size:1.0625rem;color:var(--star);font-variant-numeric:tabular-nums;} .ds-nav{display:flex;align-items:center;gap:24px;} .ds-nav a:not(.ds-btn-sun){display:inline-flex;align-items:center;min-height:44px;color:var(--star-muted);font-weight:500;text-decoration:none;} .ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{color:var(--star);} .ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-decoration-color:var(--blush);text-decoration-thickness:2px;text-underline-offset:8px;} .ds-btn-sun{display:inline-flex;align-items:center;gap:0.625rem;min-height:44px;padding:0 1.25rem;border-radius:999px;background:var(--sun);color:var(--night);font-weight:700;text-decoration:none;} .ds-nav a:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    },
+    {
+      "name": "Plate",
+      "kind": "card",
+      "refersTo": "plate-frame",
+      "description": "Every photograph: rounded frame plus a ruled caption (subject left, context right).",
+      "html": "<div class=\"ds-band-day\"><figure class=\"ds-plate\"><div class=\"ds-plate-frame\"></div><figcaption class=\"ds-plate-cap\"><strong>Morning batch</strong><span>Pune studio, 05:30</span></figcaption></figure></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-day{background:var(--day);color:var(--ink);--fg:var(--ink);--fg-muted:var(--ink-muted);--fg-inverse:var(--day);--rule:#D9DCEA;--field:#FFFFFF;padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-plate{margin:0;max-width:360px;} .ds-plate-frame{aspect-ratio:4/3;border-radius:1.25rem;overflow:hidden;background:var(--dawn);} .ds-plate-cap{margin-top:0.75rem;padding-top:0.625rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.25rem 1rem;font-size:0.9375rem;color:var(--fg-muted);} .ds-plate-cap strong{color:var(--fg);font-weight:700;}"
+    },
+    {
+      "name": "Ledger Link",
+      "kind": "custom",
+      "refersTo": "ledger",
+      "description": "Hairline list rows instead of cards; ringed arrow fills on hover.",
+      "html": "<div class=\"ds-band-day\"><ul class=\"ds-ledger\"><li><a class=\"ds-ledger-link\" href=\"#\"><span class=\"ds-h3\">Chair yoga</span><span class=\"ds-arrow\" aria-hidden=\"true\">&rarr;</span></a></li><li><a class=\"ds-ledger-link\" href=\"#\"><span class=\"ds-h3\">Slim Smart Sadhana</span><span class=\"ds-arrow\" aria-hidden=\"true\">&rarr;</span></a></li></ul></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-day{background:var(--day);color:var(--ink);--fg:var(--ink);--fg-muted:var(--ink-muted);--fg-inverse:var(--day);--rule:#D9DCEA;--field:#FFFFFF;padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-ledger{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule);} .ds-ledger li{border-bottom:1px solid var(--rule);} .ds-ledger-link{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;color:inherit;text-decoration:none;padding-block:1.5rem;} .ds-h3{font-family:'Anek Latin','Mukta',sans-serif;font-weight:700;font-size:1.375rem;line-height:1.2;letter-spacing:-0.01em;} .ds-ledger-link:hover .ds-h3,.ds-ledger-link:focus-visible .ds-h3{text-decoration:underline;text-decoration-color:var(--blush);text-decoration-thickness:2px;text-underline-offset:6px;} .ds-arrow{width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid var(--rule);display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s ease,color 0.2s ease;} .ds-ledger-link:hover .ds-arrow{background:var(--fg);color:var(--fg-inverse);} .ds-ledger-link:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    },
+    {
+      "name": "Facts",
+      "kind": "custom",
+      "refersTo": "facts",
+      "description": "Ruled stat grid; values in wide tabular Anek.",
+      "html": "<div class=\"ds-band-night\"><dl class=\"ds-facts\"><div><dt>Years teaching</dt><dd>12</dd></div><div><dt>Batches a week</dt><dd>30</dd></div></dl></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-night{background:var(--night);color:var(--star);--fg:var(--star);--fg-muted:var(--star-muted);--fg-inverse:var(--night);--rule:rgba(241,242,250,0.2);--field:rgba(241,242,250,0.06);padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule);margin:0;} .ds-facts>div{padding:1.25rem 1rem 1.25rem 0;border-bottom:1px solid var(--rule);} .ds-facts dt{font-size:0.9375rem;color:var(--fg-muted);} .ds-facts dd{margin:0.25rem 0 0;font-family:'Anek Latin','Mukta',sans-serif;font-stretch:118%;font-weight:700;font-size:2.5rem;line-height:1;font-variant-numeric:tabular-nums;}"
+    },
+    {
+      "name": "Journey Marks",
+      "kind": "custom",
+      "refersTo": "journey-marks",
+      "description": "21-day rail state by shape: tick done, flag today, ring ahead.",
+      "html": "<div class=\"ds-band-night\"><div class=\"ds-days\"><span class=\"ds-mark ds-done\"></span><span class=\"ds-mark ds-done\"></span><span class=\"ds-mark ds-done\"></span><span class=\"ds-mark ds-today\"></span><span class=\"ds-mark\"></span><span class=\"ds-mark\"></span><span class=\"ds-mark\"></span></div></div>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-band-night{background:var(--night);color:var(--star);--fg:var(--star);--fg-muted:var(--star-muted);--fg-inverse:var(--night);--rule:rgba(241,242,250,0.2);--field:rgba(241,242,250,0.06);padding:24px;font-family:'Mukta',system-ui,sans-serif;} .ds-days{display:grid;grid-template-columns:repeat(7,0.875rem);gap:0.75rem 0.625rem;} .ds-mark{width:0.875rem;height:0.875rem;box-sizing:border-box;border-radius:999px;border:1.5px solid currentColor;opacity:0.55;position:relative;} .ds-done{opacity:1;border-color:transparent;} .ds-done::after{content:\"\";position:absolute;left:3px;top:0;width:5px;height:9px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);} .ds-today{opacity:1;background:currentColor;border-radius:2px 999px 999px 2px;}"
+    },
+    {
+      "name": "Sun Bar",
+      "kind": "custom",
+      "refersTo": "sun-bar",
+      "description": "Mobile-only fixed WhatsApp bar (56px, safe-area padded); required on every page.",
+      "html": "<a class=\"ds-sun-bar\" href=\"#\"><span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.4A8.4 8.4 0 1 1 20 11.5Z\"/></svg>Start with a trial class</span><span aria-hidden=\"true\">&rarr;</span></a>",
+      "css": ":host{--night:#121735;--predawn:#262355;--dawn:#5B3A6E;--blush:#D4687E;--day:#F4F6FB;--sun:#F29B38;--star:#F1F2FA;--star-muted:#B7BBDA;--ink:#121735;--ink-muted:#4B5070;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-sun-bar{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0.75rem 1.25rem;background:var(--sun);color:var(--night);font:700 1rem 'Mukta',system-ui,sans-serif;text-decoration:none;} .ds-sun-bar span{display:inline-flex;align-items:center;gap:0.5rem;} .ds-sun-bar:focus-visible{outline:2px solid var(--blush);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Brahma Muhurta",
+    "overview": "The site is the morning sadhana itself. The page is a sky that moves from pre-dawn night to full day as you read, and the header clock keeps the hour: 04:45 at the top, 07:00 at the foot. Colour comes in flat, registered bands like a woodblock print, never blended. One sun rises in it: saffron, and it only ever means \"open WhatsApp\".\n\nSurfaces are ruled, not boxed. Lists are hairline ledgers, photographs are plates with ruled captions, and progress is shown with marks (tick, flag, ring), not colour changes. The system rejects the category's photo-hero + beige + serif studio template and the dark-neon meditation-app look.",
+    "keyCharacteristics": [
+      "Five flat sky bands; each band sets its own foreground roles.",
+      "Saffron is the single stamp, reserved for WhatsApp actions.",
+      "Wide Anek Latin display over Mukta body (Latin + Devanagari).",
+      "Hairline rules instead of cards; captions on every plate.",
+      "One authored motion moment: the scroll clock."
+    ],
+    "rules": [
+      {
+        "name": "The One Sun Rule",
+        "body": "Saffron appears only on actions that open WhatsApp (trial, batch enquiry, corporate session, donation enquiry). Anything else that is saffron is a bug.",
+        "section": "colors"
+      },
+      {
+        "name": "The Band Owns the Ink Rule",
+        "body": "Components read `--fg`, `--fg-muted`, `--fg-inverse`, `--rule`, `--field` from the band class they sit in (`band-night|predawn|dawn|blush|day`). Components never hard-code a colour; JS templates never carry colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Sky Rule",
+        "body": "Bands are solid fills that meet at a hard edge. No gradients, glows or blends between them.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "No small uppercase labels above headings. A headline stands on its own.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rule, Not the Card Rule",
+        "body": "Group content with 1px `--rule` hairlines. No card grids, no raised panels.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Moment Rule",
+        "body": "One authored moment: scroll drives the header clock 04:45 → 07:00 (phase label Brahma Muhurta → Practice at 05:30 → Sunrise at 06:45), the horizon line, and the 21-day rail, all in one `requestAnimationFrame` tick. Everything else is visible by default and only settles: `.rv` translates from 12px (0.9s), `.rise` from 16px with 0.08s steps. Nothing fades in from zero opacity, except the hero video's dissolve on its first frame. Easing: `--ease-out` `cubic-bezier(0.16, 1, 0.3, 1)`.",
+        "section": "motion"
+      }
+    ],
+    "dos": [
+      "Do put every section on a band class and let components read the band's roles.",
+      "Do use `btn-sun` / `sun-bar` for WhatsApp and `btn-line` or `.link` for everything else.",
+      "Do caption every photograph as a plate.",
+      "Do show progress and state with marks (tick, flag, ring), not with hue."
+    ],
+    "donts": [
+      "Don't add kicker labels above headings.",
+      "Don't build card grids or raised panels; use ledgers and hairlines.",
+      "Don't use glows, gradients, orbs, tickers, sheen, tilt or breathing animations.",
+      "Don't load Fraunces, Space Grotesk or Space Mono, or retired tokens (`--gold`, `--paper`, `--cream`, `f-serif`, `f-disp`).",
+      "Don't use glyph icons (like a \"WA\" text bubble); draw inline SVG.",
+      "Don't use saffron for anything that does not open WhatsApp."
+    ]
+  }
+}
