@@ -1,0 +1,344 @@
+/* Ath Yog Immersive — "Brahma Muhurta" design system.
+ * The site is the morning sadhana: flat sky bands move from night to day as
+ * you read. Saffron is the sun and appears only on WhatsApp actions.
+ * Direction contract: .impeccable/surfaces/immersive-html.md
+ *
+ * Structure
+ *   1. Tokens          5. Plates (photos with ruled captions)
+ *   2. Bands           6. Ledger rows (hairline lists instead of cards)
+ *   3. Type            7. Controls (sun button, line button, chips, fields)
+ *   4. Chrome          8. Page components (story, journey, events, gallery)
+ *                      9. Motion + reduced motion
+ * Tailwind (CDN) supplies layout utilities only; colour and type live here. */
+
+/* 1. Tokens --------------------------------------------------------------- */
+/* Metric-matched fallbacks. The page paints before the Google Fonts stylesheet
+   arrives, and the browser's interim fallback is much narrower than Anek Latin
+   (a two-line headline became four), shifting the hero twice. These local faces
+   wrap like the web fonts, so the swap does not move the layout. Values tuned
+   by measurement at 360 and 412px across all pages (layout shift 0.17 → < 0.02). */
+@font-face { font-family: 'Anek Latin Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'), local('Arial'), local('Roboto'); size-adjust: 114%; }
+@font-face { font-family: 'Mukta Fallback'; src: local('Arial'), local('ArialMT'), local('Roboto'); size-adjust: 96%; }
+:root {
+  --night: #121735;
+  --predawn: #262355;
+  --dawn: #5B3A6E;
+  --blush: #D4687E;
+  --day: #F4F6FB;
+
+  --sun: #F29B38;          /* WhatsApp actions only */
+  --sun-ink: #121735;
+
+  --star: #F1F2FA;         /* text on dark bands */
+  --star-muted: #B7BBDA;
+  --ink: #121735;          /* text on light bands */
+  --ink-muted: #4B5070;
+
+  --font-display: 'Anek Latin', 'Anek Latin Fallback', 'Mukta', system-ui, sans-serif;
+  --font-body: 'Mukta', 'Mukta Fallback', system-ui, sans-serif;
+
+  --wrap: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 2rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { background: var(--night); scroll-padding-top: 76px; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  background: var(--day);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--blush); color: var(--night); }
+:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; border-radius: 4px; }
+/* Blush ring is 1.00:1 on the Blush band and 2.67:1 on Dawn: use the band's own ink there. */
+.band-dawn :focus-visible, .band-blush :focus-visible { outline-color: var(--fg); }
+.story-pin :focus-visible { outline-color: var(--fg); }
+img, video { display: block; max-width: 100%; }
+
+/* 2. Bands: each sets its own foreground roles so components never hard-code colour. */
+.band-night, .band-predawn, .band-dawn { --fg-inverse: var(--night); --fg: var(--star); --fg-muted: var(--star-muted); --rule: rgba(241, 242, 250, 0.2); --field: rgba(241, 242, 250, 0.06); --field-rule: rgba(241, 242, 250, 0.55); --placeholder: #CDD0E8; }
+.band-blush { --fg-inverse: var(--blush); --fg: var(--night); --fg-muted: #2B1A33; --rule: rgba(18, 23, 53, 0.28); --field: rgba(18, 23, 53, 0.06); --field-rule: rgba(18, 23, 53, 0.72); }
+.band-day { --fg-inverse: var(--day); --fg: var(--ink); --fg-muted: var(--ink-muted); --rule: #D9DCEA; --field: #FFFFFF; --field-rule: #7C819C; }
+/* --field-rule: input boundaries need 3:1 (WCAG 1.4.11); the hairline --rule is decorative and stays light. */
+.band-night { background: var(--night); color: var(--fg); }
+.band-predawn { background: var(--predawn); color: var(--fg); }
+.band-dawn { background: var(--dawn); color: var(--fg); }
+.band-blush { background: var(--blush); color: var(--fg); }
+.band-day { background: var(--day); color: var(--fg); }
+
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: clamp(4.5rem, 10vw, 8rem); }
+.section--tight { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+/* Consecutive sections on the same band share one gap, not two. */
+.band-day + .band-day { padding-top: 0; }
+.muted { color: var(--fg-muted); }
+
+/* 3. Type ----------------------------------------------------------------- */
+.display, .h1, .h2, .h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.display { font-size: clamp(3rem, 10vw, 6rem); line-height: 0.96; font-stretch: 125%; letter-spacing: -0.03em; }
+.h1 { font-size: clamp(2.75rem, 7vw, 5rem); line-height: 1; font-stretch: 118%; }
+.h2 { font-size: clamp(2.125rem, 5vw, 3.75rem); line-height: 1.04; font-stretch: 112%; }
+.h3 { font-size: 1.375rem; line-height: 1.2; font-stretch: 100%; letter-spacing: -0.01em; }
+.lede { font-size: clamp(1.125rem, 1.6vw, 1.3125rem); line-height: 1.55; max-width: 36rem; color: var(--fg-muted); }
+.body { max-width: 65ch; color: var(--fg-muted); }
+.small { font-size: 0.9375rem; }
+.meta { font-size: 0.9375rem; font-weight: 500; color: var(--fg-muted); max-width: 70ch; }
+.mantra { font-family: var(--font-display); font-stretch: 100%; font-weight: 500; font-size: 1.125rem; color: var(--fg-muted); letter-spacing: 0.02em; }
+.quote { font-family: var(--font-display); font-stretch: 100%; font-weight: 500; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; letter-spacing: -0.005em; margin: 0; }
+.quote--lg { font-size: clamp(1.625rem, 3.4vw, 2.5rem); line-height: 1.32; font-weight: 600; }
+.num { font-variant-numeric: tabular-nums; }
+.link {
+  color: inherit; font-weight: 700; text-decoration: underline;
+  text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--blush);
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.link:hover { text-decoration-color: currentColor; }
+.band-blush .link { text-decoration-color: var(--night); }
+
+/* 4. Chrome --------------------------------------------------------------- */
+.skip-link {
+  position: fixed; top: -100px; left: 1rem; z-index: 100;
+  background: var(--sun); color: var(--sun-ink);
+  padding: 0.75rem 1.25rem; border-radius: 999px; font-weight: 700; text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+/* The horizon: scroll progress drawn as the line the sun rises over. */
+#progress { transform-origin: 0 50%; transform: scaleX(0); background: var(--blush); }
+
+#site-header {
+  --fg: var(--star); --fg-muted: var(--star-muted); --rule: rgba(241, 242, 250, 0.16);
+  color: var(--fg);
+  background: var(--night);
+  border-bottom: 1px solid var(--rule);
+}
+#site-header.scrolled { background: var(--night); }
+.brand { display: inline-flex; align-items: center; gap: 0.625rem; min-height: 44px; color: inherit; text-decoration: none; }
+.brand-mark { display: inline-flex; width: 2.5rem; height: 2.5rem; border-radius: 999px; background: var(--star); align-items: center; justify-content: center; flex-shrink: 0; }
+.brand-name { font-family: var(--font-display); font-stretch: 118%; font-weight: 700; font-size: 1.375rem; line-height: 1; }
+.nav-link { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.25rem; color: var(--fg-muted); font-weight: 500; text-decoration: none; }
+.nav-link:hover, .nav-link[aria-current="page"] { color: var(--fg); }
+.nav-link[aria-current="page"], .nav-link.nav-on { text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 8px; color: var(--fg); }
+
+/* The clock: 04:45 → 07:00 as the page is read (driven by immersive.js). */
+.sky-clock { display: inline-flex; align-items: baseline; gap: 0.5rem; font-size: 0.9375rem; color: var(--fg-muted); white-space: nowrap; }
+/* Tablet portrait: the full nav + phase label pushed the header WhatsApp button off-screen (768–900px). */
+@media (min-width: 768px) and (max-width: 959px) {
+  #sky-phase { display: none; }
+  #site-header nav { gap: 0.75rem; }
+  #site-header nav .btn-sun { white-space: nowrap; padding-inline: 1rem !important; }
+}
+.sky-clock__time { font-family: var(--font-display); font-stretch: 112%; font-weight: 700; font-size: 1.0625rem; color: var(--fg); font-variant-numeric: tabular-nums; }
+
+#mobile-menu { --fg: var(--star); --fg-muted: var(--star-muted); --rule: rgba(241, 242, 250, 0.2); background: var(--night); color: var(--fg); }
+.menu-link { font-family: var(--font-display); font-stretch: 118%; font-weight: 700; font-size: 2.25rem; line-height: 1.1; color: inherit; text-decoration: none; min-height: 48px; display: inline-flex; align-items: center; }
+
+.footer { --fg: var(--star); --fg-muted: var(--star-muted); --rule: rgba(241, 242, 250, 0.16); background: var(--night); color: var(--fg); border-top: 1px solid var(--rule); }
+.footer a { color: var(--fg-muted); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.footer a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
+
+.to-top { background: var(--star); color: var(--night); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
+
+/* Sticky mobile action: the sun bar. */
+.sun-bar { background: var(--sun); color: var(--sun-ink); padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* 5. Plates ---------------------------------------------------------------- */
+.plate { margin: 0; }
+.plate__frame { overflow: hidden; border-radius: 1.25rem; background: var(--field); }
+.plate__frame img, .plate__frame video { width: 100%; height: 100%; object-fit: cover; }
+.plate__cap {
+  margin-top: 0.75rem; padding-top: 0.625rem; border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem;
+  font-size: 0.9375rem; color: var(--fg-muted);
+}
+.plate__cap strong { color: var(--fg); font-weight: 700; }
+
+/* 6. Ledger rows ------------------------------------------------------------ */
+.ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.ledger > * { border-bottom: 1px solid var(--rule); padding-block: 1.5rem; }
+.ledger-row { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 0.5rem 2rem; align-items: baseline; }
+@media (max-width: 639px) { .ledger-row { grid-template-columns: 1fr; } }
+.ledger-link { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; color: inherit; text-decoration: none; padding-block: 1.5rem; }
+.ledger-link:hover .h3, .ledger-link:focus-visible .h3 { text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.ledger-link .arrow { width: 2.75rem; height: 2.75rem; border-radius: 999px; border: 1px solid var(--rule); display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s ease, color 0.2s ease; }
+.ledger-link:hover .arrow { background: var(--fg); color: var(--fg-inverse); }
+/* Columns follow the space the list actually gets (a half-width column gets 2,
+   a full-width row gets 4), so a figure like "5,000+" never spills into its neighbour. */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); border-top: 1px solid var(--rule); margin: 0; }
+@media (max-width: 639px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.facts dd { white-space: nowrap; }
+.facts > div { padding: 1.25rem 1rem 1.25rem 0; border-bottom: 1px solid var(--rule); }
+.facts dt { font-size: 0.9375rem; color: var(--fg-muted); }
+.facts dd { margin: 0.25rem 0 0; font-family: var(--font-display); font-stretch: 118%; font-weight: 700; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1; font-variant-numeric: tabular-nums; }
+
+/* 7. Controls ---------------------------------------------------------------- */
+.btn-sun, .btn-line {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.625rem;
+  min-height: 52px; padding: 0.75rem 1.75rem; border-radius: 999px;
+  font-weight: 700; font-size: 1.0625rem; text-decoration: none; cursor: pointer;
+  transition: transform 0.2s var(--ease-out), background 0.2s ease, color 0.2s ease;
+}
+.btn-sun { background: var(--sun); color: var(--sun-ink); border: 0; }
+.btn-sun:hover { transform: translateY(-2px); }
+.btn-sun svg { flex-shrink: 0; }
+.btn-line { background: transparent; color: var(--fg); border: 1.5px solid currentColor; }
+.btn-line:hover { background: var(--fg); color: var(--fg-inverse); }
+
+.chip {
+  min-height: 44px; padding: 0.5rem 1.125rem; border-radius: 999px; flex-shrink: 0;
+  border: 1.5px solid var(--rule); background: transparent; color: var(--fg);
+  font: 600 0.9375rem/1 var(--font-body); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.chip:hover { border-color: var(--fg); }
+.chip.on, .chip[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--fg-inverse); }
+
+.field-label { display: block; font-size: 0.9375rem; font-weight: 600; color: var(--fg); }
+.field {
+  margin-top: 0.375rem; width: 100%; min-height: 48px; padding: 0.625rem 0.875rem;
+  font: 400 1.0625rem/1.4 var(--font-body); color: var(--fg);
+  background: var(--field); border: 1.5px solid var(--field-rule, var(--rule)); border-radius: 0.75rem;
+}
+.field::placeholder { color: var(--placeholder, var(--fg-muted)); opacity: 1; }
+.field:focus { outline: none; border-color: var(--fg); box-shadow: 0 0 0 3px color-mix(in srgb, var(--blush) 45%, transparent); }
+.check { width: 1.5rem; height: 1.5rem; accent-color: var(--night); flex-shrink: 0; }
+.sv-chip { min-height: 44px; padding: 0.5rem 1.125rem; border-radius: 999px; border: 1.5px solid var(--rule); background: transparent; color: var(--fg); font-weight: 700; cursor: pointer; font-variant-numeric: tabular-nums; }
+.sv-chip.on { background: var(--fg); border-color: var(--fg); color: var(--fg-inverse); }
+
+/* 8. Page components ------------------------------------------------------------ */
+
+/* Home hero: video as a framed plate, not a full-bleed wash. */
+.hero-video { opacity: 0; transition: opacity 1s ease; }
+.hero-video.is-live { opacity: 1; }
+
+/* Practice story: one pinned screen, fully used. The photo owns one half edge
+   to edge; the other half is the whole practice as an index, the active step
+   open and the others dimmed. The band follows the active step. */
+.story-wrap { position: relative; min-height: 250svh; }
+.story-pin {
+  position: sticky; top: 0; height: 100svh; min-height: 600px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px;
+  background: var(--night); transition: background 0.8s ease;
+}
+.story-wrap:has([data-story-panel="1"].active) .story-pin { background: var(--dawn); --story-dim: 0.5; } /* dimmed titles stay ≥ 3:1 on each band */
+.story-wrap:has([data-story-panel="2"].active) .story-pin { background: var(--blush); --fg: var(--night); --fg-muted: #2B1A33; --rule: rgba(18, 23, 53, 0.28); --fg-inverse: var(--blush); color: var(--night); --story-dim: 0.68; }
+.story-stage { position: relative; order: 2; overflow: hidden; background: rgba(0, 0, 0, 0.25); }
+.story-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
+.story-media.active { opacity: 1; }
+.story-copy {
+  order: 1; display: flex; flex-direction: column; justify-content: center; gap: 2rem;
+  padding-block: 2rem; padding-right: clamp(2rem, 5vw, 4rem);
+  padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+}
+.story-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.story-panel { border-bottom: 1px solid var(--rule); }
+.story-head { display: flex; align-items: center; gap: 1rem; padding-block: 1rem; color: inherit; text-decoration: none; }
+.story-title { font-family: var(--font-display); font-stretch: 125%; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin: 0; font-size: clamp(2.25rem, 5vw, 4.25rem); opacity: var(--story-dim, 0.42); transition: opacity 0.4s ease; }
+.story-panel.active .story-title, .story-head:hover .story-title, .story-head:focus-visible .story-title { opacity: 1; }
+/* Only the active step opens; height animates via grid rows, not max-height. */
+.story-detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s var(--ease-out); }
+.story-detail > div { overflow: hidden; }
+.story-panel.active .story-detail { grid-template-rows: 1fr; }
+.story-panel.active .story-detail > div { padding-bottom: 1.5rem; }
+/* Steps switch as their top crosses mid-screen, so the track starts 50svh down:
+   each step then owns an equal 50svh of the 150svh the screen stays pinned,
+   and a jump to #breathe / #move / #rest lands on that step while pinned. */
+.story-track { position: absolute; left: 0; right: 0; top: 50svh; height: 150svh; pointer-events: none; }
+.story-step { height: 50svh; }
+/* Marks, not hues: tick done, filled current, ring ahead. */
+.story-dot, .day-mark { width: 0.875rem; height: 0.875rem; border-radius: 999px; border: 1.5px solid currentColor; opacity: 0.55; position: relative; flex-shrink: 0; }
+.story-dot.active { background: currentColor; opacity: 1; }
+.story-panel:has(~ .story-panel.active) .story-dot, .day-mark.done { opacity: 1; border-color: transparent; }
+.story-panel:has(~ .story-panel.active) .story-dot::after, .day-mark.done::after {
+  content: ""; position: absolute; left: 3px; top: 0; width: 5px; height: 9px;
+  border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+@media (max-width: 899px) {
+  .story-pin { grid-template-columns: 1fr; grid-template-rows: 38svh 1fr; }
+  .story-stage { order: 1; }
+  .story-copy { order: 2; justify-content: flex-start; gap: 0; padding: 1rem var(--gutter) calc(56px + 1rem); }
+  .story-index { border-top: 0; }
+  .story-head { padding-block: 0.625rem; }
+  .story-title { font-size: clamp(2rem, 9vw, 2.75rem); }
+  .story-panel.active .story-detail > div { padding-bottom: 0.875rem; }
+  .story-detail .lede { font-size: 1.0625rem; }
+  .story-cta { display: none; } /* the sticky sun bar is the action on phones */
+}
+/* Short phones (360×640): a 38svh photo pushed the third step under the sun bar. */
+@media (max-width: 899px) and (max-height: 700px) { .story-pin { grid-template-rows: 30svh 1fr; } }
+
+/* 21-day journey rail */
+.journey-days { display: grid; grid-template-columns: repeat(7, 0.875rem); gap: 0.75rem 0.625rem; }
+.day-mark.today { opacity: 1; background: currentColor; border-radius: 2px 999px 999px 2px; }
+#rail-fill { transform-origin: top; }
+
+/* Class rows (rendered by immersive.js) */
+.cls-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 1.5rem; align-items: center; padding-block: 1.375rem; border-bottom: 1px solid var(--rule); }
+.cls-row h3 { font-family: var(--font-display); font-stretch: 108%; font-weight: 700; font-size: 1.375rem; line-height: 1.2; margin: 0; }
+.cls-row .cls-desc { margin: 0.25rem 0 0; color: var(--fg-muted); font-size: 0.9375rem; max-width: 60ch; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cls-row .cls-meta { margin: 0.375rem 0 0; font-size: 0.9375rem; font-weight: 600; color: var(--fg-muted); }
+.cls-row .cls-cta { min-height: 44px; }
+
+/* Event rows (rendered by immersive.js) */
+.ev-card { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 1.25rem; padding-block: 1.75rem; border-bottom: 1px solid var(--rule); }
+@media (min-width: 900px) { .ev-card { grid-template-columns: 5.5rem minmax(0, 1fr) auto; align-items: start; } }
+.ev-badge { text-align: left; }
+.ev-badge .ev-day { display: block; font-family: var(--font-display); font-stretch: 118%; font-weight: 700; font-size: 2.75rem; line-height: 0.9; font-variant-numeric: tabular-nums; }
+.ev-badge .ev-mon { display: block; margin-top: 0.375rem; font-weight: 700; font-size: 0.9375rem; color: var(--fg-muted); }
+.ev-badge--na .ev-day { font-size: 1.125rem; line-height: 1.2; }
+.ev-status { font-size: 0.9375rem; font-weight: 600; color: var(--fg-muted); margin: 0; }
+/* Sheet titles can be whole paragraphs: clamp like .ev-desc so one row cannot fill the screen. */
+.ev-title { font-family: var(--font-display); font-stretch: 108%; font-weight: 700; font-size: 1.5rem; line-height: 1.15; margin: 0.25rem 0 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ev-facts { margin: 0.75rem 0 0; font-size: 0.9375rem; color: var(--fg-muted); }
+.ev-facts strong { color: var(--fg); font-weight: 600; }
+.ev-desc { margin: 0.75rem 0 0; font-size: 0.9375rem; color: var(--fg-muted); max-width: 60ch; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.ev-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-top: 1rem; grid-column: 2; }
+@media (min-width: 900px) { .ev-actions { grid-column: 3; flex-direction: column; align-items: flex-end; margin-top: 0; } }
+.ev-price { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ev-ics { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; padding: 0.5rem 1rem; border-radius: 999px; border: 1.5px solid var(--rule); background: transparent; color: var(--fg); font-weight: 700; font-size: 0.9375rem; cursor: pointer; }
+.ev-ics:hover { border-color: var(--fg); }
+.ev-empty { display: grid; gap: 1.25rem; justify-items: start; padding-block: 2.5rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.ev-empty .h3 { font-size: 1.625rem; }
+
+/* Gallery + lightbox */
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1rem; }
+@media (min-width: 900px) { .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem 1.25rem; } }
+.gallery .plate--wide { grid-column: span 2; }
+.gallery .plate__frame { aspect-ratio: 4 / 3; }
+.gallery .plate--tall .plate__frame { aspect-ratio: 3 / 4; }
+.gallery-tile { cursor: zoom-in; border-radius: 1.25rem; }
+/* Talk reels: portrait, click-to-play with sound ([data-talk-video]). */
+.talks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1rem; max-width: 56rem; }
+@media (min-width: 900px) { .talks { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.25rem; } }
+.talks .plate__frame { aspect-ratio: 9 / 16; background: var(--night); }
+dialog.immersive-lightbox { width: min(92vw, 960px); border: 0; padding: 0; background: transparent; color: var(--star); }
+dialog.immersive-lightbox::backdrop { background: rgba(18, 23, 53, 0.92); }
+.lightbox-close { position: absolute; top: 0.75rem; right: 0.75rem; width: 44px; height: 44px; border-radius: 999px; background: var(--star); color: var(--night); display: inline-flex; align-items: center; justify-content: center; border: 0; cursor: pointer; }
+
+/* 9. Motion ---------------------------------------------------------------------
+   One authored moment: the sky and its clock. Everything else is visible by
+   default and only settles in (translate from 12px), never fades from nothing. */
+.rv { transform: translateY(12px); transition: transform 0.9s var(--ease-out); }
+.rv.in { transform: none; }
+.rise { animation: riseIn 0.9s var(--ease-out) both; }
+.rise-2 { animation-delay: 0.08s; } .rise-3 { animation-delay: 0.16s; } .rise-4 { animation-delay: 0.24s; }
+@keyframes riseIn { from { transform: translateY(16px); opacity: 0.35; } to { transform: none; opacity: 1; } }
+
+@media (max-width: 767px) {
+  /* 56px clears the sticky sun bar + iPhone home indicator. */
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv, .rv.in { transform: none; transition: none; }
+  .rise { animation: none; }
+  .hero-video { opacity: 1; transition: none; }
+  .story-pin, .story-media, .story-title, .story-detail { transition: none; }
+  .btn-sun:hover { transform: none; }
+  html { scroll-behavior: auto !important; } /* !important: pages carry Tailwind's .scroll-smooth on <html> */
+}
