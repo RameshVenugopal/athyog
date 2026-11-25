@@ -140,11 +140,32 @@ function initMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const closeBtn = document.getElementById('close-mobile-menu');
 
-    // Create menu if not exists (handled in HTML updates mostly, but helper here for toggle)
+    const isMenuOpen = () => menu && !menu.classList.contains('translate-x-full');
+
+    const lockScroll = () => {
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+        document.body.dataset.scrollY = scrollY;
+    };
+
+    const unlockScroll = () => {
+        const savedY = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, savedY);
+    };
+
     window.toggleMobileMenu = () => {
         if (menu) {
-            menu.classList.toggle('translate-x-full'); // Tailwind class for transform
-            document.body.classList.toggle('overflow-hidden'); // Prevent scrolling body
+            menu.classList.toggle('translate-x-full');
+            if (isMenuOpen()) {
+                lockScroll();
+            } else {
+                unlockScroll();
+            }
         }
     };
 
@@ -364,7 +385,7 @@ function renderEmptyEvents(container, isError = false) {
 }
 
 function renderEvents(container, events) {
-    container.className = 'grid md:grid-cols-2 lg:grid-cols-3 gap-6';
+    container.className = 'h-scroll-track';
     container.innerHTML = '';
 
     events.forEach((ev, index) => {
@@ -372,58 +393,47 @@ function renderEvents(container, events) {
         const delay = index * 100; // Staggered delay
 
         const eventCard = document.createElement('div');
-        eventCard.className = `reveal group bg-white rounded-[2rem] p-8 border-2 border-navy/5 hover:border-accent hover:shadow-[8px_8px_0px_0px_rgba(78,205,196,0.3)] transition-all duration-300 flex flex-col h-full relative overflow-hidden`;
+        eventCard.className = `reveal group bg-white rounded-[2rem] p-6 border-2 border-navy/5 hover:border-accent hover:shadow-[8px_8px_0px_0px_rgba(78,205,196,0.3)] transition-all duration-300 flex flex-col h-[400px] relative overflow-hidden`;
         eventCard.style.transitionDelay = `${delay}ms`;
 
         eventCard.innerHTML = `
             <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-bl-[4rem] -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
             
             <div class="relative z-10 flex flex-col h-full">
-                <div class="flex justify-between items-start mb-6">
+                <div class="flex justify-between items-start mb-3">
                 <div class="flex flex-wrap gap-2">
                     ${status ? `<span class="bg-navy text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${status}</span>` : ''}
                     <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Workshop</span>
                 </div>
                 </div>
-                
-                <h3 class="text-2xl font-black text-navy mb-4 leading-tight group-hover:text-primary transition-colors">${title || 'Upcoming Event'}</h3>
-                
-                <div class="space-y-3 mb-6">
-                ${dateStr ? `
-                <div class="flex items-center gap-3 text-navy/70">
-                    <div class="w-10 h-10 rounded-full bg-lavender/30 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-navy">calendar_month</span>
-                    </div>
-                    <div>
-                    <p class="text-xs font-bold uppercase tracking-wider opacity-60">Date</p>
-                    <p class="font-bold text-sm">${dateStr}</p>
-                    </div>
-                </div>` : ''}
-                
-                ${time ? `
-                <div class="flex items-center gap-3 text-navy/70">
-                    <div class="w-10 h-10 rounded-full bg-mint/30 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-navy">schedule</span>
-                    </div>
-                    <div>
-                    <p class="text-xs font-bold uppercase tracking-wider opacity-60">Time</p>
-                    <p class="font-bold text-sm">${time}</p>
-                    </div>
-                </div>` : ''}
 
+                <h3 class="text-xl font-black text-navy mb-3 leading-tight line-clamp-2 group-hover:text-primary transition-colors">${title || 'Upcoming Event'}</h3>
+
+                <div class="space-y-2 mb-3">
+                ${dateStr ? `
+                <div class="flex items-center gap-2 text-navy/70">
+                    <div class="w-7 h-7 rounded-full bg-lavender/30 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-navy text-sm">calendar_month</span>
+                    </div>
+                    <p class="font-bold text-xs truncate">${dateStr}</p>
+                </div>` : ''}
+                ${time ? `
+                <div class="flex items-center gap-2 text-navy/70">
+                    <div class="w-7 h-7 rounded-full bg-mint/30 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-navy text-sm">schedule</span>
+                    </div>
+                    <p class="font-bold text-xs truncate">${time}</p>
+                </div>` : ''}
                 ${location ? `
-                <div class="flex items-center gap-3 text-navy/70">
-                    <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-navy">location_on</span>
+                <div class="flex items-center gap-2 text-navy/70">
+                    <div class="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-navy text-sm">location_on</span>
                     </div>
-                    <div>
-                    <p class="text-xs font-bold uppercase tracking-wider opacity-60">Location</p>
-                    <p class="font-bold text-sm">${location}</p>
-                    </div>
+                    <p class="font-bold text-xs truncate">${location}</p>
                 </div>` : ''}
                 </div>
                 
-                <div class="mb-8 p-4 bg-cream rounded-2xl border border-navy/5">
+                <div class="mb-3 p-3 bg-cream rounded-xl border border-navy/5 flex-1 min-h-0 overflow-hidden">
                 <p class="text-navy/70 text-sm leading-relaxed line-clamp-3">${desc || 'Join us for this transformative session.'}</p>
                 </div>
                 
@@ -540,7 +550,7 @@ function initFilters() {
             cards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 if (filterValue === 'all' || category.includes(filterValue)) {
-                    card.style.display = 'block';
+                    card.style.display = ''; // Reset to CSS-defined display (works for both grid and flex)
                     setTimeout(() => card.classList.add('active'), 50); // Re-trigger reveal
                 } else {
                     card.style.display = 'none';

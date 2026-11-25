@@ -118,3 +118,128 @@
     opacity: 0;
   }
 }
+
+/* Floating Badge Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.float-badge {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-badge:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.float-badge:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* WhatsApp FAB Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-fab {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Section Pill Slide-in Reveal */
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pill-reveal {
+  animation: slide-in-up 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Horizontal Scroll Track — Classes & Events on Mobile */
+.h-scroll-track {
+  /* Desktop: 3-col grid */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .h-scroll-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .h-scroll-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+  .h-scroll-track::-webkit-scrollbar { display: none; }
+  .h-scroll-track > * {
+    flex: 0 0 82vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+  /* Fade-out right edge to hint scrollability */
+  .h-scroll-wrapper {
+    position: relative;
+  }
+  .h-scroll-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, var(--cream));
+    pointer-events: none;
+  }
+  .h-scroll-wrapper.bg-white-section::after {
+    background: linear-gradient(to right, transparent, #ffffff);
+  }
+}
+
+/* Gallery: Horizontal Scroll Strip on Mobile */
+@media (max-width: 767px) {
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+  }
+
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-item {
+    flex: 0 0 260px;
+    height: 220px;
+    scroll-snap-align: start;
+    border-radius: 1.5rem;
+  }
+
+  /* Always show captions on mobile (no hover on touch) */
+  .gallery-item .gallery-caption {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Parallax: disable fixed attachment on mobile (broken in iOS Safari) */
+@media (max-width: 767px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
